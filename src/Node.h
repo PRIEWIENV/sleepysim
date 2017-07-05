@@ -10,9 +10,9 @@ class Node
 private:
     std::vector <Message> message_buffer;
     int node_id;
-    Signature& signature;
+    Signature *signature;
 public:
-    Node(int node_id, Signature signature);
+    Node(int node_id, Signature *signature);
     ~Node();
     void send_message();
     void receive_message(Message message);

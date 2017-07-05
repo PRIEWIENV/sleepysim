@@ -11,9 +11,9 @@ class Framework
 private:
     std::vector <Node> node_list;
     std::set <MessageToSend> message_send_buffer;
-    Signature& signature;
+    Signature* signature;
 public:
-    Framework(int node_count, int adversary_count, Signature& signature);
+    Framework(int node_count, int adversary_count, Signature* signature);
     ~Framework();
     void send_message(Message message, std::vector <int> target);
     void receive_message();
