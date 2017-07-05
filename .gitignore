@@ -31,6 +31,9 @@
 *.out
 *.app
 
+# Vim
+*.swp
+
 # For pkq2006
 .idea/
 CMakeLists.txt

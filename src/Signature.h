@@ -8,10 +8,9 @@ class Signature
 {
 private:
     std::vector <std::string> secret_key_table, public_key_table;
-    Signature() {}
-    ~Signature() {}
 public:
-    void generate_key(int node_count);
+    Signature(int node_count) {}
+    ~Signature() {}
     std::string generate_signature(int node_id, Message message);
     bool check_signature(int node_id, std::string signature);
     std::string get_secret_key(int node_id);

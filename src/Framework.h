@@ -10,11 +10,17 @@ class Framework
 {
 private:
     std::vector <Node> node_list;
-    std::vector <MessageToSend> message_send_buffer;
+    std::set <MessageToSend> message_send_buffer;
+    Signature& signature;
 public:
-    Framework();
+    Framework(int node_count, int adversary_count, Signature& signature);
     ~Framework();
     void send_message(Message message, std::vector <int> target);
+    void receive_message();
+    void run(int current_round);
+    void accept_leader(std::vector <int> leader_list);
+    // run a round, send the messages received in the last round to each node, wait for nodes' run,
+    // and then receive the messages from each node.
 };
 
 

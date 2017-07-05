@@ -10,15 +10,15 @@ class Node
 private:
     std::vector <Message> message_buffer;
     int node_id;
+    Signature& signature;
 public:
-    Node();
+    Node(int node_id, Signature signature);
     ~Node();
-    std::vector <Message> received_message_buffer;
-    std::vector <MessageToSend> sent_message_buffer;
-    void send_message(Message message, std::vector <int> target);
-    void receive_message();
+    void send_message();
+    void receive_message(Message message);
     std::string request_signature(Message message);
     bool check_signature(int node_id, std::string signature);
+    void run(int current_round); // for other group
 };
 
 
