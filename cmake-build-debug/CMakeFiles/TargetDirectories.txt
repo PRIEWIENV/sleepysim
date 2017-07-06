@@ -1,3 +1,0 @@
-/Users/pkq2006/Desktop/code_monkey/distributed consensus/project/sleepysim/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/pkq2006/Desktop/code_monkey/distributed consensus/project/sleepysim/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/pkq2006/Desktop/code_monkey/distributed consensus/project/sleepysim/cmake-build-debug/CMakeFiles/sleepysim.dir
