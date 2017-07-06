@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Message_to_send
 {
-    private Message message;
+    private final Message message;
     private final int sender_id;
     private final Integer target_id;
     private final int send_time;
@@ -16,9 +16,5 @@ public class Message_to_send
         this.target_id = target_id;
         this.send_time = send_time;
         this.uid = uid;
-    }
-    void set_message(Message new_message)
-    {
-        this.message = new_message;
     }
 }
