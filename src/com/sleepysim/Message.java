@@ -1,9 +1,7 @@
 package com.sleepysim;
 
-/**
- * Created by xietiancheng on 2017/7/5.
- */
-public class Message {
+public class Message
+{
     private Object ctx;
     Message(Object ctx)
     {

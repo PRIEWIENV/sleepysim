@@ -4,7 +4,8 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 
-public class Signature {
+public class Signature
+{
     private ArrayList<String> secret_key_table, public_key_table;
     public Signature(int node_count)
     {

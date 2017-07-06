@@ -1,4 +1,5 @@
 package com.sleepysim;
 
-public class Adversary {
+public class Adversary
+{
 }

@@ -1,4 +1,5 @@
 package com.sleepysim;
 
-public class Controller {
+public class Controller
+{
 }
