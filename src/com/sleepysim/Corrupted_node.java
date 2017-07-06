@@ -5,7 +5,13 @@ import java.util.ArrayList;
 public class Corrupted_node implements Node
 {
     private Adversary adversary;
-    private Integer my_id;
+    private Integer id;
+
+    public Corrupted_node(Integer id, Adversary adversary)
+    {
+        this.id = id;
+        this.adversary = adversary;
+    }
 
     @Override
     public void send_message(Message msg, Integer from, ArrayList<Integer> to)
@@ -32,7 +38,7 @@ public class Corrupted_node implements Node
     }
 
     @Override
-    public void one_round()
+    public void run()
     {
 
     }
