@@ -1,10 +1,14 @@
 package com.sleepysim;
 
-public class Adversary
+import javafx.util.Pair;
+
+import java.util.ArrayList;
+
+public interface Adversary
 {
-    private Integer n;//the number of adversary nodes
-    Adversary(Integer n)
-    {
-        this.n = n;
-    }
+    /**
+     * Adversary operates the corrupted node
+     * @param node the instance of corrupted node
+     */
+    public void run(Corrupted_node node);
 }

@@ -8,13 +8,13 @@ public class Signature
 {
     private ArrayList<String> secret_key_table, public_key_table;
 
-    public Signature(int node_count)
+    public Signature(ArrayList<String> secret_key_table, ArrayList<String> public_key_table)
     {
         //some code goes here
         //for framework team
     }
 
-    String generate_signature(int node_id, Message msg)
+    String generate_signature(Node node, Message msg)
     {
         //some code goes here
         //for framework team
@@ -26,13 +26,6 @@ public class Signature
         //some code goes here
         //for framework team
         return false;
-    }
-
-    String get_secret_key(int node_id)
-    {
-        //some code goes here
-        //for framework team
-        return null;
     }
 
     String get_public_key(int node_id)
