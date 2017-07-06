@@ -17,12 +17,15 @@ public class Controller
 
     boolean has_inconsistency()
     {
+        //some code goes here
+        //for integrate team
         return false;
     }
 
     void print_log()
     {
-
+        //some code goes here
+        //for integrate team
     }
 
     void run()
