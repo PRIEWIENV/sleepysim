@@ -25,7 +25,7 @@ public class Framework
         for (int i = 0; i < adversary_count; i ++)
             node_list[i] = new Corrupted_node(i, adversary);
         for (int i = adversary_count; i < node_count; i ++)
-            node_list[i] = new Honest_node();
+            node_list[i] = new Honest_node(i);
     }
 
     void run_node(int node_id)
