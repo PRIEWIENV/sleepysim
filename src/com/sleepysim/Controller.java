@@ -1,5 +1,7 @@
 package com.sleepysim;
 
+import java.util.ArrayList;
+
 public class Controller
 {
     private Framework framework;
@@ -8,7 +10,7 @@ public class Controller
     private Integer node_count, adversary_count;
     private Integer delay;
     private Integer T;
-
+    private ArrayList<Node> nodes;
     /**
      * Create a controller and initialization, you should initial the whole network
      * to initial the network, you have to generate secret-public key pairs for all node
@@ -16,6 +18,9 @@ public class Controller
      * tell every node about their secret key, and all public keys
      *
      * initialize adversary and framework by calling their construction function.
+     *
+     * You should tell framework about the node and delay, you must initialize all nodes first and store them into a ArrayList
+     *
      * some code have been implemented, you can modify if you like.
      *
      * @param node_count total number of nodes
@@ -28,7 +33,6 @@ public class Controller
         this.node_count = node_count;
         this.adversary_count = adversary_count;
         this.delay = delay;
-        this.framework = new Framework(node_count, adversary_count, signature, adversary, delay);
         this.T = T;
 
         //some code goes here
@@ -61,7 +65,7 @@ public class Controller
         while (!has_inconsistency())
         {
             for (int i = 0; i < node_count; i ++)
-                framework.run_node(i);
+                nodes.get(i).run();
             print_log();
             framework.next_round();
         }

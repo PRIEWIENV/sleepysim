@@ -51,8 +51,8 @@ public class Honest_node implements Node
     }
 
     /**
-     * 
-     * @param msg
+     * sign the message, you should call Signature's function
+     * @param msg the message
      * @return
      */
     @Override
@@ -63,6 +63,12 @@ public class Honest_node implements Node
         return null;
     }
 
+    /**
+     * Check if the signature is valid
+     * @param id id of
+     * @param signature
+     * @return
+     */
     @Override
     public boolean check_signature(Integer id, String signature)
     {
@@ -71,6 +77,9 @@ public class Honest_node implements Node
         return false;
     }
 
+    /**
+     * Start a round, you should take action
+     */
     @Override
     public void run()
     {

@@ -75,6 +75,12 @@ public class Corrupted_node implements Node
         return null;
     }
 
+    /**
+     * check the signature, determine if it's signed by node id
+     * @param id id of the possible signer
+     * @param signature the sign
+     * @return
+     */
     @Override
     public boolean check_signature(Integer id, String signature)
     {
@@ -83,6 +89,9 @@ public class Corrupted_node implements Node
         return false;
     }
 
+    /**
+     * directly call adversary to take action
+     */
     @Override
     public void run()
     {
