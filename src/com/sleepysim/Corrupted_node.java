@@ -1,5 +1,6 @@
 package com.sleepysim;
 
+import java.awt.Frame;
 import java.lang.reflect.Array;
 import java.security.PrivateKey;
 import java.util.ArrayList;
@@ -10,6 +11,7 @@ public class Corrupted_node implements Node
     private Integer id;
     private PrivateKey secret_key;
     private final ArrayList<String> public_key;
+    private Framework framework;
 
     /**
      * Corrupted node is controlled by adversary
@@ -17,12 +19,13 @@ public class Corrupted_node implements Node
      * @param adversary Your god
      */
 
-    public Corrupted_node(Integer id, Adversary adversary, PrivateKey secret_key, ArrayList<String> public_key)
+    public Corrupted_node(Integer id, Adversary adversary, PrivateKey secret_key, ArrayList<String> public_key,Framework framework)
     {
         this.id = id;
         this.adversary = adversary;
         this.secret_key = secret_key;
         this.public_key = public_key;
+        this.framework=framework;
     }
 
     /**
