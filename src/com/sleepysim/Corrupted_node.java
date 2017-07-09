@@ -94,6 +94,26 @@ public class Corrupted_node implements Node
     }
 
     /**
+     * the network has a new Block, you have to update your chain
+     * @param b the new block
+     */
+    @Override
+    public void update_chain(Block b)
+    {
+        //some code goes here
+    }
+    /**
+     * Provide history Transactions to Controller, Controller will call this function when it need
+     * @return history
+     */
+    @Override
+    public ArrayList<Transaction> provide_history()
+    {
+        //some code goes here
+        return null;
+    }
+
+    /**
      * directly call adversary to take action
      */
     @Override

@@ -8,6 +8,8 @@ public interface Node
     ArrayList<Message> receive_message();
     String request_signature(Message msg);
     boolean check_signature(Integer id, byte[] signature, byte[] data);
+    void update_chain(Block b);
+    ArrayList<Transaction> provide_history();
     void print_log();
     void run();
 }

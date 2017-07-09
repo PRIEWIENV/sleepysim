@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 public class Chain
 {
-    private HashMap<Byte[], Block> chain;
-
+    public HashMap<Byte[], Block> chain;
+    Chain()
+    {
+        chain = new HashMap<>();
+    }
 }

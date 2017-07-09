@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Logger;
 
 public class Honest_node implements Node
@@ -12,6 +13,7 @@ public class Honest_node implements Node
     private PrivateKey secret_key;
     private final ArrayList<PublicKey> public_key;
     private static Logger logger;
+    private Chain chain;
     /**
      * Initialize the node
      * @param id your unique id
@@ -24,6 +26,7 @@ public class Honest_node implements Node
         this.public_key = public_key;
         this.id = id;
         logger = Logger.getLogger("Honest Node " + id.toString());
+        this.chain = new Chain();
         //some code goes here
         //for honest team
     }
@@ -82,6 +85,30 @@ public class Honest_node implements Node
     }
 
     /**
+     * when comes a new block, check if it's longer
+     * @param b
+     */
+    @Override
+    public void update_chain(Block b)
+    {
+        int length = 0;
+        while(b != null)
+        {
+            length++;
+        }
+    }
+
+    /**
+     * Provide history Transactions to Controller, Controller will call this function when it need
+     * @return history
+     */
+    @Override
+    public ArrayList<Transaction> provide_history()
+    {
+        return null;
+    }
+
+    /**
      * Start a round, you should take action
      */
     @Override
@@ -100,4 +127,5 @@ public class Honest_node implements Node
         //some code goes here
         //for honest team
     }
+
 }
