@@ -1,13 +1,14 @@
 package com.sleepysim;
 
 import java.lang.reflect.Array;
+import java.security.PrivateKey;
 import java.util.ArrayList;
 
 public class Corrupted_node implements Node
 {
     private Adversary adversary;
     private Integer id;
-    private String secret_key;
+    private PrivateKey secret_key;
     private final ArrayList<String> public_key;
 
     /**
@@ -16,7 +17,7 @@ public class Corrupted_node implements Node
      * @param adversary Your god
      */
 
-    public Corrupted_node(Integer id, Adversary adversary, String secret_key, ArrayList<String> public_key)
+    public Corrupted_node(Integer id, Adversary adversary, PrivateKey secret_key, ArrayList<String> public_key)
     {
         this.id = id;
         this.adversary = adversary;
@@ -82,7 +83,7 @@ public class Corrupted_node implements Node
      * @return
      */
     @Override
-    public boolean check_signature(Integer id, String signature)
+    public boolean check_signature(Integer id, byte[] signature, byte[] data)
     {
         //some code goes here
         //for adversary team
@@ -96,5 +97,13 @@ public class Corrupted_node implements Node
     public void run()
     {
         adversary.run(this);
+    }
+
+    /**
+     * Print log for debug
+     */
+    public void print_log()
+    {
+
     }
 }

@@ -1,25 +1,29 @@
 package com.sleepysim;
 
 import java.lang.reflect.Array;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class Honest_node implements Node
 {
     private final Integer id;
-    private String secret_key;
-    private final ArrayList<String> public_key;
-
+    private PrivateKey secret_key;
+    private final ArrayList<PublicKey> public_key;
+    private static Logger logger;
     /**
      * Initialize the node
      * @param id your unique id
      * @param secret_key your secret key
      * @param public_key list of public key
      */
-    public Honest_node(Integer id, String secret_key, ArrayList<String> public_key)
+    public Honest_node(Integer id, PrivateKey secret_key, ArrayList<PublicKey> public_key)
     {
         this.secret_key = secret_key;
         this.public_key = public_key;
         this.id = id;
+        logger = Logger.getLogger("Honest Node " + id.toString());
         //some code goes here
         //for honest team
     }
@@ -70,11 +74,11 @@ public class Honest_node implements Node
      * @return
      */
     @Override
-    public boolean check_signature(Integer id, String signature)
+    public boolean check_signature(Integer id, byte[] signature, byte[] data)
     {
         //some code goes here
         //for honest team
-        return false;
+        return Signature_tool.check_signature(public_key.get(id), signature, data);
     }
 
     /**
@@ -82,6 +86,16 @@ public class Honest_node implements Node
      */
     @Override
     public void run()
+    {
+        //some code goes here
+        //for honest team
+    }
+
+    /**
+     * Print log for debug
+     */
+    @Override
+    public void print_log()
     {
         //some code goes here
         //for honest team
