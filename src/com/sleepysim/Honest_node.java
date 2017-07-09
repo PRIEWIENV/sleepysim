@@ -51,7 +51,7 @@ public class Honest_node implements Node
     }
 
     /**
-     * sign the message, you should call Signature's function
+     * sign the message, you should call Signature_tool's function
      * @param msg the message
      * @return
      */

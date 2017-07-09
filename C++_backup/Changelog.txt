@@ -1,0 +1,4 @@
+Add class Controller to control the whole system.
+Add Controller.one_round, simulate one round.
+Add Controller.detect_inconsistency to detect inconsistency in the chain.
+Add Controller.print_log to provide information about the system, including number of corrupted blocks in the longest chain, length of longest chain etc.

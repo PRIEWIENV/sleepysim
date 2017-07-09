@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Controller
 {
     private Framework framework;
-    private Signature signature;
+    private Signature_tool signature;
     private Adversary adversary;
     private Integer node_count, adversary_count;
     private Integer delay;
