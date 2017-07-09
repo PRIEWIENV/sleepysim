@@ -3,7 +3,7 @@ import org.bouncycastle.crypto.digests.SHA256Digest;
 
 public class Hash
 {
-    public byte[] hash(byte[] input)
+    public static byte[] hash(byte[] input)
     {
         byte[] result;
         SHA256Digest sha256 = new SHA256Digest();

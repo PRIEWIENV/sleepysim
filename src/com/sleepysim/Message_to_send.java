@@ -20,7 +20,7 @@ public class Message_to_send
      * @param send_time when this message sent
      * @param uid the unique id of this message
      */
-    Message_to_send(Message message, int sender_id, Integer target_id, int send_time, int uid)
+    public Message_to_send(Message message, int sender_id, Integer target_id, int send_time, int uid)
     {
         this.message = message;
         this.sender_id = sender_id;
@@ -29,27 +29,27 @@ public class Message_to_send
         this.uid = uid;
     }
 
-    Message get_message()
+    public Message get_message()
     {
         return message;
     }
 
-    Integer get_sender_id()
+    public Integer get_sender_id()
     {
         return sender_id;
     }
 
-    Integer get_target_id()
+    public Integer get_target_id()
     {
         return target_id;
     }
 
-    Integer get_send_time()
+    public Integer get_send_time()
     {
         return send_time;
     }
 
-    Integer get_uid()
+    public Integer get_uid()
     {
         return uid;
     }
