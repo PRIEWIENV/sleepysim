@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d4901921-f031-4321-bc66-f2a240fe010c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/bcprov-jdk15on-157.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/description.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/project-template.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/CMakeLists.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/Changelog.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Controller.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Controller.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Framework.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Framework.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Message.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Message.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Node.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Node.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Signature.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/Signature.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/header.h" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/C++_backup/src/main.cpp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/sleepysim/Block.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/sleepysim/Chain.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/sleepysim/Hash.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/sleepysim/Signature_tool.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/sleepysim/To_byte_array.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/sleepysim/Transaction.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/sleepysim/Signature.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sleepysim.iml" afterPath="$PROJECT_DIR$/sleepysim.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sleepysim/Controller.java" afterPath="$PROJECT_DIR$/src/com/sleepysim/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/sleepysim/Honest_node.java" afterPath="$PROJECT_DIR$/src/com/sleepysim/Honest_node.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,8 +58,8 @@
       <file leaf-file-name="Signature_tool.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/sleepysim/Signature_tool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="48" column="32" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+            <state relative-caret-position="236">
+              <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -672,7 +644,7 @@
       <workItem from="1499346362903" duration="2339000" />
       <workItem from="1499358221030" duration="528000" />
       <workItem from="1499627006193" duration="224000" />
-      <workItem from="1499628834407" duration="3531000" />
+      <workItem from="1499628834407" duration="3594000" />
     </task>
     <task id="LOCAL-00001" summary="add comment">
       <created>1499354555176</created>
@@ -695,14 +667,22 @@
       <option name="project" value="LOCAL" />
       <updated>1499358157627</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add class">
+      <created>1499634111141</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1499634111141</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17642000" />
+    <option name="totallyTimeSpent" value="17705000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="722" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -718,7 +698,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32924962" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -756,7 +736,8 @@
     <MESSAGE value="add comment" />
     <MESSAGE value="add comment, final" />
     <MESSAGE value="changelog" />
-    <option name="LAST_COMMIT_MESSAGE" value="changelog" />
+    <MESSAGE value="add class" />
+    <option name="LAST_COMMIT_MESSAGE" value="add class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1143,8 +1124,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/sleepysim/Signature_tool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="48" column="32" lean-forward="true" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
+        <state relative-caret-position="236">
+          <caret line="56" column="9" lean-forward="true" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
           <folding />
         </state>
       </provider>
