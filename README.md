@@ -10,7 +10,3 @@
 ## TO Group C (Adversary)
 #### Implement naive attack first, then selfish mining
 #### Selfish Mining Paper: Majority is not enough: Bitcoin mining is vulnerable
-#### We need a meeting, see wechat group for detail
-
-## TO Group D (Integrator)
-#### Help Group A to design the framework first
