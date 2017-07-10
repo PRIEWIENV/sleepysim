@@ -1,8 +1,10 @@
 package com.sleepysim;
 
 import java.awt.Frame;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.util.ArrayList;
 
 public class Corrupted_node implements Node
@@ -10,7 +12,7 @@ public class Corrupted_node implements Node
     private Adversary adversary;
     private Integer id;
     private PrivateKey secret_key;
-    private final ArrayList<String> public_key;
+    private final ArrayList<PublicKey> public_key;
     private Framework framework;
 
     /**
@@ -19,7 +21,7 @@ public class Corrupted_node implements Node
      * @param adversary Your god
      */
 
-    public Corrupted_node(Integer id, Adversary adversary, PrivateKey secret_key, ArrayList<String> public_key,Framework framework)
+    public Corrupted_node(Integer id, Adversary adversary, PrivateKey secret_key, ArrayList<PublicKey> public_key,Framework framework)
     {
         this.id = id;
         this.adversary = adversary;
@@ -37,10 +39,15 @@ public class Corrupted_node implements Node
     @Override
     public void send_message(Message msg, Integer from, ArrayList<Integer> to)
     {
-        //some code goes here
-        //for adversary team
+        //ignored for corrupted_nodes
     }
-
+    public void send_message_corrputed(Message msg, Integer from,ArrayList<Integer> to,Integer round, Integer uid)
+    {
+        for(int i=0;i<to.size();++i) {
+            Message_to_send tmp=new Message_to_send(msg,from,to.get(i),round,uid);
+            framework.receive_message_from_corrupted(tmp);
+        }
+    }
     /**
      * Get message from honest node
      * See message_to_send for details
@@ -48,9 +55,7 @@ public class Corrupted_node implements Node
      */
     public ArrayList<Message_to_send> intercept_message()
     {
-        //some code goes here
-        //for adversary team
-        return null;
+        return framework.send_message_to_corrupted();
     }
 
     /**
@@ -60,8 +65,7 @@ public class Corrupted_node implements Node
     @Override
     public ArrayList<Message> receive_message()
     {
-        //some code goes here
-        //for adversary team
+        //ignored for corrupted_node
         return null;
     }
 
@@ -74,8 +78,11 @@ public class Corrupted_node implements Node
     @Override
     public byte[] request_signature(Message msg)
     {
-        //some code goes here
-        //for adversary team
+        try {
+            return Signature_tool.generate_signature(secret_key,To_byte_array.to_byte_array(msg));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -88,9 +95,7 @@ public class Corrupted_node implements Node
     @Override
     public boolean check_signature(Integer id, byte[] signature, byte[] data)
     {
-        //some code goes here
-        //for adversary team
-        return false;
+        return Signature_tool.check_signature(public_key.get(id),signature,data);
     }
 
     /**
@@ -100,7 +105,7 @@ public class Corrupted_node implements Node
     @Override
     public void update_chain(Block b)
     {
-        //some code goes here
+        //ignored for corrupted nodes, adversary will do this
     }
     /**
      * Provide history Transactions to Controller, Controller will call this function when it need
@@ -109,7 +114,7 @@ public class Corrupted_node implements Node
     @Override
     public ArrayList<Transaction> provide_history()
     {
-        //some code goes here
+        //ignored
         return null;
     }
 
