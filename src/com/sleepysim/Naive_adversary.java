@@ -11,18 +11,20 @@ public class Naive_adversary implements Adversary
     private Integer n;
     private ArrayList<Pair<Integer, PrivateKey>> secret_key_table;
     private ArrayList<PublicKey> public_key_table;
-
+    private Chain chain;
+    private ArrayList<Block> latest_blocks;
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes
      * @param secret_key_table secret key for each corrupted node, the Integer is node id, and String is the corresponding secret key
      * @param public_key_table public keys
      */
-    public Naive_adversary(Integer n, ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table)
+    public Naive_adversary(Integer n, ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table, Block genesis)
     {
         this.n = n;
         this.secret_key_table = secret_key_table;
         this.public_key_table = public_key_table;
+        chain.chain.put(genesis.get_current_hash(),genesis);
     }
 
     /**
