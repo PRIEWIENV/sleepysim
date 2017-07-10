@@ -14,6 +14,7 @@ public class Corrupted_node implements Node
     private PrivateKey secret_key;
     private final ArrayList<PublicKey> public_key;
     private Framework framework;
+    private Integer num_node;
 
     /**
      * Corrupted node is controlled by adversary
@@ -21,14 +22,16 @@ public class Corrupted_node implements Node
      * @param adversary Your god
      */
 
-    public Corrupted_node(Integer id, Adversary adversary, PrivateKey secret_key, ArrayList<PublicKey> public_key,Framework framework)
+    public Corrupted_node(Integer id, Adversary adversary, PrivateKey secret_key, ArrayList<PublicKey> public_key, Framework framework, Integer num_node)
     {
         this.id = id;
         this.adversary = adversary;
         this.secret_key = secret_key;
         this.public_key = public_key;
-        this.framework=framework;
+        this.framework = framework;
+        this.num_node = num_node;
     }
+
     public static int byteArrayToInt(byte[] b)
     {
         int value = 0;
@@ -38,6 +41,7 @@ public class Corrupted_node implements Node
         }
         return value;
     }
+
     public boolean Isleader(Integer round, Integer D)
     {
         try {
