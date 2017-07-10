@@ -146,9 +146,11 @@ public class Corrupted_node implements Node
      * directly call adversary to take action
      */
     @Override
+
     public ArrayList<Block> run(Integer round)
     {
-        return adversary.run(this, round);
+        //this part ignored in corrupt nodes, adverasry will do the running job
+        return null;
     }
 
     /**
