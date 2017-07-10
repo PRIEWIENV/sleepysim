@@ -1,11 +1,9 @@
 package com.sleepysim;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.logging.Logger;
 
 public class Honest_node implements Node
@@ -146,6 +144,7 @@ public class Honest_node implements Node
     {
         //some code goes here
         //for honest team
+
     }
 
     /**
