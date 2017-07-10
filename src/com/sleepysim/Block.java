@@ -5,13 +5,13 @@ import java.util.ArrayList;
 
 public class Block implements Serializable
 {
-    private Byte[] last_hash, current_hash;
+    private byte[] last_hash, current_hash;
     private ArrayList<Transaction> txs;
     private Integer time_stamp;
     private Integer creator;
-    private Byte[] signature;
-    Block(Byte[] last_hash, Byte[] current_hash, ArrayList<Transaction> txs, Integer time_stamp, Integer creator
-    , Byte[] signature)
+    private byte[] signature;
+    Block(byte[] last_hash, byte[] current_hash, ArrayList<Transaction> txs, Integer time_stamp, Integer creator
+    , byte[] signature)
     {
         this.last_hash = last_hash;
         this.current_hash = current_hash;
@@ -20,11 +20,11 @@ public class Block implements Serializable
         this.time_stamp = time_stamp;
         this.signature = signature;
     }
-    public final Byte[] get_last_hash()
+    public final byte[] get_last_hash()
     {
         return last_hash;
     }
-    public final Byte[] get_current_hash()
+    public final byte[] get_current_hash()
     {
         return current_hash;
     }
@@ -36,7 +36,7 @@ public class Block implements Serializable
     {
         return creator;
     }
-    public final Byte[] get_signature()
+    public final byte[] get_signature()
     {
         return signature;
     }

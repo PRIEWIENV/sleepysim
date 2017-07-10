@@ -30,9 +30,10 @@ public class Naive_adversary implements Adversary
      * @param node the instance of corrupted node
      */
     @Override
-    public void run(Corrupted_node node)
+    public ArrayList<Block> run(Corrupted_node node, Integer round)
     {
         //some code goes here
         //For adversary team
+        return null;
     }
 }

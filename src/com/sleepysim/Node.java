@@ -11,5 +11,5 @@ public interface Node
     void update_chain(Block b);
     ArrayList<Transaction> provide_history();
     void print_log();
-    void run();
+    ArrayList<Block> run(Integer round);
 }

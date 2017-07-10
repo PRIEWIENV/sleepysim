@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 public class Chain implements Serializable
 {
-    public HashMap<Byte[], Block> chain;
+    public HashMap<byte[], Block> chain;
     Chain()
     {
         chain = new HashMap<>();

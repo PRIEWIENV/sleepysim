@@ -63,12 +63,14 @@ public class Controller
     }
     public void run()
     {
+        Integer round = 0;
         while (!has_inconsistency())
         {
             for (int i = 0; i < node_count; i ++)
-                nodes.get(i).run();
+                nodes.get(i).run(round);
             print_log();
             framework.next_round();
+            round++;
         }
         print_log();
     }

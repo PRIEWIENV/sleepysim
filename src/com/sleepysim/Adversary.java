@@ -10,5 +10,5 @@ public interface Adversary
      * Adversary operates the corrupted node
      * @param node the instance of corrupted node
      */
-    public void run(Corrupted_node node);
+    public ArrayList<Block> run(Corrupted_node node, Integer round);
 }
