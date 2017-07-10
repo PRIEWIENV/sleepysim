@@ -1,6 +1,5 @@
 package com.sleepysim;
 
-import javax.crypto.KeyGenerator;
 import java.util.ArrayList;
 import java.util.Random;
 import java.security.*;
@@ -65,7 +64,7 @@ public class Controller
         //for integrate team
     }
 
-    void decide_corrupted()
+    private void decide_corrupted()
     {
         Random random = new Random();
         int cnt = 0;
@@ -89,7 +88,12 @@ public class Controller
     {
         //some code goes here
         //for integrate team
-        return false;
+        if (block_list.size() < T + 1)
+            return false;
+        for (int i = block_list.size() - 1; i > block_list.size() - T - 1; i --)
+            if (!is_corrupted[block_list.get(i).get_creator()])
+                return false;
+        return true;
     }
 
     /**
