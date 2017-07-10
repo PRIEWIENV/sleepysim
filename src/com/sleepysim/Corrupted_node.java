@@ -72,7 +72,7 @@ public class Corrupted_node implements Node
      * @return a signature
      */
     @Override
-    public String request_signature(Message msg)
+    public byte[] request_signature(Message msg)
     {
         //some code goes here
         //for adversary team

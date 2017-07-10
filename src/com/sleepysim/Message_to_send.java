@@ -1,8 +1,9 @@
 package com.sleepysim;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Message_to_send
+public class Message_to_send implements Serializable
 {
     private final Message message;
     private final Integer sender_id;

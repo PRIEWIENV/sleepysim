@@ -1,8 +1,9 @@
 package com.sleepysim;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Block
+public class Block implements Serializable
 {
     private Byte[] last_hash, current_hash;
     private ArrayList<Transaction> txs;
@@ -19,11 +20,11 @@ public class Block
         this.time_stamp = time_stamp;
         this.signature = signature;
     }
-    public Byte[] get_last_hash()
+    public final Byte[] get_last_hash()
     {
         return last_hash;
     }
-    public Byte[] get_current_hash()
+    public final Byte[] get_current_hash()
     {
         return current_hash;
     }
@@ -35,8 +36,9 @@ public class Block
     {
         return creator;
     }
-    public Byte[] get_signature()
+    public final Byte[] get_signature()
     {
         return signature;
     }
+    public final ArrayList<Transaction> get_txs() { return txs; }
 }

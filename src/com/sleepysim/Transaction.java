@@ -1,14 +1,19 @@
 package com.sleepysim;
 
-public class Transaction
+import java.io.Serializable;
+
+public class Transaction implements Serializable
 {
     private Integer from, to;
     private Integer amount;
+    private Integer uid;
+    private static Integer next_uid = 0;
     Transaction(Integer from, Integer to, Integer amount)
     {
         this.from = from;
         this.to = to;
         this.amount = amount;
+        this.uid = next_uid++;
     }
     public Integer get_from()
     {
@@ -18,6 +23,7 @@ public class Transaction
     {
         return to;
     }
+    public Integer get_uid() { return uid; }
     public Integer get_amount()
     {
         return amount;

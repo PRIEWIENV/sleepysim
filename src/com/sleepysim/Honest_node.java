@@ -1,5 +1,6 @@
 package com.sleepysim;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.security.PrivateKey;
 import java.security.PublicKey;
@@ -14,19 +15,25 @@ public class Honest_node implements Node
     private final ArrayList<PublicKey> public_key;
     private static Logger logger;
     private Chain chain;
+    private Integer max_length;
+    private Block working_branch;
+    private Framework framework;
     /**
      * Initialize the node
      * @param id your unique id
      * @param secret_key your secret key
      * @param public_key list of public key
      */
-    public Honest_node(Integer id, PrivateKey secret_key, ArrayList<PublicKey> public_key)
+    public Honest_node(Integer id, PrivateKey secret_key, ArrayList<PublicKey> public_key, Framework framework)
     {
         this.secret_key = secret_key;
         this.public_key = public_key;
         this.id = id;
         logger = Logger.getLogger("Honest Node " + id.toString());
         this.chain = new Chain();
+        max_length = -1;
+        working_branch = null;
+        this.framework = framework;
         //some code goes here
         //for honest team
     }
@@ -43,6 +50,7 @@ public class Honest_node implements Node
     {
         //some code goes here
         //for honest team
+        framework.receive_message_from_honest(msg, from, to);
     }
 
     /**
@@ -54,7 +62,7 @@ public class Honest_node implements Node
     {
         //some code goes here
         //for honest team
-        return null;
+        return framework.send_message(id);
     }
 
     /**
@@ -63,11 +71,19 @@ public class Honest_node implements Node
      * @return
      */
     @Override
-    public String request_signature(Message msg)
+    public byte[] request_signature(Message msg)
     {
         //some code goes here
         //for honest team
-        return null;
+        try
+        {
+            return Signature_tool.generate_signature(secret_key, To_byte_array.to_byte_array(msg));
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     /**
@@ -95,6 +111,13 @@ public class Honest_node implements Node
         while(b != null)
         {
             length++;
+            b = chain.chain.get(b.get_last_hash());
+        }
+        chain.chain.put(b.get_current_hash(), b);
+        if(length > max_length)
+        {
+            max_length = length;
+            working_branch = b;
         }
     }
 
@@ -105,7 +128,14 @@ public class Honest_node implements Node
     @Override
     public ArrayList<Transaction> provide_history()
     {
-        return null;
+        ArrayList<Transaction> ret = new ArrayList<>();
+        Block curb = working_branch;
+        while(curb != null)
+        {
+            ret.addAll(curb.get_txs());
+            curb = chain.chain.get(curb.get_last_hash());
+        }
+        return ret;
     }
 
     /**

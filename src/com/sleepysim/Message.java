@@ -1,6 +1,8 @@
 package com.sleepysim;
 
-public class Message
+import java.io.Serializable;
+
+public class Message implements Serializable
 {
     /**
      * context of message, can be any type
