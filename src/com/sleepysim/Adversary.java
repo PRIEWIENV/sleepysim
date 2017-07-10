@@ -8,7 +8,7 @@ public interface Adversary
 {
     /**
      * Adversary operates the corrupted node
-     * @param node the instance of corrupted node
+     * @param round current_round
      */
-    public ArrayList<Block> run(Corrupted_node node, Integer round);
+    public void run(Integer round);
 }
