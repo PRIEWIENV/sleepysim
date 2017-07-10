@@ -150,7 +150,7 @@ public class Honest_node implements Node
         return false;
     }
 
-    class Signature_elements implements Serializable
+    static class Signature_elements implements Serializable
     {
         public byte[] lastHash;
         public ArrayList<Transaction> txs;
@@ -163,7 +163,7 @@ public class Honest_node implements Node
         }
     }
 
-    class Hash_elements implements Serializable
+    static class Hash_elements implements Serializable
     {
         public byte[] lashHash;
         public ArrayList<Transaction> txs;
