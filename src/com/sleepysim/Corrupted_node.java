@@ -56,7 +56,7 @@ public class Corrupted_node implements Node
     public boolean Isleader(Integer round, Integer D)
     {
         try {
-            byte [] tmp1=To_byte_array.to_byte_array(public_key.get(id));
+            byte [] tmp1=To_byte_array.to_byte_array(id);
             byte [] tmp2=To_byte_array.to_byte_array(round);
             byte[] combined = new byte[tmp1.length + tmp2.length];
             for (int i = 0; i < combined.length; ++i)
@@ -78,7 +78,7 @@ public class Corrupted_node implements Node
     @Override
     public void send_message(Message msg, Integer from, ArrayList<Integer> to)
     {
-        //ignored for corrupted_nodes
+        //ignored for corrupted nodes
     }
     public void send_message_corrputed(Message msg, Integer from,ArrayList<Integer> to,Integer round, Integer uid)
     {
