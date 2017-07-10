@@ -42,6 +42,17 @@ public class Corrupted_node implements Node
         return value;
     }
 
+    public PrivateKey request_private_key()
+    {
+        return secret_key;
+    }
+
+    public Integer request_id()
+    {
+        return id;
+    }
+
+
     public boolean Isleader(Integer round, Integer D)
     {
         try {
@@ -113,6 +124,7 @@ public class Corrupted_node implements Node
         }
         return null;
     }
+
 
     /**
      * check the signature, determine if it's signed by node id
