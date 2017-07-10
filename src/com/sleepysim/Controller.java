@@ -10,6 +10,7 @@ public class Controller
     private Integer node_count, adversary_count;
     private Integer delay;
     private Integer T;
+    private Integer D;
     private ArrayList<Node> nodes;
     /**
      * Create a controller and initialization, you should initial the whole network
@@ -28,13 +29,13 @@ public class Controller
      * @param delay network max delay
      * @param T inconsistency threshold
      */
-    Controller(Integer node_count, Integer adversary_count, Integer delay, Integer T)
+    Controller(Integer node_count, Integer adversary_count, Integer delay, Integer T,Integer D)
     {
         this.node_count = node_count;
         this.adversary_count = adversary_count;
         this.delay = delay;
         this.T = T;
-
+        this.D=D;
         //some code goes here
         //for integrate team
     }
