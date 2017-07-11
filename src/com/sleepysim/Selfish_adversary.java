@@ -12,7 +12,6 @@ import java.util.logging.Level;
 
 public class Selfish_adversary implements Adversary
 {
-
     private Integer n;
     private ArrayList<Pair<Integer, PrivateKey>> secret_key_table;
     private ArrayList<PublicKey> public_key_table;
