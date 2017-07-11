@@ -207,6 +207,7 @@ public class Naive_adversary implements Adversary
                 }
                 Block newblock=new Block(prehash, hashvalue, mem_pool, round, n.request_id(), sig);
                 update_private(newblock);
+                mem_pool.clear();
                 break;
             }
         }
