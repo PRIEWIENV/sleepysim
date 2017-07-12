@@ -116,6 +116,10 @@ public class Controller
                 ArrayList <Block> block_list = nodes.get(i).run(round);
                 has_inconsistency |= has_inconsistency(block_list);
             }
+            {
+                ArrayList <Block> block_list = adversary.run(round);
+                has_inconsistency |= has_inconsistency(block_list);
+            }
             print_log();
             framework.next_round();
             round++;
