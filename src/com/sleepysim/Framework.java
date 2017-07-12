@@ -1,11 +1,12 @@
 package com.sleepysim;
 
 import java.util.ArrayList;
+import java.util.TreeSet;
 
 public class Framework
 {
     private ArrayList <ArrayList <Message>> message_wait_for_send;
-    private ArrayList <ArrayList <Message_to_send>> message_buffer;
+    private ArrayList <TreeSet <Message_to_send>> message_buffer;
     private ArrayList <Message_to_send> message_to_corrupted_buffer;
     private ArrayList <Node> node_list;
     private Integer message_count;
@@ -22,7 +23,7 @@ public class Framework
             message_wait_for_send.add(new ArrayList<>());
         message_buffer = new ArrayList<>();
         for (int i = 0; i < n; i ++)
-            message_buffer.add(new ArrayList<>());
+            message_buffer.add(new TreeSet<>());
         message_count = 0;
         this.delay = delay;
         this.node_list = node_list;
@@ -48,6 +49,8 @@ public class Framework
                 result.add(message.get_message());
                 message_buffer.get(target).remove(message);
             }
+            if (message.get_send_time() + delay > current_round)
+                break;
         }
         return result;
     }
@@ -79,9 +82,8 @@ public class Framework
         if (message.get_uid() != -1)
         {
             Integer target = message.get_target_id();
-            for (int i = 0; i < message_buffer.get(target).size(); i ++)
-                if (message.get_uid().equals(message_buffer.get(target).get(i).get_uid()))
-                    message_buffer.get(target).remove(i);
+            if (message_buffer.get(target).contains(message))
+                message_buffer.get(target).remove(message);
         }
     }
 }

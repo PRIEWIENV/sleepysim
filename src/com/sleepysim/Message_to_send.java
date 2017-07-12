@@ -3,7 +3,7 @@ package com.sleepysim;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Message_to_send implements Serializable
+public class Message_to_send implements Serializable, Comparable <Message_to_send>
 {
     private final Message message;
     private final Integer sender_id;
@@ -15,11 +15,12 @@ public class Message_to_send implements Serializable
      * constructor
      * This class records message that intercepted by adversary, and provide sufficient additional information
      * Adversary cannot change these parameters
-     * @param message the message to deliver
+     *
+     * @param message   the message to deliver
      * @param sender_id who is the sender
      * @param target_id who is the destination
      * @param send_time when this message sent
-     * @param uid the unique id of this message
+     * @param uid       the unique id of this message
      */
     public Message_to_send(Message message, int sender_id, Integer target_id, int send_time, int uid)
     {
@@ -53,5 +54,15 @@ public class Message_to_send implements Serializable
     public Integer get_uid()
     {
         return uid;
+    }
+
+    @Override
+    public int compareTo(Message_to_send other)
+    {
+        if (this.uid < other.get_uid())
+            return -1;
+        if (this.uid == other.get_uid())
+            return 0;
+        return 1;
     }
 }
