@@ -8,6 +8,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Random;
 import java.util.logging.Level;
 
@@ -98,7 +99,8 @@ public class Naive_adversary implements Adversary
                 public_main_block.clear();
                 public_main_block.add(e);
             }
-            else if(length==public_chain_length)public_main_block.add(e);
+            else if(Objects.equals(length, public_chain_length))
+                public_main_block.add(e);
         }
         if(latest_blocks.containsKey(e.get_current_hash()));
         else
@@ -124,7 +126,7 @@ public class Naive_adversary implements Adversary
     {
         for(Block e: private_chain)
         {
-            Message msg=new Message(e);
+            Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
             for(Corrupted_node n: corrupt_nodes)
             {
                 n.send_message_corrputed(msg,n.request_id(),honest_nodes,round,-1);//-1 for own
@@ -167,11 +169,14 @@ public class Naive_adversary implements Adversary
             if(controller.is_leader(n.request_id()))
             {
                 byte [] sig=null;
-                byte [] hashvalue=null;
+                byte [] hashvalue = null;
                 byte [] prehash = null;
                 if(private_main_block==null) {
                     try {
-                        prehash=public_main_block.get(0).get_current_hash();
+                        if(public_main_block.size() != 0)
+                            prehash = public_main_block.get(0).get_current_hash();
+                        else
+                            prehash = null;
                         sig = Signature_tool.generate_signature(n.request_private_key(),
                                 To_byte_array.to_byte_array(new Honest_node.Signature_elements(prehash, mem_pool, round)));
                         hashvalue = Hash.hash(To_byte_array.to_byte_array(new Honest_node.Hash_elements(prehash, mem_pool, round, n.request_id(), sig)));

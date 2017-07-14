@@ -133,7 +133,7 @@ public class Controller
             }
             {
                 ArrayList <Block> block_list = adversary.run(round);
-                has_inconsistency |= has_inconsistency(block_list);
+               // has_inconsistency |= has_inconsistency(block_list);
             }
             print_log();
             networkcontrol.next_round();

@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,6 +22,7 @@ public class Honest_node implements Node
     private Integer num_node;
     private ArrayList<Integer> all_set;
     private Controller controller;
+    private HashMap<byte[], Block> store_pool;
     /**
      * Initialize the node
      * @param id your unique id
@@ -43,6 +45,7 @@ public class Honest_node implements Node
         all_set = new ArrayList<>();
         for(int i = 0; i < num_node; ++i)
             all_set.add(i);
+        store_pool = new HashMap<>();
         //some code goes here
         //for honest team
     }
@@ -116,18 +119,48 @@ public class Honest_node implements Node
     @Override
     public void update_chain(Block b)
     {
-        int length = 0;
+        Boolean succ = true;
+        int length = 1;
         Block sav = b;
+        ArrayList<Block> to_update = new ArrayList<>();
+        to_update.add(b);
         while(b != null)
         {
             length++;
-            b = chain.chain.get(b.get_last_hash());
+            if(b.get_last_hash() == null)
+            {
+                b = null;
+                break;
+            }
+            if(chain.chain.containsKey(b.get_last_hash()))
+            {
+                b = chain.chain.get(b.get_last_hash());
+            }
+            else if(store_pool.containsKey(b.get_last_hash()))
+            {
+                b = store_pool.get(b.get_last_hash());
+            }
+            else
+            {
+                succ = false;
+                break;
+            }
+            to_update.add(b);
         }
-        chain.chain.put(sav.get_current_hash(), sav);
-        if(length > max_length)
+        if(!succ)
         {
-            max_length = length;
-            working_branch = sav;
+            store_pool.put(b.get_current_hash(), b);
+        }
+        else
+        {
+            for(Block x : to_update)
+                chain.chain.put(x.get_current_hash(), x);
+            if (length > max_length)
+            {
+                logger.log(Level.INFO, "Honest node " + id.toString() + " switch branch to " + sav.get_current_hash().toString());
+                max_length = length;
+                working_branch = sav;
+            }
         }
     }
 
@@ -146,11 +179,6 @@ public class Honest_node implements Node
             curb = chain.chain.get(curb.get_last_hash());
         }
         return ret;
-    }
-
-    private boolean isleader(Integer round)
-    {
-        return false;
     }
 
     static class Signature_elements implements Serializable
@@ -234,6 +262,7 @@ public class Honest_node implements Node
         }
         if(controller.is_leader(id))
         {
+            logger.log(Level.INFO, "Honest node " + id.toString() + " is elected as leader.");
             byte[] sign;
             byte[] current_hash;
             byte[] last_hash = null;

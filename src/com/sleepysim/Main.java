@@ -10,7 +10,7 @@ public class Main
     {
 	// write your code here
         Security.addProvider(new BouncyCastleProvider());
-        Controller controller = new Controller(10, 3, 1, 6, 0.5);
+        Controller controller = new Controller(10, 8, 1, 6, 0.5);
         controller.run();
     }
 }

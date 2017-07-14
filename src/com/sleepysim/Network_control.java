@@ -38,6 +38,7 @@ public class Network_control
     {
         //some code goes here
         //For framework team
+        ArrayList <Message_to_send> to_remove = new ArrayList<>();
         ArrayList <Message> result = new ArrayList<>();
         result.addAll(message_wait_for_send.get(target));
         message_wait_for_send.get(target).clear();
@@ -46,10 +47,14 @@ public class Network_control
             if (message.get_send_time() + delay == current_round)
             {
                 result.add(message.get_message());
-                message_buffer.get(target).remove(message);
+                to_remove.add(message);
             }
             if (message.get_send_time() + delay > current_round)
                 break;
+        }
+        for(Message_to_send x : to_remove)
+        {
+            message_buffer.get(target).remove(x);
         }
         return result;
     }
