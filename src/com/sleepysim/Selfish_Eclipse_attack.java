@@ -174,7 +174,7 @@ public class Selfish_Eclipse_attack implements Adversary{
      * Your adversary algorithm
      */
     @Override
-    public void run(Integer round)
+    public ArrayList<Block> run(Integer round)
     {
         //when others find a block
         for(Corrupted_node n: corrupt_nodes) {
@@ -278,5 +278,6 @@ public class Selfish_Eclipse_attack implements Adversary{
         {
             disclose_all(round);
         }
+        return null;
     }
 };

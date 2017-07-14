@@ -1,8 +1,14 @@
 package com.sleepysim;
 
+import javafx.util.Pair;
+
+import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Random;
 import java.security.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Controller
 {
@@ -12,8 +18,12 @@ public class Controller
     private Integer node_count, adversary_count;
     private Integer delay;
     private Integer T;
+    private static Logger logger = Logger.getLogger("Controller");
     private ArrayList<Node> nodes;
-    private boolean is_corrupted[];
+    private Boolean[] is_corrupted;
+    private Integer round;
+    private byte[] D; //difficulty
+    private double difficulty;
     /**
      * Create a controller and initialization, you should initial the whole network
      * to initial the network, you have to generate secret-public key pairs for all node
@@ -31,52 +41,52 @@ public class Controller
      * @param delay network max delay
      * @param T inconsistency threshold
      */
-    Controller(Integer node_count, Integer adversary_count, Integer delay, Integer T)
+    Controller(Integer node_count, Integer adversary_count, Integer delay, Integer T, double difficulty)
     {
+
+        BigInteger b = BigInteger.valueOf(2).pow(256).subtract(BigInteger.ONE);
+        D = new byte[256 / 4];
+        for(int i = 256 / 4 - 1; i >= 0; --i)
+        {
+            D[i] = (byte)b.mod(BigInteger.valueOf(1 << 8)).intValue();
+            b = b.divide(BigInteger.valueOf(1 << 8));
+        }
+        round = 0;
         this.node_count = node_count;
         this.adversary_count = adversary_count;
         this.delay = delay;
         this.T = T;
-        this.is_corrupted = new boolean[node_count];
-        for (int i = 0; i < is_corrupted.length; i ++)
-            is_corrupted[i] = false;
         this.nodes = new ArrayList<>();
         this.framework = new Framework(delay, nodes);
-        decide_corrupted();
+        is_corrupted = Adversary.decide_corrupted(node_count, adversary_count);
+
+        ArrayList<Pair<Integer, PrivateKey>> secret_key_table = new ArrayList<>();
         try
         {
             KeyPairGenerator key_generator = KeyPairGenerator.getInstance("RSA");
             ArrayList <PublicKey> public_key_table = new ArrayList<>();
+            ArrayList <Corrupted_node> corrupted = new ArrayList<>();
             for (int i = 0; i < node_count; i ++)
             {
                 KeyPair new_key = key_generator.generateKeyPair();
                 public_key_table.add(new_key.getPublic());
                 if (is_corrupted[i])
-                    nodes.add(new Corrupted_node(i, adversary, new_key.getPrivate(), public_key_table, framework, node_count));
+                {
+                    Corrupted_node e = new Corrupted_node(i, adversary, new_key.getPrivate(), public_key_table, framework, node_count);
+                    nodes.add(e);
+                    secret_key_table.add(new Pair<>(i, new_key.getPrivate()));
+                    corrupted.add(e);
+                }
                 else
-                    nodes.add(new Honest_node(i, new_key.getPrivate(), public_key_table, framework, node_count));
+                    nodes.add(new Honest_node(i, new_key.getPrivate(), public_key_table, framework, node_count, this));
             }
+            adversary = new Naive_adversary(node_count, is_corrupted, secret_key_table, public_key_table, corrupted, T, this);
         }
         catch (NoSuchAlgorithmException e)
         {
         }
         //some code goes here
         //for integrate team
-    }
-
-    private void decide_corrupted()
-    {
-        Random random = new Random();
-        int cnt = 0;
-        while (cnt < adversary_count)
-        {
-            int x = random.nextInt() % node_count;
-            if (!is_corrupted[x])
-            {
-                is_corrupted[x] = true;
-                cnt ++;
-            }
-        }
     }
 
     /**
@@ -86,6 +96,8 @@ public class Controller
      */
     private boolean has_inconsistency(ArrayList <Block> block_list)
     {
+        if(block_list == null)
+            return false;
         //some code goes here
         //for integrate team
         if (block_list.size() < T + 1)
@@ -107,7 +119,6 @@ public class Controller
     }
     public void run()
     {
-        Integer round = 0;
         boolean has_inconsistency = false;
         while (!has_inconsistency)
         {
@@ -125,5 +136,33 @@ public class Controller
             round++;
         }
         print_log();
+    }
+    class hash_element implements Serializable
+    {
+        public Integer id;
+        public Integer round;
+        hash_element(Integer id, Integer round)
+        {
+            this.id = id;
+            this.round = round;
+        }
+    }
+    public boolean is_leader(Integer id)
+    {
+        try
+        {
+            byte[] b = Hash.hash(To_byte_array.to_byte_array(new hash_element(id, round)));
+            for(int i = 0; i < b.length; ++i)
+            {
+                if(b[i] != D[i])
+                    return b[i] < D[i];
+            }
+            return false;
+        }
+        catch (Exception e)
+        {
+            logger.log(Level.SEVERE, "leader election failed, id = " + id.toString());
+        }
+        return false;
     }
 }

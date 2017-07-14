@@ -1,5 +1,6 @@
 package com.sleepysim;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -7,6 +8,7 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.logging.Level;
 
 public class Naive_adversary implements Adversary
@@ -15,7 +17,6 @@ public class Naive_adversary implements Adversary
     private ArrayList<Pair<Integer, PrivateKey>> secret_key_table;
     private ArrayList<PublicKey> public_key_table;
     private Chain chain;
-    private Integer D;
     private Integer T;
     private HashMap<byte[],Block> latest_blocks;
     private ArrayList<Transaction> mem_pool;
@@ -25,6 +26,7 @@ public class Naive_adversary implements Adversary
     private Block private_main_block;
     private ArrayList<Block> private_chain;
     private Integer public_chain_length;
+    private Controller controller;
     private Integer private_chain_length;
     /**
      * A naive adversary, you should break consistency if you have more node than honest
@@ -32,51 +34,30 @@ public class Naive_adversary implements Adversary
      * @param secret_key_table secret key for each corrupted node, the Integer is node id, and String is the corresponding secret key
      * @param public_key_table public keys
      */
-    public Naive_adversary(Integer n, ArrayList<Integer> honest_nodes,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt, Block genesis, Integer D, Integer T)
+    public Naive_adversary(Integer n, Boolean[] is_corrupted, ArrayList<Pair<Integer, PrivateKey>> secret_key_table,
+                           ArrayList<PublicKey> public_key_table, ArrayList<Corrupted_node> corrupt,
+                           Integer T, Controller controller)
     {
+        this.controller = controller;
         this.n = n;
-        this.D=D;
         this.T=T;
-        this.honest_nodes=honest_nodes;
+        //this.honest_nodes=honest_nodes;
         this.secret_key_table = secret_key_table;
         this.public_key_table = public_key_table;
         this.corrupt_nodes=corrupt;
         this.private_main_block=null;
         this.public_chain_length=1;
         this.private_chain_length=0;
-        chain.chain.put(genesis.get_current_hash(),genesis);
-        latest_blocks.put(genesis.get_current_hash(),genesis);
+        latest_blocks = new HashMap<>();
+        chain = new Chain();
+
+        mem_pool = new ArrayList<>();
+        public_main_block = new ArrayList<>();
+        private_chain = new ArrayList<>();
     }
 
     public boolean duplicate(Transaction e)
     {
-        return false;
-    }
-
-    public static int byteArrayToInt(byte[] b)
-    {
-        int value = 0;
-        for (int i = 0; i < 4; i++) {
-            int shift = (4 - 1 - i) * 8;
-            value += (b[i] & 0x000000FF) << shift;
-        }
-        return value;
-    }
-
-    public boolean Isleader(Integer id, Integer round, Integer D)
-    {
-        try {
-            byte [] tmp1=To_byte_array.to_byte_array(id);
-            byte [] tmp2=To_byte_array.to_byte_array(round);
-            byte[] combined = new byte[tmp1.length + tmp2.length];
-            for (int i = 0; i < combined.length; ++i)
-            {
-                combined[i] = i < tmp1.length ? tmp1[i] : tmp2[i - tmp1.length];
-            }
-            return byteArrayToInt(combined)<=D?true:false;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         return false;
     }
 
@@ -85,7 +66,7 @@ public class Naive_adversary implements Adversary
         if(!chain.chain.containsKey(e.get_last_hash())) return false;//currently orphan blocks not considered
         if(e.get_time_stamp() >= round)return false; // future blocks
         if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())return false;
-        if(!Isleader(e.get_creator(),round,D))return false;
+        if(!controller.is_leader(e.get_creator()))return false;
         return true;
     }
 
@@ -151,7 +132,7 @@ public class Naive_adversary implements Adversary
      * Your adversary algorithm
      */
     @Override
-    public void run(Integer round)
+    public ArrayList<Block> run(Integer round)
     {
         for(Corrupted_node n: corrupt_nodes) {
             ArrayList<Message_to_send> msg = n.intercept_message();
@@ -179,7 +160,7 @@ public class Naive_adversary implements Adversary
         //the following is about how to attack
         for(Corrupted_node n: corrupt_nodes)
         {
-            if(Isleader(n.request_id(),round,D))
+            if(controller.is_leader(n.request_id()))
             {
                 byte [] sig=null;
                 byte [] hashvalue=null;
@@ -221,6 +202,8 @@ public class Naive_adversary implements Adversary
         if(private_chain_length-public_chain_length>=T)
         {
             send_message(round);
+            return private_chain;
         }
+        return null;
     }
 }

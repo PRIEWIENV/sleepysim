@@ -161,7 +161,7 @@ public class Stubborn_adversary implements Adversary{
      * Your adversary algorithm
      */
     @Override
-    public void run(Integer round)
+    public ArrayList<Block> run(Integer round)
     {
         //when others find a block
         for(Corrupted_node n: corrupt_nodes) {
@@ -262,5 +262,6 @@ public class Stubborn_adversary implements Adversary{
         {
             disclose_all(round);
         }
+        return null;
     }
 }

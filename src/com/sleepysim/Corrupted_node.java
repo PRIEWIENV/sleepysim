@@ -63,7 +63,7 @@ public class Corrupted_node implements Node
             {
                 combined[i] = i < tmp1.length ? tmp1[i] : tmp2[i - tmp1.length];
             }
-            return byteArrayToInt(combined)<=D?true:false;
+            return byteArrayToInt(combined) <= D;
         } catch (IOException e) {
             e.printStackTrace();
         }

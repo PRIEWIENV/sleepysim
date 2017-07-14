@@ -21,14 +21,17 @@ public class Honest_node implements Node
     private Framework framework;
     private Integer num_node;
     private ArrayList<Integer> all_set;
+    private Controller controller;
     /**
      * Initialize the node
      * @param id your unique id
      * @param secret_key your secret key
      * @param public_key list of public key
      */
-    public Honest_node(Integer id, PrivateKey secret_key, ArrayList<PublicKey> public_key, Framework framework, Integer num_node)
+    public Honest_node(Integer id, PrivateKey secret_key, ArrayList<PublicKey> public_key, Framework framework, Integer num_node,
+                       Controller controller)
     {
+        this.controller = controller;
         this.secret_key = secret_key;
         this.public_key = public_key;
         this.id = id;
@@ -229,7 +232,7 @@ public class Honest_node implements Node
             logger.log(Level.SEVERE, "Inconsistent message. Message type error.");
             return null;
         }
-        if(isleader(round))
+        if(controller.is_leader(id))
         {
             byte[] sign;
             try
