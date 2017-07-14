@@ -114,7 +114,7 @@ public class Corrupted_node implements Node
      * @param b the new block
      */
     @Override
-    public void update_chain(Block b)
+    public void update_chain(Block b, Integer round)
     {
         //ignored for corrupted nodes, adversary will do this
     }

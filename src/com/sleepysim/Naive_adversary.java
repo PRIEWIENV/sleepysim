@@ -127,10 +127,7 @@ public class Naive_adversary implements Adversary
         for(Block e: private_chain)
         {
             Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
-            for(Corrupted_node n: corrupt_nodes)
-            {
-                n.send_message_corrputed(msg,n.request_id(),honest_nodes,round,-1);//-1 for own
-            }
+            corrupt_nodes.get(0).send_message_corrputed(msg, corrupt_nodes.get(0).request_id(), honest_nodes, round, -1);
         }
     }
 
