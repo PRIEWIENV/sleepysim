@@ -4,6 +4,7 @@ import javafx.util.Pair;
 import org.bouncycastle.asn1.eac.UnsignedInteger;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.security.*;
@@ -45,8 +46,11 @@ public class Controller
     {
 
         BigInteger b = BigInteger.valueOf(2).pow(256).subtract(BigInteger.ONE);
-        D = new byte[256 / 4];
-        for(int i = 256 / 4 - 1; i >= 0; --i)
+        BigDecimal bd = new BigDecimal(b);
+        bd = bd.multiply(BigDecimal.valueOf(difficulty));
+        b = bd.toBigInteger();
+        D = new byte[256 / 8];
+        for(int i = 256 / 8 - 1; i >= 0; --i)
         {
             D[i] = (byte)b.mod(BigInteger.valueOf(1 << 8)).intValue();
             b = b.divide(BigInteger.valueOf(1 << 8));
@@ -145,7 +149,12 @@ public class Controller
             for(int i = 0; i < b.length; ++i)
             {
                 if(b[i] != D[i])
-                    return b[i] < D[i];
+                {
+                    Boolean result = (int)(b[i] & 0xff) < (int)(D[i] & 0xff);
+                    if(result)
+                        logger.log(Level.INFO, "Round " + round.toString() + ", elected leader " + id.toString());
+                    return result;
+                }
             }
             return false;
         }

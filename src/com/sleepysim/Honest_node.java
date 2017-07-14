@@ -117,16 +117,17 @@ public class Honest_node implements Node
     public void update_chain(Block b)
     {
         int length = 0;
+        Block sav = b;
         while(b != null)
         {
             length++;
             b = chain.chain.get(b.get_last_hash());
         }
-        chain.chain.put(b.get_current_hash(), b);
+        chain.chain.put(sav.get_current_hash(), sav);
         if(length > max_length)
         {
             max_length = length;
-            working_branch = b;
+            working_branch = sav;
         }
     }
 
@@ -234,27 +235,30 @@ public class Honest_node implements Node
         if(controller.is_leader(id))
         {
             byte[] sign;
+            byte[] current_hash;
+            byte[] last_hash = null;
+            if(working_branch != null)
+                last_hash = working_branch.get_current_hash();
             try
             {
                 sign = Signature_tool.generate_signature(secret_key,
-                        To_byte_array.to_byte_array(new Signature_elements(working_branch.get_current_hash(), txs, round)));
+                        To_byte_array.to_byte_array(new Signature_elements(last_hash, txs, round)));
             }
             catch (IOException e)
             {
                 logger.log(Level.SEVERE, "Object cannot convert to byte array. Sign");
                 return null;
             }
-            byte[] current_hash;
             try
             {
-                current_hash = Hash.hash(To_byte_array.to_byte_array(new Hash_elements(working_branch.get_current_hash(), txs, round, id, sign)));
+                current_hash = Hash.hash(To_byte_array.to_byte_array(new Hash_elements(last_hash, txs, round, id, sign)));
             }
             catch (IOException e)
             {
                 logger.log(Level.SEVERE, "Object cannot convert to byte array. Hash");
                 return null;
             }
-            Block b = new Block(working_branch.get_last_hash(), current_hash, txs, round, id, sign);
+            Block b = new Block(last_hash, current_hash, txs, round, id, sign);
             update_chain(b);
             working_branch = b;
             send_message(new Message(new Honest_message(Honest_message.annonce_block, b)), id, all_set);

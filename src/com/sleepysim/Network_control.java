@@ -26,6 +26,7 @@ public class Network_control
         message_count = 0;
         this.delay = delay;
         current_round = 0;
+        message_to_corrupted_buffer = new ArrayList<>();
     }
 
     void next_round()
@@ -39,7 +40,7 @@ public class Network_control
         //For framework team
         ArrayList <Message> result = new ArrayList<>();
         result.addAll(message_wait_for_send.get(target));
-        message_wait_for_send.clear();
+        message_wait_for_send.get(target).clear();
         for (Message_to_send message: message_buffer.get(target))
         {
             if (message.get_send_time() + delay == current_round)
