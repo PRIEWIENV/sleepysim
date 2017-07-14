@@ -141,20 +141,14 @@ public class Selfish_adversary implements Adversary
         for(Block e: private_chain)
         {
             Message msg=new Message(e);
-            for(Corrupted_node n: corrupt_nodes)
-            {
-                n.send_message_corrputed(msg,n.request_id(),honest_nodes,round,-1);//-1 for own
-            }
+            corrupt_nodes.get(0).send_message_corrputed(msg,corrupt_nodes.get(0).request_id(),honest_nodes,round,-1);
         }
     }
 
     public void disclose_block(Block e,Integer round)
     {
         Message msg=new Message(e);
-        for(Corrupted_node n: corrupt_nodes)
-        {
-            n.send_message_corrputed(msg,n.request_id(),honest_nodes,round,-1);//-1 for own
-        }
+        corrupt_nodes.get(0).send_message_corrputed(msg,corrupt_nodes.get(0).request_id(),honest_nodes,round,-1);
     }
 
     /**
@@ -164,10 +158,9 @@ public class Selfish_adversary implements Adversary
     public ArrayList<Block> run(Integer round)
     {
         //when others find a block
-        for(Corrupted_node n: corrupt_nodes) {
-            ArrayList<Message_to_send> msg = n.intercept_message();
-            for(int j=0;j<msg.size();++j)
-            {
+        ArrayList<Message_to_send> msg = corrupt_nodes.get(0).intercept_message();
+        for(int j=0;j<msg.size();++j)
+        {
                 if(msg.get(j).get_message().get_message() instanceof Honest_message)
                 {
                     Honest_message m=(Honest_message) msg.get(j).get_message().get_message();
@@ -212,7 +205,6 @@ public class Selfish_adversary implements Adversary
                         if(!duplicate((Transaction) m.ctx)) mem_pool.add((Transaction) m.ctx);
                     }
                 }
-            }
         }
         //the following is about when the attacker finds a block
         for(Corrupted_node n: corrupt_nodes)
@@ -233,8 +225,6 @@ public class Selfish_adversary implements Adversary
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Block newblock=new Block(prehash, hashvalue, mem_pool, round, n.request_id(), sig);
-                    update_private(newblock);
                 }
                 else
                 {
@@ -246,9 +236,9 @@ public class Selfish_adversary implements Adversary
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Block newblock=new Block(prehash, hashvalue, mem_pool, round, n.request_id(), sig);
-                    update_private(newblock);
                 }
+                Block newblock=new Block(prehash, hashvalue, mem_pool, round, n.request_id(), sig);
+                update_private(newblock);
                 ++private_chain_length;
                 if(pre==0 && private_chain_length==2)//currently lead only 1
                 {
@@ -256,7 +246,9 @@ public class Selfish_adversary implements Adversary
                     private_chain_length=0;
                 }
                 mem_pool.clear();
-                break;
+                ArrayList<Block> b = null;
+                b.add(newblock);
+                return b;
             }
         }
         //if leading T blocks, the broadcast the message and cause inconsistency
