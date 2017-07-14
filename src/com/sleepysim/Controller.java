@@ -84,7 +84,7 @@ public class Controller
                 else
                     nodes.add(new Honest_node(i, new_key.getPrivate(), public_key_table, networkcontrol, node_count, this));
             }
-            adversary = new Naive_adversary(node_count, is_corrupted, secret_key_table, public_key_table, corrupted, T, this);
+            adversary = new Naive_adversary(node_count, is_corrupted, secret_key_table, public_key_table, corrupted, T, this, networkcontrol);
         }
         catch (NoSuchAlgorithmException e)
         {
