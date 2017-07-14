@@ -117,7 +117,7 @@ public class Honest_node implements Node
      * @param b the block
      */
     @Override
-    public void update_chain(Block b)
+    public void update_chain(Block b, Integer round)
     {
         Boolean succ = true;
         int length = 1;
@@ -127,6 +127,7 @@ public class Honest_node implements Node
         while(b != null)
         {
             length++;
+            Block tmp;
             if(b.get_last_hash() == null)
             {
                 b = null;
@@ -134,17 +135,30 @@ public class Honest_node implements Node
             }
             if(chain.chain.containsKey(b.get_last_hash()))
             {
-                b = chain.chain.get(b.get_last_hash());
+                tmp = chain.chain.get(b.get_last_hash());
             }
             else if(store_pool.containsKey(b.get_last_hash()))
             {
-                b = store_pool.get(b.get_last_hash());
+                tmp = store_pool.get(b.get_last_hash());
             }
             else
             {
                 succ = false;
                 break;
             }
+            if(b.get_time_stamp() <= tmp.get_time_stamp())
+            {
+                logger.log(Level.WARNING, "Time stamp must increase.");
+                succ = false;
+                break;
+            }
+            if(b.get_time_stamp() > round)
+            {
+                logger.log(Level.WARNING, "Future block, ignore.");
+                succ = false;
+                break;
+            }
+            b = tmp;
             to_update.add(b);
         }
         if(!succ)
@@ -222,7 +236,7 @@ public class Honest_node implements Node
         //for honest team
         ArrayList<Transaction> txs = new ArrayList<>();
         ArrayList<Message> msg_buffer = receive_message();
-        logger.log(Level.INFO, "round " + round.toString() + ", message " + msg_buffer.size());
+        //logger.log(Level.INFO, "round " + round.toString() + ", message " + msg_buffer.size());
         for (Message x :
                 msg_buffer)
         {
@@ -235,17 +249,6 @@ public class Honest_node implements Node
                         if(msg.ctx instanceof Block)
                         {
                             Block b = (Block)msg.ctx;
-                            if(b.get_time_stamp() >= round)
-                            {
-                                logger.log(Level.WARNING, "Future block, ignore.");
-                                continue;
-                            }
-                            if(chain.chain.get(b.get_last_hash()) != null &&
-                                    b.get_time_stamp() < chain.chain.get(b.get_last_hash()).get_time_stamp())
-                            {
-                                logger.log(Level.WARNING, "Time stamp decrease, ignore.");
-                                continue;
-                            }
                             try
                             {
                                 if (!controller.is_leader(b.get_creator(), b.get_time_stamp()) ||
@@ -261,7 +264,7 @@ public class Honest_node implements Node
                                 logger.log(Level.WARNING, "Block creator invalid.");
                                 continue;
                             }
-                            update_chain((Block)msg.ctx);
+                            update_chain((Block)msg.ctx, round);
                             continue;
                         }
                         break;
@@ -305,7 +308,7 @@ public class Honest_node implements Node
                 return null;
             }
             Block b = new Block(last_hash, current_hash, txs, round, id, sign);
-            update_chain(b);
+            update_chain(b, round);
             working_branch = b;
             send_message(new Message(new Honest_message(Honest_message.annonce_block, b)), id, all_set);
         }
