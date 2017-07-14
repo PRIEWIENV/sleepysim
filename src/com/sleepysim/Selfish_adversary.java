@@ -27,13 +27,14 @@ public class Selfish_adversary implements Adversary
     private ArrayList<Block> private_chain;
     private Integer public_chain_length;
     private Integer private_chain_length;
+    private Network_control net;
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes
      * @param secret_key_table secret key for each corrupted node, the Integer is node id, and String is the corresponding secret key
      * @param public_key_table public keys
      */
-    public Selfish_adversary(Integer n, ArrayList<Integer> honest_nodes,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt, Block genesis, Integer D, Integer T)
+    public Selfish_adversary(Integer n, ArrayList<Integer> honest_nodes,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt, Block genesis, Integer D, Integer T, Network_control net)
     {
         this.n = n;
         this.D=D;
@@ -47,6 +48,7 @@ public class Selfish_adversary implements Adversary
         this.private_chain_length=0;
         chain.chain.put(genesis.get_current_hash(),genesis);
         latest_blocks.put(genesis.get_current_hash(),genesis);
+        this.net=net;
     }
 
     public boolean duplicate(Transaction e)
@@ -140,15 +142,21 @@ public class Selfish_adversary implements Adversary
     {
         for(Block e: private_chain)
         {
-            Message msg=new Message(e);
-            corrupt_nodes.get(0).send_message_corrputed(msg,corrupt_nodes.get(0).request_id(),honest_nodes,round,-1);
+            for(Integer r: honest_nodes) {
+                Message msg = new Message(e);
+                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round,-1);
+                net.receive_message_from_corrupted(msg2);
+            }
         }
     }
 
     public void disclose_block(Block e,Integer round)
     {
         Message msg=new Message(e);
-        corrupt_nodes.get(0).send_message_corrputed(msg,corrupt_nodes.get(0).request_id(),honest_nodes,round,-1);
+        for(Integer r: honest_nodes) {
+            Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round,-1);
+            net.receive_message_from_corrupted(msg2);
+        }
     }
 
     /**
@@ -158,7 +166,7 @@ public class Selfish_adversary implements Adversary
     public ArrayList<Block> run(Integer round)
     {
         //when others find a block
-        ArrayList<Message_to_send> msg = corrupt_nodes.get(0).intercept_message();
+        ArrayList<Message_to_send> msg = net.send_message_to_corrupted();
         for(int j=0;j<msg.size();++j)
         {
                 if(msg.get(j).get_message().get_message() instanceof Honest_message)
