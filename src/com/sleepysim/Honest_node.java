@@ -158,6 +158,7 @@ public class Honest_node implements Node
             if (length > max_length)
             {
                 logger.log(Level.INFO, "Honest node " + id.toString() + " switch branch to " + sav.get_current_hash().toString());
+                logger.log(Level.INFO, "Chain length = " + length);
                 max_length = length;
                 working_branch = sav;
             }
@@ -221,6 +222,7 @@ public class Honest_node implements Node
         //for honest team
         ArrayList<Transaction> txs = new ArrayList<>();
         ArrayList<Message> msg_buffer = receive_message();
+        logger.log(Level.INFO, "round " + round.toString() + ", message " + msg_buffer.size());
         for (Message x :
                 msg_buffer)
         {
@@ -244,6 +246,21 @@ public class Honest_node implements Node
                                 logger.log(Level.WARNING, "Time stamp decrease, ignore.");
                                 continue;
                             }
+                            try
+                            {
+                                if (!controller.is_leader(b.get_creator(), b.get_time_stamp()) ||
+                                        !Signature_tool.check_signature(public_key.get(b.get_creator()), b.get_signature(),
+                                                To_byte_array.to_byte_array(new Signature_elements(b.get_last_hash(), b.get_txs(), b.get_time_stamp()))))
+                                {
+                                    logger.log(Level.WARNING, "Block creator invalid.");
+                                    continue;
+                                }
+                            }
+                            catch(Exception e)
+                            {
+                                logger.log(Level.WARNING, "Block creator invalid.");
+                                continue;
+                            }
                             update_chain((Block)msg.ctx);
                             continue;
                         }
@@ -260,7 +277,7 @@ public class Honest_node implements Node
             logger.log(Level.SEVERE, "Inconsistent message. Message type error.");
             return null;
         }
-        if(controller.is_leader(id))
+        if(controller.is_leader(id, -1))
         {
             logger.log(Level.INFO, "Honest node " + id.toString() + " is elected as leader.");
             byte[] sign;

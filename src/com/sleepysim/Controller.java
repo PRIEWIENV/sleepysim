@@ -141,8 +141,10 @@ public class Controller
         }
         print_log();
     }
-    public boolean is_leader(Integer id)
+    public boolean is_leader(Integer id, Integer round)
     {
+        if(round == -1)
+            round = this.round;
         try
         {
             byte[] b = Hash.hash(To_byte_array.to_byte_array(new Pair<>(id, round)));
@@ -151,8 +153,8 @@ public class Controller
                 if(b[i] != D[i])
                 {
                     Boolean result = (int)(b[i] & 0xff) < (int)(D[i] & 0xff);
-                    if(result)
-                        logger.log(Level.INFO, "Round " + round.toString() + ", elected leader " + id.toString());
+                    //if(result)
+                    //    logger.log(Level.INFO, "Round " + round.toString() + ", elected leader " + id.toString());
                     return result;
                 }
             }

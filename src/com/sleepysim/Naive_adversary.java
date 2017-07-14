@@ -71,7 +71,7 @@ public class Naive_adversary implements Adversary
         if(!chain.chain.containsKey(e.get_last_hash())) return false;//currently orphan blocks not considered
         if(e.get_time_stamp() >= round)return false; // future blocks
         if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())return false;
-        if(!controller.is_leader(e.get_creator()))return false;
+        if(!controller.is_leader(e.get_creator(), -1))return false;
         return true;
     }
 
@@ -166,7 +166,7 @@ public class Naive_adversary implements Adversary
         //the following is about how to attack
         for(Corrupted_node n: corrupt_nodes)
         {
-            if(controller.is_leader(n.request_id()))
+            if(controller.is_leader(n.request_id(), -1))
             {
                 byte [] sig=null;
                 byte [] hashvalue = null;
@@ -211,7 +211,14 @@ public class Naive_adversary implements Adversary
         if(private_chain_length-public_chain_length>=T)
         {
             send_message(round);
-            return private_chain;
+            ArrayList<Block> report = new ArrayList<>();
+            Block cur = private_main_block;
+            while(cur != null)
+            {
+                report.add(cur);
+                cur = chain.chain.get(cur.get_last_hash());
+            }
+            return report;
         }
         return null;
     }
