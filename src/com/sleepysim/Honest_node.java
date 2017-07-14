@@ -2,7 +2,6 @@ package com.sleepysim;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class Honest_node implements Node
     private Chain chain;
     private Integer max_length;
     private Block working_branch;
-    private Framework framework;
+    private Network_control networkcontrol;
     private Integer num_node;
     private ArrayList<Integer> all_set;
     private Controller controller;
@@ -28,7 +27,7 @@ public class Honest_node implements Node
      * @param secret_key your secret key
      * @param public_key list of public key
      */
-    public Honest_node(Integer id, PrivateKey secret_key, ArrayList<PublicKey> public_key, Framework framework, Integer num_node,
+    public Honest_node(Integer id, PrivateKey secret_key, ArrayList<PublicKey> public_key, Network_control networkcontrol, Integer num_node,
                        Controller controller)
     {
         this.controller = controller;
@@ -39,7 +38,7 @@ public class Honest_node implements Node
         this.chain = new Chain();
         max_length = -1;
         working_branch = null;
-        this.framework = framework;
+        this.networkcontrol = networkcontrol;
         this.num_node = num_node;
         all_set = new ArrayList<>();
         for(int i = 0; i < num_node; ++i)
@@ -50,7 +49,7 @@ public class Honest_node implements Node
 
     /**
      * send message to others
-     * You should call function from framework, see Framework.java for details
+     * You should call function from networkcontrol, see Network_control.java for details
      * @param msg message
      * @param from your id, do not use other's id
      * @param to destination
@@ -60,7 +59,7 @@ public class Honest_node implements Node
     {
         //some code goes here
         //for honest team
-        framework.receive_message_from_honest(msg, from, to);
+        networkcontrol.receive_message_from_honest(msg, from, to);
     }
 
     /**
@@ -72,7 +71,7 @@ public class Honest_node implements Node
     {
         //some code goes here
         //for honest team
-        return framework.send_message(id);
+        return networkcontrol.send_message(id);
     }
 
     /**

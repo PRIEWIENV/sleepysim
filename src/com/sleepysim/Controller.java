@@ -5,14 +5,13 @@ import javafx.util.Pair;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Random;
 import java.security.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Controller
 {
-    private Framework framework;
+    private Network_control networkcontrol;
     private Signature_tool signature;
     private Adversary adversary;
     private Integer node_count, adversary_count;
@@ -30,9 +29,9 @@ public class Controller
      * then initialize signature class
      * tell every node about their secret key, and all public keys
      *
-     * initialize adversary and framework by calling their construction function.
+     * initialize adversary and networkcontrol by calling their construction function.
      *
-     * You should tell framework about the node and delay, you must initialize all nodes first and store them into a ArrayList
+     * You should tell networkcontrol about the node and delay, you must initialize all nodes first and store them into a ArrayList
      *
      * some code have been implemented, you can modify if you like.
      *
@@ -57,7 +56,7 @@ public class Controller
         this.delay = delay;
         this.T = T;
         this.nodes = new ArrayList<>();
-        this.framework = new Framework(delay, nodes);
+        this.networkcontrol = new Network_control(delay, nodes);
         is_corrupted = Adversary.decide_corrupted(node_count, adversary_count);
 
         ArrayList<Pair<Integer, PrivateKey>> secret_key_table = new ArrayList<>();
@@ -72,13 +71,13 @@ public class Controller
                 public_key_table.add(new_key.getPublic());
                 if (is_corrupted[i])
                 {
-                    Corrupted_node e = new Corrupted_node(i, adversary, new_key.getPrivate(), public_key_table, framework, node_count);
+                    Corrupted_node e = new Corrupted_node(i, adversary, new_key.getPrivate(), public_key_table, networkcontrol, node_count);
                     nodes.add(e);
                     secret_key_table.add(new Pair<>(i, new_key.getPrivate()));
                     corrupted.add(e);
                 }
                 else
-                    nodes.add(new Honest_node(i, new_key.getPrivate(), public_key_table, framework, node_count, this));
+                    nodes.add(new Honest_node(i, new_key.getPrivate(), public_key_table, networkcontrol, node_count, this));
             }
             adversary = new Naive_adversary(node_count, is_corrupted, secret_key_table, public_key_table, corrupted, T, this);
         }
@@ -132,7 +131,7 @@ public class Controller
                 has_inconsistency |= has_inconsistency(block_list);
             }
             print_log();
-            framework.next_round();
+            networkcontrol.next_round();
             round++;
         }
         print_log();

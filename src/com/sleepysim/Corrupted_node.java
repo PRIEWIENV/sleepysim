@@ -1,8 +1,6 @@
 package com.sleepysim;
 
-import java.awt.Frame;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.ArrayList;
@@ -13,7 +11,7 @@ public class Corrupted_node implements Node
     private Integer id;
     private PrivateKey secret_key;
     private final ArrayList<PublicKey> public_key;
-    private Framework framework;
+    private Network_control networkcontrol;
     private Integer num_node;
 
     /**
@@ -22,13 +20,13 @@ public class Corrupted_node implements Node
      * @param adversary Your god
      */
 
-    public Corrupted_node(Integer id, Adversary adversary, PrivateKey secret_key, ArrayList<PublicKey> public_key, Framework framework, Integer num_node)
+    public Corrupted_node(Integer id, Adversary adversary, PrivateKey secret_key, ArrayList<PublicKey> public_key, Network_control networkcontrol, Integer num_node)
     {
         this.id = id;
         this.adversary = adversary;
         this.secret_key = secret_key;
         this.public_key = public_key;
-        this.framework = framework;
+        this.networkcontrol = networkcontrol;
         this.num_node = num_node;
     }
 
@@ -84,7 +82,7 @@ public class Corrupted_node implements Node
     {
         for(int i=0;i<to.size();++i) {
             Message_to_send tmp=new Message_to_send(msg,from,to.get(i),round,uid);
-            framework.receive_message_from_corrupted(tmp);
+            networkcontrol.receive_message_from_corrupted(tmp);
         }
     }
     /**
@@ -94,7 +92,7 @@ public class Corrupted_node implements Node
      */
     public ArrayList<Message_to_send> intercept_message()
     {
-        return framework.send_message_to_corrupted();
+        return networkcontrol.send_message_to_corrupted();
     }
 
     /**

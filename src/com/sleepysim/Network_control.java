@@ -3,7 +3,7 @@ package com.sleepysim;
 import java.util.ArrayList;
 import java.util.TreeSet;
 
-public class Framework
+public class Network_control
 {
     private ArrayList <ArrayList <Message>> message_wait_for_send;
     private ArrayList <TreeSet <Message_to_send>> message_buffer;
@@ -13,7 +13,7 @@ public class Framework
     private Integer delay;
     private Integer current_round;
 
-    Framework(Integer delay, ArrayList <Node> node_list)
+    Network_control(Integer delay, ArrayList <Node> node_list)
     {
         //some code goes here
         //For framework team
