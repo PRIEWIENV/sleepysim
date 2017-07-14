@@ -1,6 +1,7 @@
 package com.sleepysim;
 
 import javafx.util.Pair;
+import org.bouncycastle.asn1.eac.UnsignedInteger;
 
 import java.io.Serializable;
 import java.math.BigInteger;
@@ -64,6 +65,7 @@ public class Controller
             KeyPairGenerator key_generator = KeyPairGenerator.getInstance("RSA");
             ArrayList <PublicKey> public_key_table = new ArrayList<>();
             ArrayList <Corrupted_node> corrupted = new ArrayList<>();
+            this.networkcontrol = new Network_control(delay, node_count);
             for (int i = 0; i < node_count; i ++)
             {
                 KeyPair new_key = key_generator.generateKeyPair();
@@ -78,7 +80,6 @@ public class Controller
                 else
                     nodes.add(new Honest_node(i, new_key.getPrivate(), public_key_table, networkcontrol, node_count, this));
             }
-            this.networkcontrol = new Network_control(delay, nodes);
             adversary = new Naive_adversary(node_count, is_corrupted, secret_key_table, public_key_table, corrupted, T, this);
         }
         catch (NoSuchAlgorithmException e)
@@ -136,21 +137,11 @@ public class Controller
         }
         print_log();
     }
-    class hash_element implements Serializable
-    {
-        public Integer id;
-        public Integer round;
-        hash_element(Integer id, Integer round)
-        {
-            this.id = id;
-            this.round = round;
-        }
-    }
     public boolean is_leader(Integer id)
     {
         try
         {
-            byte[] b = Hash.hash(To_byte_array.to_byte_array(new hash_element(id, round)));
+            byte[] b = Hash.hash(To_byte_array.to_byte_array(new Pair<>(id, round)));
             for(int i = 0; i < b.length; ++i)
             {
                 if(b[i] != D[i])
@@ -161,6 +152,7 @@ public class Controller
         catch (Exception e)
         {
             logger.log(Level.SEVERE, "leader election failed, id = " + id.toString());
+            e.printStackTrace();
         }
         return false;
     }

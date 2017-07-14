@@ -8,17 +8,15 @@ public class Network_control
     private ArrayList <ArrayList <Message>> message_wait_for_send;
     private ArrayList <TreeSet <Message_to_send>> message_buffer;
     private ArrayList <Message_to_send> message_to_corrupted_buffer;
-    private ArrayList <Node> node_list;
     private Integer message_count;
     private Integer delay;
     private Integer current_round;
 
-    Network_control(Integer delay, ArrayList <Node> node_list)
+    Network_control(Integer delay, Integer node_count)
     {
         //some code goes here
         //For framework team
-        this.node_list = node_list;
-        int n = node_list.size();
+        int n = node_count;
         message_wait_for_send = new ArrayList<>();
         for (int i = 0; i < n; i ++)
             message_wait_for_send.add(new ArrayList<>());
@@ -27,7 +25,6 @@ public class Network_control
             message_buffer.add(new TreeSet<>());
         message_count = 0;
         this.delay = delay;
-        this.node_list = node_list;
         current_round = 0;
     }
 

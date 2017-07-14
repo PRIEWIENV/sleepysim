@@ -42,6 +42,10 @@ public class Naive_adversary implements Adversary
         this.n = n;
         this.T=T;
         //this.honest_nodes=honest_nodes;
+        this.honest_nodes = new ArrayList<>();
+        for(int i = 0; i < n; ++i)
+            if(!is_corrupted[i])
+                this.honest_nodes.add(i);
         this.secret_key_table = secret_key_table;
         this.public_key_table = public_key_table;
         this.corrupt_nodes=corrupt;
