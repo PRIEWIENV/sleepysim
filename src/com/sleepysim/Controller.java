@@ -56,7 +56,6 @@ public class Controller
         this.delay = delay;
         this.T = T;
         this.nodes = new ArrayList<>();
-        this.networkcontrol = new Network_control(delay, nodes);
         is_corrupted = Adversary.decide_corrupted(node_count, adversary_count);
 
         ArrayList<Pair<Integer, PrivateKey>> secret_key_table = new ArrayList<>();
@@ -79,6 +78,7 @@ public class Controller
                 else
                     nodes.add(new Honest_node(i, new_key.getPrivate(), public_key_table, networkcontrol, node_count, this));
             }
+            this.networkcontrol = new Network_control(delay, nodes);
             adversary = new Naive_adversary(node_count, is_corrupted, secret_key_table, public_key_table, corrupted, T, this);
         }
         catch (NoSuchAlgorithmException e)

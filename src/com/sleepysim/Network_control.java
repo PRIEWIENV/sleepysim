@@ -17,6 +17,7 @@ public class Network_control
     {
         //some code goes here
         //For framework team
+        this.node_list = node_list;
         int n = node_list.size();
         message_wait_for_send = new ArrayList<>();
         for (int i = 0; i < n; i ++)
