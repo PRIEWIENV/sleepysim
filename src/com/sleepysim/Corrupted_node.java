@@ -30,16 +30,6 @@ public class Corrupted_node implements Node
         this.num_node = num_node;
     }
 
-    public static int byteArrayToInt(byte[] b)
-    {
-        int value = 0;
-        for (int i = 0; i < 4; i++) {
-            int shift = (4 - 1 - i) * 8;
-            value += (b[i] & 0x000000FF) << shift;
-        }
-        return value;
-    }
-
     public PrivateKey request_private_key()
     {
         return secret_key;
@@ -50,23 +40,6 @@ public class Corrupted_node implements Node
         return id;
     }
 
-
-    public boolean Isleader(Integer round, Integer D)
-    {
-        try {
-            byte [] tmp1=To_byte_array.to_byte_array(id);
-            byte [] tmp2=To_byte_array.to_byte_array(round);
-            byte[] combined = new byte[tmp1.length + tmp2.length];
-            for (int i = 0; i < combined.length; ++i)
-            {
-                combined[i] = i < tmp1.length ? tmp1[i] : tmp2[i - tmp1.length];
-            }
-            return byteArrayToInt(combined) <= D;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
     /**
      * Send message to someone
      * @param msg message
