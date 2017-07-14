@@ -127,7 +127,7 @@ public class Naive_adversary implements Adversary
         for(Block e: private_chain)
         {
             Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
-            corrupt_nodes.get(0).send_message_corrputed(msg, corrupt_nodes.get(0).request_id(), honest_nodes, round, -1);
+            corrupt_nodes.get(0).send_message_corrputed(msg,corrupt_nodes.get(0).request_id(),honest_nodes,round,-1);
         }
     }
 
@@ -137,10 +137,9 @@ public class Naive_adversary implements Adversary
     @Override
     public ArrayList<Block> run(Integer round)
     {
-        for(Corrupted_node n: corrupt_nodes) {
-            ArrayList<Message_to_send> msg = n.intercept_message();
-            for(int j=0;j<msg.size();++j)
-            {
+        ArrayList<Message_to_send>  msg=corrupt_nodes.get(0).intercept_message();
+        for(int j=0;j<msg.size();++j)
+        {
                 if(msg.get(j).get_message().get_message() instanceof Honest_message)
                 {
                     Honest_message m=(Honest_message) msg.get(j).get_message().get_message();
@@ -158,7 +157,6 @@ public class Naive_adversary implements Adversary
                         if(!duplicate((Transaction) m.ctx)) mem_pool.add((Transaction) m.ctx);
                     }
                 }
-            }
         }
         //the following is about how to attack
         for(Corrupted_node n: corrupt_nodes)
