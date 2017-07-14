@@ -29,6 +29,7 @@ public class Naive_adversary implements Adversary
     private Integer public_chain_length;
     private Controller controller;
     private Integer private_chain_length;
+    private Network_control net;
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes
@@ -37,12 +38,13 @@ public class Naive_adversary implements Adversary
      */
     public Naive_adversary(Integer n, Boolean[] is_corrupted, ArrayList<Pair<Integer, PrivateKey>> secret_key_table,
                            ArrayList<PublicKey> public_key_table, ArrayList<Corrupted_node> corrupt,
-                           Integer T, Controller controller)
+                           Integer T, Controller controller,Network_control net)
     {
         this.controller = controller;
         this.n = n;
         this.T=T;
         //this.honest_nodes=honest_nodes;
+        this.net=net;
         this.honest_nodes = new ArrayList<>();
         for(int i = 0; i < n; ++i)
             if(!is_corrupted[i])
@@ -127,7 +129,10 @@ public class Naive_adversary implements Adversary
         for(Block e: private_chain)
         {
             Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
-            corrupt_nodes.get(0).send_message_corrputed(msg,corrupt_nodes.get(0).request_id(),honest_nodes,round,-1);
+            for (Integer h: honest_nodes) {
+                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),h, round + 1, -1);
+                net.receive_message_from_corrupted(msg2);
+            }
         }
     }
 
@@ -137,7 +142,7 @@ public class Naive_adversary implements Adversary
     @Override
     public ArrayList<Block> run(Integer round)
     {
-        ArrayList<Message_to_send>  msg=corrupt_nodes.get(0).intercept_message();
+        ArrayList<Message_to_send>  msg=net.send_message_to_corrupted();
         for(int j=0;j<msg.size();++j)
         {
                 if(msg.get(j).get_message().get_message() instanceof Honest_message)
