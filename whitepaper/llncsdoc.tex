@@ -12,7 +12,7 @@ Consensus}{\$ Simulator for Distributed Sleepy Consensus}
 \begin{flushright}
 \Huge
 \begin{tabular}{@{}l}
-Simulator for Distributed\\
+Simulator for\\
 Sleepy Consensus Protocol\\[6pt]
 {\Large SJTU 2017 Cornell Summer Workshop}
 \end{tabular}
@@ -104,30 +104,18 @@ first line of your document:
   <Your contribution>
 \end{document}
 \end{verbatim}
-%
-\subsection{Contributions Already Coded with \protect\LaTeX{} without
-the LLNCS document class}
-%
-If your file is already coded with \LaTeX{} you can easily
-adapt it a posteriori to the LLNCS document class.
 
-Please refrain from using any \LaTeX{} or \TeX{} commands
-that affect the layout or formatting of your document (i.e. commands
-like \verb|\textheight|, \verb|\vspace|, \verb|\headsep| etc.).
-There may nevertheless be exceptional occasions on which to
-use some of them.
-
-The LLNCS document class has been carefully designed to produce the
-right layout from your \LaTeX{} input. If there is anything specific you
-would like to do and for which the style file does not provide a
-command, {\em please contact us}. Same holds for any error and bug you
-discover (there is however no reward for this -- sorry).
-%
 \section{The Imitation of Honest Players}
 
 %
 \section{The Imitation of Adversarial Players}
-The previous section introduces the implementation of the honest players' behavior under the sleepy consensus protocol in simulator. This section, in contrast, will present the imitatation of the adversarial players' behavior, which aims to hinder the normal functioning of sleepy consensus protocol under current simulating structure. And we design four different attacking algorithms 
+\quad The previous section introduces the implementation of the honest players' behavior under the sleepy consensus protocol in simulator. This section, in contrast, will present the imitatation of the adversarial players' behavior, which aims to hinder the normal functioning of sleepy consensus protocol under current framework structure. And we design four different attacking algorithms try to break the consensus between different nodes, i.e., players in the distributed system. What should be noticed is that the adversaries cannot betray the rules established by the framework, while they can only control the network message transportation, i.e., intercepting and delaying the message from honest players. Also, an adversary can manipulate several corrupted nodes in the system, by which adversary impose damage to the system under sleepy consensus protocol.
+
+To simulate the attacks, we assume there is an an adversary lurking within the  framework, who owns competence to intercept all messages coming from honest nodes and decide which to delay in the transportation. Also, the adversary is able to access useful information from these message to fork blocks right behind the private chain he captures. Based on above setting, we design four attacking methods for adversary to smash the consensus holded by system, which are illustrated in following subsections.
+\subsection{Na{\"i}ve Adversary Attack}
+\subsection{Selfish Adversary Attack}
+\subsection{Stubborn Adversary Attack}
+\subsection{Selfish Eclipse Attack}
 %
 \section{The Analysis of Simulating Results}
 Here is the analysis of Simulating Results.
