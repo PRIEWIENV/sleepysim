@@ -1,4 +1,4 @@
-# A Sleepy Consensus Simulater
+# SleepySim - A Sleepy Consensus Simulater
 
 ## TO ALL DEVELOPERS
 #### If you change the API, please log it in Changelog.txt, and explain if necessary
@@ -11,14 +11,26 @@
 #### Implement naive attack first, then selfish mining
 #### Selfish Mining Paper: Majority is not enough: Bitcoin mining is vulnerable
 
-## Build
+## How To Build
 
 ### Linux
 
-`./Make.sh`
+```bash
+chmod +x Make.sh
+./Make.sh
+```
 
-## Run
+## Quick Start
 
-`./Run.sh`
+### Linux
+
+```bash
+chmod +x Run.sh
+./Run.sh
+```
 
 The results are in `nohup.out`.
+
+## Documentation
+
+The LaTex files and the PDF version report: https://github.com/Ohyoukillkenny/Sleepy-Consensus-WhitePaper
