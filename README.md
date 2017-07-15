@@ -1,7 +1,8 @@
 # SleepySim - A Sleepy Consensus Simulater
+![Sleepy Consensus](https://pbs.twimg.com/media/C1g0M5zW8AIKR0K.jpg)
 
 ## TO ALL DEVELOPERS
-#### If you change the API, please log it in Changelog.txt, and explain if necessary
+#### If you change the API, please log it in Changelog.txt and **SleepySim-API** file, and explain if necessary.
 
 ## TO Group B (Honest)
 #### Read https://eprint.iacr.org/2016/918.pdf page 20
@@ -33,4 +34,6 @@ The results are in `nohup.out`.
 
 ## Documentation
 
-The LaTex files and the PDF version report: https://github.com/Ohyoukillkenny/Sleepy-Consensus-WhitePaper
+The LaTex files and the PDF version report: https://github.com/Ohyoukillkenny/Sleepy-Consensus-WhitePaper.
+
+The **SleepySim-API** file contains the Application Programming Interface of our simulator's codes.
