@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Objects;
 import java.util.Random;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Naive_adversary implements Adversary
 {
@@ -30,6 +31,7 @@ public class Naive_adversary implements Adversary
     private Controller controller;
     private Integer private_chain_length;
     private Network_control net;
+    private static Logger logger;
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes
@@ -40,6 +42,7 @@ public class Naive_adversary implements Adversary
                            ArrayList<PublicKey> public_key_table, ArrayList<Corrupted_node> corrupt,
                            Integer T, Controller controller,Network_control net)
     {
+        logger = Logger.getLogger("Naive_Attacker");
         this.controller = controller;
         this.n = n;
         this.T=T;
@@ -130,13 +133,15 @@ public class Naive_adversary implements Adversary
 
     public void send_message(Integer round)
     {
-        for(Block e: private_chain)
+        Block tmp=private_main_block;
+        while(tmp!=null)
         {
-            Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
+            Message msg=new Message(new Honest_message(Honest_message.annonce_block, tmp));
             for (Integer h: honest_nodes) {
-                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),h, round + 1, -1);
+                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),h, round+1, -1);
                 net.receive_message_from_corrupted(msg2);
             }
+            tmp=chain.chain.get(tmp.get_last_hash());
         }
     }
 
@@ -147,6 +152,7 @@ public class Naive_adversary implements Adversary
     public ArrayList<Block> run(Integer round)
     {
         ArrayList<Message_to_send>  msg=net.send_message_to_corrupted();
+        logger.log(Level.WARNING,"public chain length:"+public_chain_length);
         for(int j=0;j<msg.size();++j)
         {
                 if(msg.get(j).get_message().get_message() instanceof Honest_message)
@@ -178,7 +184,7 @@ public class Naive_adversary implements Adversary
                 if(private_main_block==null) {
                     try {
                         if(public_main_block.size() != 0)
-                            prehash = public_main_block.get(0).get_current_hash();
+                            prehash = public_main_block.get(0).get_last_hash();
                         else
                             prehash = null;
                         sig = Signature_tool.generate_signature(n.request_private_key(),
@@ -204,11 +210,12 @@ public class Naive_adversary implements Adversary
                 mem_pool.clear();
                 ArrayList<Block> b = new ArrayList<>();
                 b.add(newblock);
+                //logger.log(Level.INFO, "private chain length:"+(private_chain_length)+" lead:"+(private_chain_length-public_chain_length));
                 return b;
             }
         }
         //some optimization for the naive method
-        if(public_chain_length-private_chain_length>=1)
+        if(public_chain_length-private_chain_length>=T)
         {
             private_chain.clear();
             private_main_block=null;
@@ -216,7 +223,7 @@ public class Naive_adversary implements Adversary
         //if leading T blocks, the broadcast the message
         if(private_chain_length > public_chain_length && (public_chain_length-get_length(private_chain.get(0))+1) > T)
         {
-            send_message(round);
+         //   logger.log(Level.INFO, "attack successful!");
             ArrayList<Block> report = new ArrayList<>();
             Block cur = private_main_block;
             while(cur != null)
@@ -224,6 +231,7 @@ public class Naive_adversary implements Adversary
                 report.add(cur);
                 cur = chain.chain.get(cur.get_last_hash());
             }
+            send_message(round);
             return report;
         }
         return null;
