@@ -2,7 +2,7 @@
 ![Sleepy Consensus](https://pbs.twimg.com/media/C1g0M5zW8AIKR0K.jpg)
 
 ## TO ALL DEVELOPERS
-#### If you change the API, please log it in Changelog.txt and **SleepySim-API** file, and explain if necessary.
+#### If you change the API, please log it in Changelog.txt and **doc** file, and explain if necessary.
 
 ## TO Group B (Honest)
 #### Read https://eprint.iacr.org/2016/918.pdf page 20
@@ -36,4 +36,4 @@ The results are in `nohup.out`.
 
 The **whitePaper** file contains the white paper and tex document.
 
-The **SleepySim-API** file contains the Application Programming Interface of our simulator's codes.
+The **doc** file contains the Application Programming Interface of our simulator's codes.
