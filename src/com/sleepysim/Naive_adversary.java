@@ -70,10 +70,14 @@ public class Naive_adversary implements Adversary
 
     public boolean check_validity(Block e, Integer round)
     {
-        if(!chain.chain.containsKey(e.get_last_hash())) return false;//currently orphan blocks not considered
-        if(e.get_time_stamp() >= round)return false; // future blocks
-        if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())return false;
-        if(!controller.is_leader(e.get_creator(), -1))return false;
+        if(!chain.chain.containsKey(e.get_last_hash()) && e.get_last_hash() != null)
+            return false;//currently orphan blocks not considered
+        if(e.get_time_stamp() > round)
+            return false; // future blocks
+        if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())
+            return false;
+        if(!controller.is_leader(e.get_creator(), e.get_time_stamp()))
+            return false;
         return true;
     }
 
@@ -204,13 +208,13 @@ public class Naive_adversary implements Adversary
             }
         }
         //some optimization for the naive method
-        if(public_chain_length-private_chain_length>=T)
+        if(public_chain_length-private_chain_length>=1)
         {
             private_chain.clear();
             private_main_block=null;
         }
         //if leading T blocks, the broadcast the message
-        if(private_chain_length-public_chain_length>=T)
+        if(private_chain_length > public_chain_length && private_chain_length > T)
         {
             send_message(round);
             ArrayList<Block> report = new ArrayList<>();

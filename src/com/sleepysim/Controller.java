@@ -139,6 +139,7 @@ public class Controller
             networkcontrol.next_round();
             round++;
         }
+        logger.log(Level.WARNING, "Attack successful");
         print_log();
     }
     public boolean is_leader(Integer id, Integer round)

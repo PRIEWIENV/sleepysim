@@ -120,7 +120,7 @@ public class Honest_node implements Node
     public void update_chain(Block b, Integer round)
     {
         Boolean succ = true;
-        int length = 1;
+        int length = 0;
         Block sav = b;
         ArrayList<Block> to_update = new ArrayList<>();
         to_update.add(b);
