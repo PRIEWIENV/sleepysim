@@ -1,0 +1,145 @@
+\documentclass{llncs}
+\usepackage{llncsdoc}
+\begin{document}
+\markboth{\$ Simulator for Distributed Sleepy 
+Consensus}{\$ Simulator for Distributed Sleepy Consensus}
+\thispagestyle{empty}
+\begin{flushleft}
+\LARGE\bfseries Distributed Consensus\\[2cm]
+\end{flushleft}
+\rule{\textwidth}{1pt}
+\vspace{2pt}
+\begin{flushright}
+\Huge
+\begin{tabular}{@{}l}
+Simulator for Distributed\\
+Sleepy Consensus Protocol\\[6pt]
+{\Large SJTU 2017 Cornell Summer Workshop}
+\end{tabular}
+\end{flushright}
+\rule{\textwidth}{1pt}
+\vfill
+\begin{flushleft}
+\large\itshape
+\begin{tabular}{@{}l}
+{\Large\upshape\bfseries Instructor }\\[8pt]
+Elaine\enspace Shi \\[5pt]
+Cornell\enspace University\\[5pt]
+\end{tabular}
+\end{flushleft}
+\newpage
+%
+\section*{Our Group:}
+%
+\begin{flushleft}
+\begin{tabular}{l@{\quad}l@{\hspace{3mm}}l@{\qquad}l}
+$\bullet$&\multicolumn{3}{@{}l}{\bfseries Framework Team Members}\\[1mm]
+% &\multicolumn{3}{@{}l}{Springer-Verlag}\\
+% &\multicolumn{3}{@{}l}{Computer Science Editorial}\\
+% &\multicolumn{3}{@{}l}{Tiergartenstra�e 17}\\
+% &\multicolumn{3}{@{}l}{69121 Heidelberg}\\
+% &\multicolumn{3}{@{}l}{Germany}\\[0.5mm]
+ & Junxiang Huang       & & 841450297@qq.com\\
+ & Yifei Pu       & &pkq2006@gmail.com\\[2mm]
+$\bullet$&\multicolumn{3}{@{}l}{\bfseries Honest Node Team Members}\\[1mm]
+ & Tiancheng Xie       & & wjxtcsgx@hotmail.com\\
+ & Jiaheng Zhang      & &ZHANGJIAHENG@sjtu.edu.cn\\
+ & Xiaotian You    &  & youxiaotian@hotmail.com\\
+ & Shuyang Tang         &  & tangshuyang25@163.com\\
+ & Chengyao Li   &  & cyli2014@sjtu.edu.cn\\[2mm]
+ $\bullet$&\multicolumn{3}{@{}l}{\bfseries Adversary Members}\\[1mm]
+ & Qingrong Chen      & & chenqingrong@sjtu.edu.cn\\
+ & Ruisheng Cao      & &211314@sjtu.edu.cn\\
+ & Shiquan Zhang    &  & zsq007@sjtu.edu.cn\\
+ & Haochen Huang  &  & hhc98598@189.cn\\[2mm]
+$\bullet$&\multicolumn{3}{@{}l}{\bfseries Integrators}\\[1mm]
+ & Feiyang Qiu   &  & st.yeah@gmail.com\\
+ & Lingkun Kong  &  & klk316980786@sjtu.edu.cn\\
+ & Lanqing Liu    &  & sunnysunny@sjtu.edu.cn\\
+ & Jialu Li          &  & 790359064@qq.com\\[2mm]
+\\
+\\
+\\
+\\
+\\
+\\
+\\
+% \noalign{\rule{\textwidth}{1pt}}
+% \noalign{\vskip2mm}
+$\bullet$&\multicolumn{3}{@{}l}{\bfseries Where to find our project?}\\[1mm]
+ & https://github.com/initc3/sleepysim & & SleepySim\\[2mm]
+\end{tabular}
+\end{flushleft}
+
+
+%
+\newpage
+\tableofcontents
+\newpage
+%
+\section{Introduction}
+
+\quad Consensus protocols are at the core of distributed computing and also provide a foundational building protocol for multi-party cryptographic protocols. In the paper about \emph{sleepy consensus} protocol \cite{Sleepy}, Pass and Shi propose a consensus protocol for realizing a “linearly ordered log” abstraction -- often referred to as state machine replication or linearizability in the distributed systems literature. They name it as sleepy consensus protocol, which respects two important resiliency properties, i.e., consistency and liveness. And in sleepy consensus model, players can be either online (alert) or offline (asleep), and their online status may change at any point during the protocol.
+
+In this paper, we build a simulator for monitoring the real-world performance of sleepy consensus protocol by constructing a framework which implements sleepy consensus protocol, as well as imitating behaviors of honest players and corrupted/adversarial players in the meanwhile. After analyzing the simulating results, \textbf{we know ... add text here}
+
+This document is organized as follows. In Section 2, we introduce the framework of simulator. In Section 3, we present how honest players work while simulating. And in Section 4, we imitate the adversarial players' behavior and attack the sleepy consensus protocol by several algorithms. We give the analysis of simulating results in Section 5. Finally, we draw conclusions in Section 6.
+
+\section{The Framework of Simulator}
+%
+In this section, we will illustrate the construction of the framework of our simulator, which includes \textbf{add text here}
+
+%
+\subsection{Controller}
+%
+The LLNCS class is an extension of the standard \LaTeX{} ``article''
+document class. Therefore you may use all ``article'' commands for the
+body of your contribution to prepare your manuscript.
+LLNCS class is invoked by replacing ``article'' by ``llncs'' in the
+first line of your document:
+\begin{verbatim}
+\documentclass{llncs}
+%
+\begin{document}
+  <Your contribution>
+\end{document}
+\end{verbatim}
+%
+\subsection{Contributions Already Coded with \protect\LaTeX{} without
+the LLNCS document class}
+%
+If your file is already coded with \LaTeX{} you can easily
+adapt it a posteriori to the LLNCS document class.
+
+Please refrain from using any \LaTeX{} or \TeX{} commands
+that affect the layout or formatting of your document (i.e. commands
+like \verb|\textheight|, \verb|\vspace|, \verb|\headsep| etc.).
+There may nevertheless be exceptional occasions on which to
+use some of them.
+
+The LLNCS document class has been carefully designed to produce the
+right layout from your \LaTeX{} input. If there is anything specific you
+would like to do and for which the style file does not provide a
+command, {\em please contact us}. Same holds for any error and bug you
+discover (there is however no reward for this -- sorry).
+%
+\section{The Imitation of Honest Players}
+
+%
+\section{The Imitation of Adversarial Players}
+The previous section introduces the implementation of the honest players' behavior under the sleepy consensus protocol in simulator. This section, in contrast, will present the imitatation of the adversarial players' behavior, which aims to hinder the normal functioning of sleepy consensus protocol under current simulating structure. And we design four different attacking algorithms 
+%
+\section{The Analysis of Simulating Results}
+Here is the analysis of Simulating Results.
+\section{Conclusion}
+In conclusion....
+
+
+\begin{thebibliography}{}  % (do not forget {})
+
+\bibitem{Sleepy}
+Pass, Rafael, and Elaine Shi. \emph{The sleepy model of consensus}. Cryptology ePrint Archive, Report 2016/918, 2016. http://eprint. iacr. org/2016/918, 2016.
+
+\end{thebibliography}
+%
+\end{document}

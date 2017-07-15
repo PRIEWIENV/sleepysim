@@ -34,6 +34,6 @@ The results are in `nohup.out`.
 
 ## Documentation
 
-The LaTex files and the PDF version report: https://github.com/Ohyoukillkenny/Sleepy-Consensus-WhitePaper.
+The **whitePaper** file contains the white paper and tex document.
 
 The **SleepySim-API** file contains the Application Programming Interface of our simulator's codes.
