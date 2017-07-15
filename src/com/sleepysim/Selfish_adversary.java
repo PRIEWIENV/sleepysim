@@ -28,13 +28,14 @@ public class Selfish_adversary implements Adversary
     private Integer public_chain_length;
     private Integer private_chain_length;
     private Network_control net;
+    private Controller controller;
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes
      * @param secret_key_table secret key for each corrupted node, the Integer is node id, and String is the corresponding secret key
      * @param public_key_table public keys
      */
-    public Selfish_adversary(Integer n, ArrayList<Integer> honest_nodes,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt, Block genesis, Integer D, Integer T, Network_control net)
+    public Selfish_adversary(Integer n,Controller controller, ArrayList<Integer> honest_nodes,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt, Block genesis, Integer D, Integer T, Network_control net)
     {
         this.n = n;
         this.D=D;
@@ -49,6 +50,7 @@ public class Selfish_adversary implements Adversary
         chain.chain.put(genesis.get_current_hash(),genesis);
         latest_blocks.put(genesis.get_current_hash(),genesis);
         this.net=net;
+        this.controller=controller;
     }
 
     public boolean duplicate(Transaction e)
@@ -85,10 +87,14 @@ public class Selfish_adversary implements Adversary
 
     public boolean check_validity(Block e, Integer round)
     {
-        if(!chain.chain.containsKey(e.get_last_hash())) return false;//currently orphan blocks not considered
-        if(e.get_time_stamp() >= round)return false; // future blocks
-        if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())return false;
-        if(!Isleader(e.get_creator(),round,D))return false;
+        if(!chain.chain.containsKey(e.get_last_hash()) && e.get_last_hash() != null)
+            return false;//currently orphan blocks not considered
+        if(e.get_time_stamp() > round)
+            return false; // future blocks
+        if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())
+            return false;
+        if(!controller.is_leader(e.get_creator(), e.get_time_stamp()))
+            return false;
         return true;
     }
 
@@ -260,9 +266,17 @@ public class Selfish_adversary implements Adversary
             }
         }
         //if leading T blocks, the broadcast the message and cause inconsistency
-        if(private_chain_length-public_chain_length>=T)
+        if(private_chain_length > public_chain_length && (public_chain_length-get_length(private_chain.get(0))+1) > T)
         {
             disclose_all(round);
+            ArrayList<Block> report = new ArrayList<>();
+            Block cur = private_main_block;
+            while(cur != null)
+            {
+                report.add(cur);
+                cur = chain.chain.get(cur.get_last_hash());
+            }
+            return report;
         }
         return null;
     }

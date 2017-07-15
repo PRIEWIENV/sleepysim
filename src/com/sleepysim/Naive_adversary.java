@@ -214,7 +214,7 @@ public class Naive_adversary implements Adversary
             private_main_block=null;
         }
         //if leading T blocks, the broadcast the message
-        if(private_chain_length > public_chain_length && private_chain_length > T)
+        if(private_chain_length > public_chain_length && (public_chain_length-get_length(private_chain.get(0))+1) > T)
         {
             send_message(round);
             ArrayList<Block> report = new ArrayList<>();
