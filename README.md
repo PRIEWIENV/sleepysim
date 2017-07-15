@@ -10,3 +10,15 @@
 ## TO Group C (Adversary)
 #### Implement naive attack first, then selfish mining
 #### Selfish Mining Paper: Majority is not enough: Bitcoin mining is vulnerable
+
+## Build
+
+### Linux
+
+`./Make.sh`
+
+## Run
+
+`./Run.sh`
+
+The results are in `nohup.out`.
