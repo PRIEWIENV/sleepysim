@@ -69,9 +69,9 @@ public class Naive_adversary implements Adversary
     public boolean duplicate(Transaction e)
     {
         return false;
-    }
+    }// check whether a transaction is duplicate
 
-    public boolean check_validity(Block e, Integer round)
+    public boolean check_validity(Block e, Integer round)// check the validity of a block
     {
         if(!chain.chain.containsKey(e.get_last_hash()) && e.get_last_hash() != null)
             return false;//currently orphan blocks not considered
@@ -84,7 +84,7 @@ public class Naive_adversary implements Adversary
         return true;
     }
 
-    public Integer get_length(Block e)
+    public Integer get_length(Block e)//get the height of a block in the chain
     {
         Integer length=0;
         while(e!=null)
@@ -95,7 +95,7 @@ public class Naive_adversary implements Adversary
         return length;
     }
 
-    public void update_public(Block e)
+    public void update_public(Block e)//update the public chain
     {
         if(chain.chain.containsKey(e.get_current_hash()));
         else
@@ -119,7 +119,7 @@ public class Naive_adversary implements Adversary
         }
     }
 
-    public void update_private(Block e)
+    public void update_private(Block e)//update the private chain
     {
         if(chain.chain.containsKey(e.get_current_hash()));
         else
@@ -131,7 +131,7 @@ public class Naive_adversary implements Adversary
         }
     }
 
-    public void send_message(Integer round)
+    public void send_message(Integer round)// send the private chain to honest nodes
     {
         Block tmp=private_main_block;
         while(tmp!=null)
@@ -139,7 +139,7 @@ public class Naive_adversary implements Adversary
             Message msg=new Message(new Honest_message(Honest_message.annonce_block, tmp));
             for (Integer h: honest_nodes) {
                 Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),h, round+1, -1);
-                net.receive_message_from_corrupted(msg2);
+                net.receive_message_from_corrupted(msg2);//the api for sending message to the framework
             }
             tmp=chain.chain.get(tmp.get_last_hash());
         }
@@ -151,8 +151,8 @@ public class Naive_adversary implements Adversary
     @Override
     public ArrayList<Block> run(Integer round)
     {
-        ArrayList<Message_to_send>  msg=net.send_message_to_corrupted();
-        logger.log(Level.WARNING,"public chain length:"+public_chain_length);
+        ArrayList<Message_to_send>  msg=net.send_message_to_corrupted();//the api for receiving message from the framework
+        //logger.log(Level.WARNING,"public chain length:"+public_chain_length);
         for(int j=0;j<msg.size();++j)
         {
                 if(msg.get(j).get_message().get_message() instanceof Honest_message)
@@ -173,6 +173,8 @@ public class Naive_adversary implements Adversary
                     }
                 }
         }
+        //the above part is about update information
+
         //the following is about how to attack
         for(Corrupted_node n: corrupt_nodes)
         {
@@ -220,7 +222,7 @@ public class Naive_adversary implements Adversary
             private_chain.clear();
             private_main_block=null;
         }
-        //if leading T blocks, the broadcast the message
+        //if breaking consistency, the broadcast the message
         if(private_chain_length > public_chain_length && (public_chain_length-get_length(private_chain.get(0))+1) > T)
         {
          //   logger.log(Level.INFO, "attack successful!");
