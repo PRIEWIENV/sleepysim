@@ -84,8 +84,7 @@ $\bullet$&\multicolumn{3}{@{}l}{\bfseries Where to find our project?}\\[1mm]
 \newpage
 %
 \section{Introduction}
-
-\quad Consensus protocols are at the core of distributed computing and also provide a foundational building protocol for multi-party cryptographic protocols. In the paper about \emph{sleepy consensus} protocol \cite{Sleepy}, Pass and Shi propose a consensus protocol for realizing a “linearly ordered log” abstraction -- often referred to as state machine replication or linearizability in the distributed systems literature. They name it as sleepy consensus protocol, which respects two important resiliency properties, i.e., consistency and liveness. And in sleepy consensus model, players can be either online (alert) or offline (asleep), and their online status may change at any point during the protocol.
+\quad Consensus protocol serves as the core of distributed computing and also provides a foundational building block for cryptocurrency protocols. In traditional cryptocurrency schemes, proof-of-work (PoW) is leveraged to provide consistency and chain quality for the underlying blockchain. However, proof-of-work is notoriously indifferent for its waste of energy and the potential of the computing power centralization. To face this issue, proof-of-stake (PoS) is proposed to replace proof-of-work. In  Pass and Shi's \emph{sleepy consensus} article (eprint 2016/918) \cite{Sleepy}, a PoS protocol is constructed to realize consensus on the “linearly ordered log” abstraction -- often referred to as state machine replication or linearizability in the distributed systems literature. This scheme is named as sleepy consensus protocol, which respects two important resiliency properties, i.e., consistency and liveness. Moreover, in sleepy consensus model, players can be either online (alert) or offline (asleep), and their online status may change at any point during the protocol execution.
 
 Algorithm \ref{algo1} presents how sleepy consensus protocol works. The protocol takes a parameter $p$ as input, where $p$ denotes the probability each node is elected leader in a single time step. All nodes that just spawned will invoke the init entry point. During initialization, a node generates a signature key pair and registers the public key with the public-key infrastructure $F_{CA}$.
 \vspace{-4mm}
@@ -137,20 +136,7 @@ In this section, we will illustrate the construction of the framework of our sim
 
 %
 \subsection{Controller}
-%
-The LLNCS class is an extension of the standard \LaTeX{} ``article''
-document class. Therefore you may use all ``article'' commands for the
-body of your contribution to prepare your manuscript.
-LLNCS class is invoked by replacing ``article'' by ``llncs'' in the
-first line of your document:
-\begin{verbatim}
-\documentclass{llncs}
-%
-\begin{document}
-  <Your contribution>
-\end{document}
-\end{verbatim}
-%
+...
 
 \section{The Imitation of Honest Players}
 \subsection{Algorithm for Honest Players}
@@ -179,13 +165,13 @@ There are several steps to simulate the algorithm of sleepy consensus in our pro
 
 To simulate the attacks, we assume there is an an adversary lurking within the  framework, who owns competence to intercept all messages coming from honest nodes and decide which to delay in the transportation. Also, the adversary is able to access useful information from these message to fork blocks right behind the private chain he captures. Based on above setting, we design four attacking methods for adversary to smash the consensus holded by system, which are illustrated in following subsections.
 \subsection{Na{\"i}ve Adversary Attack}
-\quad The \emph{Na{\"i}ve Adversary Attack} corresponds to an attacking method that is quite simple and easy to be came up with when knowing how the sleepy consensus protocol works. Figure \ref{naive} illustrates how na{\"i}ve adversaries to break the consistency of sleepy consensus. In this figure, when honest players add blocks to the main chain which they think is longest (that is the reason why there are several folks in Figure \ref{naive}), adversaries mine their own private chain and check whether the length of longest added blocks is larger than security parameter $T$ in every time step. If the longest chain added by honest nodes has length larger than $T$ yet smaller than the length of private chain mined by adversaries, the attacker can, just like the red arrow in Figure \ref{naive}, add these private chain to the beginning of added blocks and thus breaking the consistency of sleepy consensus, since some blocks which is determined be fixed in main chain is be replaced by blocks forged by adversaries.
+\quad The \emph{Na{\"i}ve Adversary Attack} corresponds to an attacking method that is quite simple and easy to be came up with when knowing how the sleepy consensus protocol works. Figure \ref{naive} illustrates how na{\"i}ve adversaries to break the consistency of sleepy consensus. In this figure, when honest players add blocks to the main chain which they think is longest (that is the reason why there are several folks in Figure \ref{naive} -- blocks linked by dashed arrows), adversaries mine their own private chain and check whether the length of longest added blocks is larger than security parameter $T$ in every time step. If the longest chain added by honest nodes has length larger than $T$ yet smaller than the length of private chain mined by adversaries, the attacker can, just like the red arrow in Figure \ref{naive}, add their private chain to a specific block in public chain and thus damaging the consistency of sleepy consensus, since some blocks which are confirmed be fixed in main chain are replaced by blocks forged by adversaries.
 \vspace{-4mm}
 \begin{figure}
 \centering
-\includegraphics[width=4.3in]{Figures/Naive-Attacker.pdf}
+\includegraphics[width=4.3in]{Figures/Naive-Attack.pdf}
 \vspace{-3mm}
-\caption{This figure represents the attack which na{\"i}ve adversaries impose to the sleepy consensus. The consistency of consensus will be broken when the length of private chain mined by adversaries is larger than the length of the longest private chain mined by honest nodes, and the later one is supposed be larger than security parameter $T$, which denotes the time round number a block can be convinced as secure, i.e., be eternally fixed in main block chain.}
+\caption{This figure represents the attack which na{\"i}ve adversaries impose to the sleepy consensus. The consistency of consensus will break when the length of private chain mined by adversaries is larger than the length of the longest private chain mined by honest nodes, and the later one is supposed be larger than security parameter $T$, which denotes the time round number a block can be confirmed as secure, i.e., be eternally fixed in main block chain.}
 \label{naive}
 \end{figure}
 \subsection{Selfish Adversary Attack}
