@@ -1,5 +1,9 @@
 \documentclass{llncs}
 \usepackage{algorithm,algorithmic}
+\usepackage{graphicx}
+\usepackage{placeins}
+\usepackage{float}
+\usepackage{subfigure}
 \usepackage{multirow}    
 \usepackage{llncsdoc}
 \begin{document}
@@ -90,7 +94,7 @@ Algorithm \ref{algo1} presents how sleepy consensus protocol works. The protocol
 \label{algo1}
 \footnotesize
   \begin{algorithmic}[1]
-  \renewcommand{\algorithmicrequire}{\textbf{If On Initialisation:}}
+  \renewcommand{\algorithmicrequire}{\textbf{If On Initialization:}}
   \renewcommand{\algorithmicensure}{\textbf{If On Received \emph{chain'}:}}
   % \renewcommand{\algorithmiclastcon}{\textbf{Every Time Step:}}
   \REQUIRE 
@@ -175,8 +179,20 @@ There are several steps to simulate the algorithm of sleepy consensus in our pro
 
 To simulate the attacks, we assume there is an an adversary lurking within the  framework, who owns competence to intercept all messages coming from honest nodes and decide which to delay in the transportation. Also, the adversary is able to access useful information from these message to fork blocks right behind the private chain he captures. Based on above setting, we design four attacking methods for adversary to smash the consensus holded by system, which are illustrated in following subsections.
 \subsection{Na{\"i}ve Adversary Attack}
+\quad The \emph{Na{\"i}ve Adversary Attack} corresponds to an attacking method that is quite simple and easy to be came up with when knowing how the sleepy consensus protocol works. Figure \ref{naive} illustrates how na{\"i}ve adversaries to break the consistency of sleepy consensus. In this figure, when honest players add blocks to the main chain which they think is longest (that is the reason why there are several folks in Figure \ref{naive}), adversaries mine their own private chain and check whether the length of longest added blocks is larger than security parameter $T$ in every time step. If the longest chain added by honest nodes has length larger than $T$ yet smaller than the length of private chain mined by adversaries, the attacker can, just like the red arrow in Figure \ref{naive}, add these private chain to the beginning of added blocks and thus breaking the consistency of sleepy consensus, since some blocks which is determined be fixed in main chain is be replaced by blocks forged by adversaries.
+\vspace{-4mm}
+\begin{figure}
+\centering
+\includegraphics[width=4.3in]{Figures/Naive-Attacker.pdf}
+\vspace{-3mm}
+\caption{This figure represents the attack which na{\"i}ve adversaries impose to the sleepy consensus. The consistency of consensus will be broken when the length of private chain mined by adversaries is larger than the length of the longest private chain mined by honest nodes, and the later one is supposed be larger than security parameter $T$, which denotes the time round number a block can be convinced as secure, i.e., be eternally fixed in main block chain.}
+\label{naive}
+\end{figure}
 \subsection{Selfish Adversary Attack}
+
+
 \subsection{Stubborn Adversary Attack}
+
 \subsection{Selfish Eclipse Attack}
 %
 \section{The Analysis of Simulating Results}
