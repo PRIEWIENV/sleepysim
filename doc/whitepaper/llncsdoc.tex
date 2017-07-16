@@ -6,6 +6,9 @@
 \usepackage{subfigure}
 \usepackage{multirow}    
 \usepackage{llncsdoc}
+\usepackage{color}
+\usepackage{ifpdf}
+\usepackage{amsmath}
 \begin{document}
 \markboth{\$ Simulator for Distributed Sleepy 
 Consensus}{\$ Simulator for Distributed Sleepy Consensus}
@@ -175,7 +178,46 @@ To simulate the attacks, we assume there is an an adversary lurking within the  
 \label{naive}
 \end{figure}
 \subsection{Selfish Adversary Attack}
+\quad The selfish adversary attack is integrated with the concept of \emph{selfish mining}, which is proposed by Eyal et al. \cite{Selfish-Attack}. To illustrate, if everyone adheres to the sleepy consensus protocol, then a node with computation power of 10\% should also get 10\% profit from mining for expectation.
+However, the aim of selfish mining is to waste honest nodes' computation power and increase its revenue for mining blocks.
 
+The operation of this attack are quite simple. Firstly, adversaries will mine a private chain and hide it from the rest. If the honest node mines a block from the public main chain, then adversaries will publish their private block immediately and delibrately creating a fork in the network. Otherwise, adversary will keep mining on their private chain. To be more specific, if currently the private chain has led the public chain by length of two, then if a new public block is discovered, adversaries would likely to publish all of their two private blocks, thus making their chain the longest chain in the network. If the private chain has led the public chain by length more than two, then for every newly discovered public block, adversaries will publish one of their private blocks to create forks in the network. We can imagine that through making forks in the network, computation is dispersed and also wasted. Thus, the adversary can gain more than he deserves.
+\vspace{-7mm}
+\begin{figure}[!htbp] 
+\begin{minipage}[t]{0.5\linewidth}  
+\centering  
+\includegraphics[height=0.8in, width=1.95in]{Figures/Selfish-Attack-1.pdf}
+ 
+\text{(a) State 1}   
+\end{minipage}%  
+\begin{minipage}[t]{0.5\linewidth}  
+\centering  
+\includegraphics[height=0.8in, width=1.65in]{Figures/Selfish-Attack-2.pdf}
+
+\text{(b) State 2}    
+\end{minipage}
+
+\begin{minipage}[t]{0.5\linewidth}  
+\centering  
+\includegraphics[height=0.8in, width=1.65in]{Figures/Selfish-Attack-3.pdf}
+
+\text{(c) State 3}     
+\end{minipage}%  
+\begin{minipage}[t]{0.5\linewidth}  
+\centering  
+\includegraphics[height=0.8in, width=1.65in]{Figures/Selfish-Attack-4.pdf}
+
+\text{(d) State 4}    
+\end{minipage}   
+\vspace{0mm}
+\setlength{\belowcaptionskip}{-10pt}
+\caption{This figure shows an example to illustrate how selfish adversary algorithm works. Four subfigures respectively correspond to four different states in one selfish attack.}
+\label{selfish}
+\vspace{-3mm}
+\end{figure}
+
+Figure \ref{selfish} presents an instance of selfish adversary attack. 
+First of all, in Figure \ref{selfish}(a), the system is initialized with one public block chain, and both honest and adversary players want to add block to the public block chain. In state one, adversaries have already mined three blocks. And according to selfish attack algorithm, they will make a folk chain with same length of longest chain in current state, when one honest player adds his mined block to public chain. Figure \ref{selfish}(b) shows the state 2 when new honest player adds block to the public chain branch he selects. And adversaries need to release another private block he holds to keep the chain he works on has the same length of the longest chain in system. What should be noticed is in state 2, adversaries mined a new private block. In Figure \ref{selfish}(c), i.e., state 3, two honest players come in and add blocks. However, in this state, one player select the branch where adversaries work on as the longest chain while another does not, which causes two longest branches are still with same length. Therefore, in state 3, adversaries just keep mining while add no block to the main chain. In Figure \ref{selfish}(d), i.e., state 4, one honest node comes in and chooses the longest chain he prefers. And adversaries still need to add block to the chain they works on to keep the equivalence of length. However, in this case, adversaries only have one block left. Thus in line with algorithm, they need to release that block and add it to their branch to make sure their chain is now the sole longest chain in system -- just as red line in Figure \ref{selfish}(d) represents. And from then on, both honest nodes and adverseries will select the chain underlined in red color as public chain to keep mining.
 
 \subsection{Stubborn Adversary Attack}
 
@@ -190,7 +232,9 @@ In conclusion....
 \begin{thebibliography}{}  % (do not forget {})
 
 \bibitem{Sleepy}
-Pass, Rafael, and Elaine Shi. \emph{The sleepy model of consensus}. Cryptology ePrint Archive, Report 2016/918, 2016. http://eprint. iacr. org/2016/918, 2016.
+Bentov, I., Pass, R., \& Shi, E. (2016). The Sleepy Model of Consensus. \emph{IACR Cryptology ePrint Archive}, 2016, 918.
+\bibitem{Selfish-Attack}
+Eyal, I., \& Sirer, E. G. (2014, March). Majority is not enough: Bitcoin mining is vulnerable. In \emph{International conference on financial cryptography and data security} (pp. 436-454). Springer, Berlin, Heidelberg.
 
 \end{thebibliography}
 %
