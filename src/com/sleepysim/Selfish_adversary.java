@@ -35,22 +35,28 @@ public class Selfish_adversary implements Adversary
      * @param secret_key_table secret key for each corrupted node, the Integer is node id, and String is the corresponding secret key
      * @param public_key_table public keys
      */
-    public Selfish_adversary(Integer n,Controller controller, ArrayList<Integer> honest_nodes,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt, Block genesis, Integer D, Integer T, Network_control net)
+    public Selfish_adversary(Integer n,Controller controller,Boolean[] is_corrupted,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt,Integer T, Network_control net)
     {
         this.n = n;
-        this.D=D;
         this.T=T;
-        this.honest_nodes=honest_nodes;
+        this.honest_nodes = new ArrayList<>();
+        for(int i = 0; i < n; ++i)
+            if(!is_corrupted[i])
+                this.honest_nodes.add(i);
         this.secret_key_table = secret_key_table;
         this.public_key_table = public_key_table;
         this.corrupt_nodes=corrupt;
         this.private_main_block=null;
         this.public_chain_length=1;
         this.private_chain_length=0;
-        chain.chain.put(genesis.get_current_hash(),genesis);
-        latest_blocks.put(genesis.get_current_hash(),genesis);
         this.net=net;
         this.controller=controller;
+        latest_blocks = new HashMap<>();
+        chain = new Chain();
+
+        mem_pool = new ArrayList<>();
+        public_main_block = new ArrayList<>();
+        private_chain = new ArrayList<>();
     }
 
     public boolean duplicate(Transaction e)
@@ -58,32 +64,6 @@ public class Selfish_adversary implements Adversary
         return false;
     }
 
-    public static int byteArrayToInt(byte[] b)
-    {
-        int value = 0;
-        for (int i = 0; i < 4; i++) {
-            int shift = (4 - 1 - i) * 8;
-            value += (b[i] & 0x000000FF) << shift;
-        }
-        return value;
-    }
-
-    public boolean Isleader(Integer id, Integer round, Integer D)
-    {
-        try {
-            byte [] tmp1=To_byte_array.to_byte_array(id);
-            byte [] tmp2=To_byte_array.to_byte_array(round);
-            byte[] combined = new byte[tmp1.length + tmp2.length];
-            for (int i = 0; i < combined.length; ++i)
-            {
-                combined[i] = i < tmp1.length ? tmp1[i] : tmp2[i - tmp1.length];
-            }
-            return byteArrayToInt(combined)<=D?true:false;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
     public boolean check_validity(Block e, Integer round)
     {
@@ -149,8 +129,8 @@ public class Selfish_adversary implements Adversary
         for(Block e: private_chain)
         {
             for(Integer r: honest_nodes) {
-                Message msg = new Message(e);
-                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round,-1);
+                Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
+                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+1,-1);
                 net.receive_message_from_corrupted(msg2);
             }
         }
@@ -158,9 +138,9 @@ public class Selfish_adversary implements Adversary
 
     public void disclose_block(Block e,Integer round)
     {
-        Message msg=new Message(e);
+        Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
         for(Integer r: honest_nodes) {
-            Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round,-1);
+            Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+1,-1);
             net.receive_message_from_corrupted(msg2);
         }
     }
@@ -207,7 +187,7 @@ public class Selfish_adversary implements Adversary
                                     }
                                     else//now, ahead of more than one, so only disclose the most original one
                                     {
-                                        disclose_block(private_chain.get(0),round);
+                                        if(pre>2)disclose_block(private_chain.get(0),round);
                                     }
                                 }
                             }
@@ -223,7 +203,7 @@ public class Selfish_adversary implements Adversary
         //the following is about when the attacker finds a block
         for(Corrupted_node n: corrupt_nodes)
         {
-            if(Isleader(n.request_id(),round,D))
+            if(controller.is_leader(n.request_id(), -1))
             {
                 byte [] sig=null;
                 byte [] hashvalue=null;
@@ -231,7 +211,8 @@ public class Selfish_adversary implements Adversary
                 Integer pre=private_chain_length-public_chain_length;
                 if(private_main_block==null)
                 {
-                    prehash=public_main_block.get(0).get_last_hash();
+                    if(public_main_block.size()!=0) prehash=public_main_block.get(0).get_last_hash();
+                    else prehash=null;
                     try {
                         sig = Signature_tool.generate_signature(n.request_private_key(),
                                 To_byte_array.to_byte_array(new Honest_node.Signature_elements(prehash, mem_pool, round)));
@@ -260,7 +241,7 @@ public class Selfish_adversary implements Adversary
                     private_chain_length=0;
                 }
                 mem_pool.clear();
-                ArrayList<Block> b = null;
+                ArrayList<Block> b = new ArrayList<>();
                 b.add(newblock);
                 return b;
             }
