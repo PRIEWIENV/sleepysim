@@ -36,4 +36,4 @@ The results are in `nohup.out`.
 
 `doc/whitepaper` directory contains the white paper and tex document.
 
-`SleepySim_API_Manual` directory contains the Application Programming Interface of our simulator's codes. And **online version** is also available [**here**](https://initc3.github.io/sleepysim/).
+`gh-page` branch contains the Application Programming Interface of our simulator's codes. And the **online version** is also available [**here**](https://initc3.github.io/sleepysim/).
