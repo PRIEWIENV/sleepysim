@@ -28,14 +28,14 @@ public class Selfish_adversary implements Adversary
     private Integer public_chain_length;
     private Integer private_chain_length;
     private Network_control net;
-    private Controller controller;
+    private Protocol protocol;
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes
      * @param secret_key_table secret key for each corrupted node, the Integer is node id, and String is the corresponding secret key
      * @param public_key_table public keys
      */
-    public Selfish_adversary(Integer n,Controller controller,Boolean[] is_corrupted,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt,Integer T, Network_control net)
+    public Selfish_adversary(Integer n,Protocol protocol,Boolean[] is_corrupted,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt,Integer T, Network_control net)
     {
         this.n = n;
         this.T=T;
@@ -50,7 +50,7 @@ public class Selfish_adversary implements Adversary
         this.public_chain_length=1;
         this.private_chain_length=0;
         this.net=net;
-        this.controller=controller;
+        this.protocol=protocol;
         latest_blocks = new HashMap<>();
         chain = new Chain();
 
@@ -73,7 +73,7 @@ public class Selfish_adversary implements Adversary
             return false; // future blocks
         if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())
             return false;
-        if(!controller.is_leader(e.get_creator(), e.get_time_stamp()))
+        if(!protocol.is_leader(e.get_creator(), e.get_time_stamp()))
             return false;
         return true;
     }
@@ -204,7 +204,7 @@ public class Selfish_adversary implements Adversary
         //the following is about when the attacker finds a block
         for(Corrupted_node n: corrupt_nodes)
         {
-            if(controller.is_leader(n.request_id(), -1))
+            if(protocol.is_leader(n.request_id(), -1))
             {
                 byte [] sig=null;
                 byte [] hashvalue=null;
