@@ -34,6 +34,6 @@ The results are in `nohup.out`.
 
 ## Documentation
 
-The **whitePaper** file contains the white paper and tex document.
+`doc/whitepaper` directory contains the white paper and tex document.
 
-The **doc** file contains the Application Programming Interface of our simulator's codes.
+`SleepySim_API_Manual` directory contains the Application Programming Interface of our simulator's codes. And **online version** is also available [**here**](https://initc3.github.io/sleepysim/).
