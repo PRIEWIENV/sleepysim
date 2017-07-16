@@ -62,10 +62,10 @@ public class Selfish_adversary implements Adversary
     public boolean duplicate(Transaction e)
     {
         return false;
-    }
+    }//same as naive
 
 
-    public boolean check_validity(Block e, Integer round)
+    public boolean check_validity(Block e, Integer round)//same as naive
     {
         if(!chain.chain.containsKey(e.get_last_hash()) && e.get_last_hash() != null)
             return false;//currently orphan blocks not considered
@@ -78,7 +78,7 @@ public class Selfish_adversary implements Adversary
         return true;
     }
 
-    public Integer get_length(Block e)
+    public Integer get_length(Block e)//same as naive
     {
         Integer length=0;
         while(e!=null)
@@ -89,7 +89,7 @@ public class Selfish_adversary implements Adversary
         return length;
     }
 
-    public void update_public(Block e)
+    public void update_public(Block e)// same as naive
     {
         if(chain.chain.containsKey(e.get_current_hash()));
         else
@@ -112,7 +112,7 @@ public class Selfish_adversary implements Adversary
         }
     }
 
-    public void update_private(Block e)
+    public void update_private(Block e)// same as naive
     {
         if(chain.chain.containsKey(e.get_current_hash()));
         else
@@ -124,7 +124,7 @@ public class Selfish_adversary implements Adversary
         }
     }
 
-    public void disclose_all(Integer round)
+    public void disclose_all(Integer round)// send all the private chain out to honest nodes
     {
         for(Block e: private_chain)
         {
@@ -136,7 +136,7 @@ public class Selfish_adversary implements Adversary
         }
     }
 
-    public void disclose_block(Block e,Integer round)
+    public void disclose_block(Block e,Integer round)// only send one private block out
     {
         Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
         for(Integer r: honest_nodes) {
@@ -200,6 +200,7 @@ public class Selfish_adversary implements Adversary
                     }
                 }
         }
+        //the above is about updating information
         //the following is about when the attacker finds a block
         for(Corrupted_node n: corrupt_nodes)
         {
