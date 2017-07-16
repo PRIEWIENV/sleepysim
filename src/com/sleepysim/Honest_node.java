@@ -21,7 +21,7 @@ public class Honest_node implements Node
     private Network_control networkcontrol;
     private Integer num_node;
     private ArrayList<Integer> all_set;
-    private Controller controller;
+    private Protocol protocol;
     private HashMap<byte[], Block> store_pool;
     /**
      * Initialize the node
@@ -30,9 +30,9 @@ public class Honest_node implements Node
      * @param public_key list of public key
      */
     public Honest_node(Integer id, PrivateKey secret_key, ArrayList<PublicKey> public_key, Network_control networkcontrol, Integer num_node,
-                       Controller controller)
+                       Protocol protocol)
     {
-        this.controller = controller;
+        this.protocol = protocol;
         this.secret_key = secret_key;
         this.public_key = public_key;
         this.id = id;
@@ -251,7 +251,7 @@ public class Honest_node implements Node
                             Block b = (Block)msg.ctx;
                             try
                             {
-                                if (!controller.is_leader(b.get_creator(), b.get_time_stamp()) ||
+                                if (!protocol.is_leader(b.get_creator(), b.get_time_stamp()) ||
                                         !Signature_tool.check_signature(public_key.get(b.get_creator()), b.get_signature(),
                                                 To_byte_array.to_byte_array(new Signature_elements(b.get_last_hash(), b.get_txs(), b.get_time_stamp()))))
                                 {
@@ -280,7 +280,7 @@ public class Honest_node implements Node
             logger.log(Level.SEVERE, "Inconsistent message. Message type error.");
             return null;
         }
-        if(controller.is_leader(id, -1))
+        if(protocol.is_leader(id, -1))
         {
             logger.log(Level.INFO, "Honest node " + id.toString() + " is elected as leader.");
             byte[] sign;
