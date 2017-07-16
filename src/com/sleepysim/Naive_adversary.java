@@ -28,7 +28,7 @@ public class Naive_adversary implements Adversary
     private Block private_main_block;
     private ArrayList<Block> private_chain;
     private Integer public_chain_length;
-    private Controller controller;
+    private Protocol protocol;
     private Integer private_chain_length;
     private Network_control net;
     private static Logger logger;
@@ -40,10 +40,10 @@ public class Naive_adversary implements Adversary
      */
     public Naive_adversary(Integer n, Boolean[] is_corrupted, ArrayList<Pair<Integer, PrivateKey>> secret_key_table,
                            ArrayList<PublicKey> public_key_table, ArrayList<Corrupted_node> corrupt,
-                           Integer T, Controller controller,Network_control net)
+                           Integer T, Protocol protocol,Network_control net)
     {
         logger = Logger.getLogger("Naive_Attacker");
-        this.controller = controller;
+        this.protocol = protocol;
         this.n = n;
         this.T=T;
         //this.honest_nodes=honest_nodes;
@@ -79,7 +79,7 @@ public class Naive_adversary implements Adversary
             return false; // future blocks
         if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())
             return false;
-        if(!controller.is_leader(e.get_creator(), e.get_time_stamp()))
+        if(!protocol.is_leader(e.get_creator(), e.get_time_stamp()))
             return false;
         return true;
     }
@@ -176,7 +176,7 @@ public class Naive_adversary implements Adversary
         //the following is about how to attack
         for(Corrupted_node n: corrupt_nodes)
         {
-            if(controller.is_leader(n.request_id(), -1))
+            if(protocol.is_leader(n.request_id(), -1))
             {
                 byte [] sig=null;
                 byte [] hashvalue = null;

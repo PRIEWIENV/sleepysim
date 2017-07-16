@@ -9,7 +9,7 @@ public class Main
     //test the influence of the number of adversary nodes on the protocol.
     public static void testAdversary(int lowerbound, int upbound){
         for(int i = lowerbound; i <= upbound; i++){
-            Controller controller = new Controller(100, i, 1, 10, 0.0001);
+            Controller controller = new Controller(100, i, 1, 10, 0.01);
             controller.run();
         }
     }
@@ -38,7 +38,7 @@ public class Main
     {
 	// write your code here
         Security.addProvider(new BouncyCastleProvider());
-        testAdversary(40, 60);
+        testAdversary(51, 60);
         testDifficulty(60);
         testDelay(60, 0.0001);
     }
