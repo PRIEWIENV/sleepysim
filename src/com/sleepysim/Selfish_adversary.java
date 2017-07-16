@@ -231,7 +231,7 @@ public class Selfish_adversary implements Adversary
                 Integer pre=private_chain_length-public_chain_length;
                 if(private_main_block==null)
                 {
-                    prehash=public_main_block.get(0).get_current_hash();
+                    prehash=public_main_block.get(0).get_last_hash();
                     try {
                         sig = Signature_tool.generate_signature(n.request_private_key(),
                                 To_byte_array.to_byte_array(new Honest_node.Signature_elements(prehash, mem_pool, round)));
