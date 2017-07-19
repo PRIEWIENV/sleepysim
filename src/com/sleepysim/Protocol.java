@@ -68,6 +68,10 @@ public class Protocol {
         {
             double v = 0.1;
             double rho = (double)adversary_count / node_count;
+            if(rho >= 0.5 - 0.001)
+            {
+                rho = 0.45;
+            }
             double up = (1 - (1 + v) * rho / (1 - rho)) / (2 * node_count * delay);
             double eps = 0.1;
             difficulty = up * (1 - eps);
