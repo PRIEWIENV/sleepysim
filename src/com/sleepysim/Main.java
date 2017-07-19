@@ -10,17 +10,21 @@ public class Main
     public static void testAdversary(int lowerbound, int upbound){
         Controller controller;
         for(int i = lowerbound; i <= upbound; i++){
-            Protocol protocol = new Protocol(100, i, 1, 10, 0.01);
-            controller = new Controller(protocol);
-            controller.run();
+            for(int j=1;j<=4;++j) {
+                for(double d=0.001;d<=1;d*=10) {
+                    Protocol protocol = new Protocol(100, i, j, 10, d);
+                    controller = new Controller(protocol);
+                    controller.run();
+                }
+            }
         }
     }
 
     //test the influence of mining difficulty on the protocol.
     public static void testDifficulty(int adversary_count){
-        double difficulty = 0.0001;
+        double difficulty = 0.001;
         Controller controller;
-        for(int i = 1; i <= 4; i++){
+        for(int i = 1; i <= 3; i++){
             System.out.println("Now we have " + adversary_count + " adversary nodes and the difficulty is " + difficulty + "!");
             Protocol protocol = new Protocol(100, adversary_count, 1, 10, difficulty);
             controller = new Controller(protocol);
@@ -44,8 +48,6 @@ public class Main
     {
 	// write your code here
         Security.addProvider(new BouncyCastleProvider());
-        testAdversary(51, 60);
-        testDifficulty(60);
-        testDelay(60, 0.0001);
+        testAdversary(40, 60);
     }
 }
