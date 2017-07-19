@@ -1,7 +1,6 @@
 package com.sleepysim;
 
 import javafx.util.Pair;
-
 import java.io.IOException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
@@ -26,16 +25,17 @@ public class Stubborn_adversary implements Adversary{
     private ArrayList<Block> private_chain;
     private Integer public_chain_length;
     private Integer private_chain_length;
+    private Network_control net;
+    private Protocol protocol;
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes
      * @param secret_key_table secret key for each corrupted node, the Integer is node id, and String is the corresponding secret key
      * @param public_key_table public keys
      */
-    public Stubborn_adversary(Integer n, Integer L,ArrayList<Integer> honest_nodes,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt, Block genesis, Integer D, Integer T)
+    public Stubborn_adversary(Integer n, Integer L,Protocol protocol,Boolean[] is_corrupted,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt, Network_control net,Integer T)
     {
         this.n = n;
-        this.D=D;
         this.T=T;
         this.L=L;
         this.honest_nodes=honest_nodes;
@@ -45,8 +45,13 @@ public class Stubborn_adversary implements Adversary{
         this.private_main_block=null;
         this.public_chain_length=1;
         this.private_chain_length=0;
-        chain.chain.put(genesis.get_current_hash(),genesis);
-        latest_blocks.put(genesis.get_current_hash(),genesis);
+        this.protocol=protocol;
+        this.net=net;
+        latest_blocks = new HashMap<>();
+        chain = new Chain();
+        mem_pool = new ArrayList<>();
+        public_main_block = new ArrayList<>();
+        private_chain = new ArrayList<>();
     }
 
     public boolean duplicate(Transaction e)
@@ -54,39 +59,16 @@ public class Stubborn_adversary implements Adversary{
         return false;
     }
 
-    public static int byteArrayToInt(byte[] b)
+    public boolean check_validity(Block e, Integer round)//same as naive
     {
-        int value = 0;
-        for (int i = 0; i < 4; i++) {
-            int shift = (4 - 1 - i) * 8;
-            value += (b[i] & 0x000000FF) << shift;
-        }
-        return value;
-    }
-
-    public boolean Isleader(Integer id, Integer round, Integer D)
-    {
-        try {
-            byte [] tmp1=To_byte_array.to_byte_array(id);
-            byte [] tmp2=To_byte_array.to_byte_array(round);
-            byte[] combined = new byte[tmp1.length + tmp2.length];
-            for (int i = 0; i < combined.length; ++i)
-            {
-                combined[i] = i < tmp1.length ? tmp1[i] : tmp2[i - tmp1.length];
-            }
-            return byteArrayToInt(combined)<=D?true:false;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean check_validity(Block e, Integer round)
-    {
-        if(!chain.chain.containsKey(e.get_last_hash())) return false;//currently orphan blocks not considered
-        if(e.get_time_stamp() >= round)return false; // future blocks
-        if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())return false;
-        if(!Isleader(e.get_creator(),round,D))return false;
+        if(!chain.chain.containsKey(e.get_last_hash()) && e.get_last_hash() != null)
+            return false;//currently orphan blocks not considered
+        if(e.get_time_stamp() > round)
+            return false; // future blocks
+        if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())
+            return false;
+        if(!protocol.is_leader(e.get_creator(), e.get_time_stamp()))
+            return false;
         return true;
     }
 
@@ -101,7 +83,7 @@ public class Stubborn_adversary implements Adversary{
         return length;
     }
 
-    public void update_public(Block e)
+    public void update_public(Block e)// same as naive
     {
         if(chain.chain.containsKey(e.get_current_hash()));
         else
@@ -124,7 +106,7 @@ public class Stubborn_adversary implements Adversary{
         }
     }
 
-    public void update_private(Block e)
+    public void update_private(Block e)// same as naive
     {
         if(chain.chain.containsKey(e.get_current_hash()));
         else
@@ -136,24 +118,24 @@ public class Stubborn_adversary implements Adversary{
         }
     }
 
-    public void disclose_all(Integer round)
+    public void disclose_all(Integer round)// send all the private chain out to honest nodes
     {
         for(Block e: private_chain)
         {
-            Message msg=new Message(e);
-            for(Corrupted_node n: corrupt_nodes)
-            {
-                n.send_message_corrputed(msg,n.request_id(),honest_nodes,round,-1);//-1 for own
+            for(Integer r: honest_nodes) {
+                Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
+                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+1,-1);
+                net.receive_message_from_corrupted(msg2);
             }
         }
     }
 
-    public void disclose_block(Block e,Integer round)
+    public void disclose_block(Block e,Integer round)// only send one private block out
     {
-        Message msg=new Message(e);
-        for(Corrupted_node n: corrupt_nodes)
-        {
-            n.send_message_corrputed(msg,n.request_id(),honest_nodes,round,-1);//-1 for own
+        Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
+        for(Integer r: honest_nodes) {
+            Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+1,-1);
+            net.receive_message_from_corrupted(msg2);
         }
     }
 
@@ -199,7 +181,7 @@ public class Stubborn_adversary implements Adversary{
                                     }
                                     else//now, ahead of more than one, so only disclose the most original one
                                     {
-                                        disclose_block(private_chain.get(0),round);
+                                        if(pre>2)disclose_block(private_chain.get(0),round);
                                     }
                                 }
                             }
@@ -216,7 +198,7 @@ public class Stubborn_adversary implements Adversary{
         //the following is about when the attacker finds a block
         for(Corrupted_node n: corrupt_nodes)
         {
-            if(Isleader(n.request_id(),round,D))
+            if(protocol.is_leader(n.request_id(),-1))
             {
                 byte [] sig=null;
                 byte [] hashvalue=null;
@@ -224,7 +206,7 @@ public class Stubborn_adversary implements Adversary{
                 Integer pre=private_chain_length-public_chain_length;
                 if(private_main_block==null)
                 {
-                    prehash=public_main_block.get(0).get_current_hash();
+                    if(public_main_block.size()!=0) prehash=public_main_block.get(0).get_last_hash();
                     try {
                         sig = Signature_tool.generate_signature(n.request_private_key(),
                                 To_byte_array.to_byte_array(new Honest_node.Signature_elements(prehash, mem_pool, round)));
@@ -258,9 +240,17 @@ public class Stubborn_adversary implements Adversary{
             }
         }
         //if leading T blocks, the broadcast the message and cause inconsistency
-        if(private_chain_length-public_chain_length>=T)
+        if(private_chain_length > public_chain_length && (public_chain_length-get_length(private_chain.get(0))+1) > T)
         {
             disclose_all(round);
+            ArrayList<Block> report = new ArrayList<>();
+            Block cur = private_main_block;
+            while(cur != null)
+            {
+                report.add(cur);
+                cur = chain.chain.get(cur.get_last_hash());
+            }
+            return report;
         }
         return null;
     }

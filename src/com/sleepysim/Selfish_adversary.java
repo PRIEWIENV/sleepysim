@@ -53,7 +53,6 @@ public class Selfish_adversary implements Adversary
         this.protocol=protocol;
         latest_blocks = new HashMap<>();
         chain = new Chain();
-
         mem_pool = new ArrayList<>();
         public_main_block = new ArrayList<>();
         private_chain = new ArrayList<>();
