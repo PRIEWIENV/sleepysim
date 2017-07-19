@@ -1,6 +1,7 @@
 package com.sleepysim;
 
 import java.security.*;
+import java.util.HashMap;
 
 /**
  * Tool class for sign
@@ -17,6 +18,7 @@ public class Signature_tool
     {
         //some code goes here
         //for framework team
+        /*
         Signature signer;
         try
         {
@@ -29,7 +31,8 @@ public class Signature_tool
         {
             e.printStackTrace();
             return null;
-        }
+        }*/
+        return new byte[]{};
     }
 
     /**
@@ -42,6 +45,8 @@ public class Signature_tool
     {
         //some code goes here
         //for framework team
+        return true;
+        /*
         Signature signer;
         try
         {
@@ -55,6 +60,7 @@ public class Signature_tool
             e.printStackTrace();
             return false;
         }
+        */
     }
 
 }

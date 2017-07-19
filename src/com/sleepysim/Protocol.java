@@ -64,6 +64,14 @@ public class Protocol {
     }
     Protocol(Integer node_count, Integer adversary_count, Integer delay, Integer T, double difficulty)
     {
+        if(difficulty < 0)
+        {
+            double v = 0.1;
+            double rho = (double)adversary_count / node_count;
+            double up = (1 - (1 + v) * rho / (1 - rho)) / (2 * node_count * delay);
+            double eps = 0.1;
+            difficulty = up * (1 - eps);
+        }
         System.out.println("Setting: node count = " + node_count + ", adversary count = " + adversary_count + ", delay = " + delay + ", T = " + T + ", difficulty = " + difficulty);
         /*
         BigInteger b = BigInteger.valueOf(2).pow(256).subtract(BigInteger.ONE);
@@ -95,9 +103,9 @@ public class Protocol {
             ArrayList <PublicKey> public_key_table = new ArrayList<>();
             ArrayList <Corrupted_node> corrupted = new ArrayList<>();
             this.networkcontrol = new Network_control(delay, node_count);
+            KeyPair new_key = key_generator.generateKeyPair();
             for (int i = 0; i < node_count; i ++)
             {
-                KeyPair new_key = key_generator.generateKeyPair();
                 public_key_table.add(new_key.getPublic());
                 if (is_corrupted[i])
                 {
@@ -108,7 +116,9 @@ public class Protocol {
                 }
                 else
                     nodes.add(new Honest_node(i, new_key.getPrivate(), public_key_table, networkcontrol, node_count, this));
+                System.out.println(i);
             }
+            System.out.println("Key generated");
             adversary = new Naive_adversary(node_count, is_corrupted, secret_key_table, public_key_table, corrupted, T, this,networkcontrol);
         }
         catch (NoSuchAlgorithmException e)
@@ -138,6 +148,7 @@ public class Protocol {
     }
     public boolean run()
     {
+        System.out.println("Round: " + round);
         Integer minChainlength = 1000000000;
         Boolean has_inconsistency = false;
         for (int i = 0; i < node_count; i ++)
