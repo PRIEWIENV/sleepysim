@@ -4,10 +4,13 @@
 \usepackage{placeins}
 \usepackage{float}
 \usepackage{subfigure}
-\usepackage{multirow}    
+\usepackage{multirow}
 \usepackage{llncsdoc}
+\usepackage{color}
+\usepackage{ifpdf}
+\usepackage{amsmath}
 \begin{document}
-\markboth{\$ Simulator for Distributed Sleepy 
+\markboth{\$ Simulator for Distributed Sleepy
 Consensus}{\$ Simulator for Distributed Sleepy Consensus}
 \thispagestyle{empty}
 \begin{flushleft}
@@ -96,17 +99,17 @@ Algorithm \ref{algo1} presents how sleepy consensus protocol works. The protocol
   \renewcommand{\algorithmicrequire}{\textbf{If On Initialization:}}
   \renewcommand{\algorithmicensure}{\textbf{If On Received \emph{chain'}:}}
   % \renewcommand{\algorithmiclastcon}{\textbf{Every Time Step:}}
-  \REQUIRE 
+  \REQUIRE
   \STATE Let $(pk,sk):=\sum.\mbox{gen}()$
   \STATE Register $pk$ with $F_{CA}$
   \STATE Let \emph{chain} $:=$ \emph{genesis}
-  
-  \ENSURE  
-  \STATE Assert $|$\emph{chain'}$| > |$\emph{chain}$|$ and \emph{chain'} is valid w.r.t. eligible and the current time $t$ 
+
+  \ENSURE
+  \STATE Assert $|$\emph{chain'}$| > |$\emph{chain}$|$ and \emph{chain'} is valid w.r.t. eligible and the current time $t$
   \STATE \emph{chain} $:=$ \emph{chain'} and gossip \emph{chain}
 
   \renewcommand{\algorithmicensure}{\textbf{Every Time Step:}}
-  \ENSURE 
+  \ENSURE
   \STATE Receive input $\mbox{transactions}(\mbox{txs})$
   \STATE Let $t$ be the current time
   \IF {$\mbox{eligible}^t(P)$ where $P$ is the current node's party identifier}
@@ -115,7 +118,7 @@ Algorithm \ref{algo1} presents how sleepy consensus protocol works. The protocol
   \ENDIF
   \STATE Output $\mbox{\emph{extract}}(\mbox{\emph{chain}})$ to $Z$ where $\mbox{\emph{extract}}()$ is the function outputs an ordered list containing the $\mbox{txs}$ extracted from each block in \emph{chain}
   \renewcommand{\algorithmicensure}{\textbf{\emph{Subroutine} $\mbox{eligible}^t(P)$:}}
-  \ENSURE 
+  \ENSURE
   \IF {$H(P, t) < D_p$ and $P$ is a valid party of this protocol.} \RETURN 1
   \ELSE \RETURN 0
   \ENDIF
@@ -147,14 +150,14 @@ In our program, the honest nodes use the algorithm of sleepy consensus. To be sp
 		 where D denotes difficulty, then $Node[identity]$ will be elected to be a leader.\\
 	\item Second, the leader can sign the block using the hash value of previous block, transactions and time, then broadcasts.
 		 $$Block = sign(sk, block, Trans, time)$$
-	\item When one honest node receive a new chain, if the time in block is strictly increasing and the time in the blocks is not in the future, it will update its chain with the new chain.	 
+	\item When one honest node receive a new chain, if the time in block is strictly increasing and the time in the blocks is not in the future, it will update its chain with the new chain.	
 \end{itemize}
 \subsection{The process to simulate sleepy consensus}
 There are several steps to simulate the algorithm of sleepy consensus in our program.
 \begin{itemize}
-	\item First of all, in every round, the controller will 	let every node to run.\\ 
+	\item First of all, in every round, the controller will 	let every node to run.\\
 	\item Second, the honest node will ask network controller for messages.\\
-	\item Third, the network controller will send related message to every node.\\ 
+	\item Third, the network controller will send related message to every node.\\
 	\item Then every honest node will ask the controller whether it  has been elected a leader.\\
 	\item Next, if one honest node is not elected to be a leader, it will do nothing. However, if it is a leader, it will sign one new block using its secret key with the hash value of previous block, transactions and time stamp. Then it will broadcast it.\\
 	\item Finally, whatever one honest node has done, it will give some feedback to controller and network controller.\\
@@ -175,12 +178,86 @@ To simulate the attacks, we assume there is an an adversary lurking within the  
 \label{naive}
 \end{figure}
 \subsection{Selfish Adversary Attack}
+\quad The selfish adversary attack is integrated with the concept of \emph{selfish mining}, which is proposed by Eyal et al. \cite{Selfish-Attack}. To illustrate, if everyone adheres to the sleepy consensus protocol, then a node with computation power of 10\% should also get 10\% profit from mining for expectation.
+However, the aim of selfish mining is to waste honest nodes' computation power and increase its revenue for mining blocks.
 
+The operation of this attack are quite simple. Firstly, adversaries will mine a private chain and hide it from the rest. If the honest node mines a block from the public main chain, then adversaries will publish their private block immediately and delibrately creating a fork in the network. Otherwise, adversary will keep mining on their private chain. To be more specific, if currently the private chain has led the public chain by length of two, then if a new public block is discovered, adversaries would likely to publish all of their two private blocks, thus making their chain the longest chain in the network. If the private chain has led the public chain by length more than two, then for every newly discovered public block, adversaries will publish one of their private blocks to create forks in the network. We can imagine that through making forks in the network, computation is dispersed and also wasted. Thus, the adversary can gain more than he deserves.
+\vspace{-7mm}
+\begin{figure}[!htbp]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=0.8in, width=1.95in]{Figures/Selfish-Attack-1.pdf}
+
+\text{(a) State 1}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=0.8in, width=1.65in]{Figures/Selfish-Attack-2.pdf}
+
+\text{(b) State 2}
+\end{minipage}
+
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=0.8in, width=1.65in]{Figures/Selfish-Attack-3.pdf}
+
+\text{(c) State 3}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=0.8in, width=1.65in]{Figures/Selfish-Attack-4.pdf}
+
+\text{(d) State 4}
+\end{minipage}
+\vspace{0mm}
+\setlength{\belowcaptionskip}{-10pt}
+\caption{This figure shows an example to illustrate how selfish adversary algorithm works. Four subfigures respectively correspond to four different states in one selfish attack.}
+\label{selfish}
+\vspace{-3mm}
+\end{figure}
+
+Figure \ref{selfish} presents an instance of selfish adversary attack.
+First of all, in Figure \ref{selfish}(a), the system is initialized with one public block chain, and both honest and adversary players want to add block to the public block chain. In state one, adversaries have already mined three blocks. And according to selfish attack algorithm, they will make a folk chain with same length of longest chain in current state, when one honest player adds his mined block to public chain. Figure \ref{selfish}(b) shows the state 2 when new honest player adds block to the public chain branch he selects. And adversaries need to release another private block he holds to keep the chain he works on has the same length of the longest chain in system. What should be noticed is in state 2, adversaries mined a new private block. In Figure \ref{selfish}(c), i.e., state 3, two honest players come in and add blocks. However, in this state, one player select the branch where adversaries work on as the longest chain while another does not, which causes two longest branches are still with same length. Therefore, in state 3, adversaries just keep mining while add no block to the main chain. In Figure \ref{selfish}(d), i.e., state 4, one honest node comes in and chooses the longest chain he prefers. And adversaries still need to add block to the chain they works on to keep the equivalence of length. However, in this case, adversaries only have one block left. Thus in line with algorithm, they need to release that block and add it to their branch to make sure their chain is now the sole longest chain in system -- just as red line in Figure \ref{selfish}(d) represents. And from then on, both honest nodes and adverseries will select the chain underlined in red color as public chain to keep mining.
 
 \subsection{Stubborn Adversary Attack}
+\quad The stubborn adversary attack, which is proposed by Kartik et al. \cite{Stubborn}, is developed from \emph{selfish adversary attack}. The \emph{selfish mining} strategy withholds blocks when it is "in the lead" but cooperates with the honest network when it falls behind. However the new \emph{stubborn mining} strategies is that \emph{the attacker should not give up so easily!} In this case the attacker can increase profits by mining on its private chain more often, even under circumstances where a selfish-mining attacker would acquiesce to the public chain.
 
+We integrate \emph{Equal Fork stubborn} and \emph{Trail stubborn} mining strategies in our simulator. Both attacks are similar to \emph{selfish adversary attack} and modify a certain part of it. For \emph{Equal Fork stubborn}, adversaries will mine a private chain and hide it from the rest. If the honest node mines a block from the public main chain, the F-stubborn miner would conceal her new block and continue mining on it privately instead of hurry to reveal her new block to the public. In this way the adversaries can make the honest waste more than one block than \emph{selfish adversaries}.
+\vspace{-4mm}
+\begin{figure}
+\centering
+\includegraphics[width=4.3in]{Figures/Naive-Attack.pdf}
+\vspace{-3mm}
+\caption{TBC}
+\label{equal}
+\end{figure}
+
+Figure \ref{equal} presents an instance of \emph{Equal Fork stubborn} attack. The initial state is the same as that in \emph{selfish attack}, in which the adversaries have mined three blocks. When the honest node mines a block from the public chain, adversaries just keep mining private blocks. Eventually adversaries can publish all their private blocks and becomes the longest chain, discarding the blocks mined by honest nodes.
+
+\emph{Trail stubborn} can be considered as a generalization of \emph{selfish mining}. In \emph{selfish attack} adversaries will give up mining once the private chain falls behind the public chain. However for \emph{Trail stubborn} adversaries continue mining on it, in the hope of catching up. The private chain can lag behind the public by \emph{j} blocks before giving up, where in \emph{selfish attack} $j = 1$.
+\vspace{-4mm}
+\begin{figure}
+\centering
+\includegraphics[width=4.3in]{Figures/Naive-Attack.pdf}
+\vspace{-3mm}
+\caption{TBC}
+\label{trail}
+\end{figure}
+
+Figure \ref{trail} explains how \emph{Trail stubborn} works. Initially the private chain lags behind the public by  $i (i < j)$ blocks. But adversaries will keep mining and once they exceed the public chain they will finally publish the private chain and damage the consistency.
 \subsection{Selfish Eclipse Attack}
-%
+\quad We use terminology \emph{eclipse attack} to describe network attacks where the adversary essentially partitions the honest miners into the public and the eclipsed as shown in Figure \ref{eclipsed}. The adversary controls the communication between the public and the eclipsed.
+
+There are two ways for the adversary to attack the eclipsed. The adversary can choose to \emph{destroy the eclipsed victim}, which means that the adversary ignores all of the blocks mined by the eclipsed. This has the effect of destroying the computation power of the eclipsed and therefore increases the adversary's effective gain. The can also \emph{collude with the eclipsed victim} and force her to cooperate. Both the adversary and the eclipsed would maintain a single private blockchain and the adversary would accept all the blocks mined by the eclipsed.
+
+\vspace{-4mm}
+\begin{figure}
+\centering
+\includegraphics[width=2.3in]{Figures/eclipsed.jpg}
+\vspace{-3mm}
+\caption{TBC}
+\label{eclipsed}
+\end{figure}
 \section{The Analysis of Simulating Results}
 Here is the analysis of Simulating Results.
 \section{Conclusion}
@@ -190,8 +267,11 @@ In conclusion....
 \begin{thebibliography}{}  % (do not forget {})
 
 \bibitem{Sleepy}
-Pass, Rafael, and Elaine Shi. \emph{The sleepy model of consensus}. Cryptology ePrint Archive, Report 2016/918, 2016. http://eprint. iacr. org/2016/918, 2016.
-
+Bentov, I., Pass, R., \& Shi, E. (2016). The Sleepy Model of Consensus. \emph{IACR Cryptology ePrint Archive}, 2016, 918.
+\bibitem{Selfish-Attack}
+Eyal, I., \& Sirer, E. G. (2014, March). Majority is not enough: Bitcoin mining is vulnerable. In \emph{International conference on financial cryptography and data security} (pp. 436-454). Springer, Berlin, Heidelberg.
+\bibitem{Stubborn}
+Nayak, K., Kumar, S., Miller, A., \& Shi, E. (2016, March). Stubborn mining: Generalizing selfish mining and combining with an eclipse attack. In Security and Privacy (EuroS\&P), 2016 IEEE European Symposium on (pp. 305-320). IEEE.
 \end{thebibliography}
 %
 \end{document}

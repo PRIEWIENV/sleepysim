@@ -6,12 +6,15 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.security.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Protocol {
     private static Logger logger = Logger.getLogger("Protocol");
-    private byte[] D; //difficulty
+    //private byte[] D; //difficulty
+    private double D;
     private Integer round;
     private Network_control networkcontrol;
     private Signature_tool signature;
@@ -22,13 +25,15 @@ public class Protocol {
     private ArrayList<Node> nodes;
     private Boolean[] is_corrupted;
     private double difficulty;
+    private Random rand;
+    private HashMap<Pair<Integer, Integer>, Double> random_result;
     public boolean is_leader(Integer id, Integer round)
     {
         if(round == -1)
             round = this.round;
         try
         {
-            byte[] b = Hash.hash(To_byte_array.to_byte_array(new Pair<>(id, round)));
+            /*byte[] b = Hash.hash(To_byte_array.to_byte_array(new Pair<>(id, round)));
             for(int i = 0; i < b.length; ++i)
             {
                 if(b[i] != D[i])
@@ -39,7 +44,16 @@ public class Protocol {
                     return result;
                 }
             }
-            return false;
+            return false;*/
+            Pair<Integer, Integer> r = new Pair<>(id, round);
+            if(random_result.containsKey(r))
+                return random_result.get(r) < D;
+            else
+            {
+                Double new_d = rand.nextDouble();
+                random_result.put(r, new_d);
+                return new_d < D;
+            }
         }
         catch (Exception e)
         {
@@ -50,6 +64,8 @@ public class Protocol {
     }
     Protocol(Integer node_count, Integer adversary_count, Integer delay, Integer T, double difficulty)
     {
+        System.out.println("Setting: node count = " + node_count + ", adversary count = " + adversary_count + ", delay = " + delay + ", T = " + T + ", difficulty = " + difficulty);
+        /*
         BigInteger b = BigInteger.valueOf(2).pow(256).subtract(BigInteger.ONE);
         BigDecimal bd = new BigDecimal(b);
         bd = bd.multiply(BigDecimal.valueOf(difficulty));
@@ -60,6 +76,10 @@ public class Protocol {
             D[i] = (byte)b.mod(BigInteger.valueOf(1 << 8)).intValue();
             b = b.divide(BigInteger.valueOf(1 << 8));
         }
+        */
+        rand = new Random();
+        D = difficulty;
+        random_result = new HashMap<>();
         round = 0;
         this.node_count = node_count;
         this.adversary_count = adversary_count;
@@ -130,13 +150,15 @@ public class Protocol {
         {
             ArrayList <Block> block_list = adversary.run(round);
         }
-        //If the chain length is more than 50, then we think that he adversary can not break the consistency!
-        if(minChainlength > 50){
-            System.out.print("The adversary can not break the consistency!");
+        //If the chain length is more than 100, then we think that he adversary can not break the consistency!
+        if(minChainlength > 100){
+            System.out.println("The adversary can not break the consistency!");
             return true;
         }
         networkcontrol.next_round();
         round++;
+        if(has_inconsistency)
+            System.out.println("The adversary success.");
         return has_inconsistency;
     }
 }
