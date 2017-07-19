@@ -223,25 +223,63 @@ First of all, in Figure \ref{selfish}(a), the system is initialized with one pub
 \quad The stubborn adversary attack, which is proposed by Kartik et al. \cite{Stubborn}, is developed from \emph{selfish adversary attack}. The \emph{selfish mining} strategy withholds blocks when it is "in the lead" but cooperates with the honest network when it falls behind. However the new \emph{stubborn mining} strategies is that \emph{the attacker should not give up so easily!} In this case the attacker can increase profits by mining on its private chain more often, even under circumstances where a selfish-mining attacker would acquiesce to the public chain.
 
 We integrate \emph{Equal Fork stubborn} and \emph{Trail stubborn} mining strategies in our simulator. Both attacks are similar to \emph{selfish adversary attack} and modify a certain part of it. For \emph{Equal Fork stubborn}, adversaries will mine a private chain and hide it from the rest. If the honest node mines a block from the public main chain, the F-stubborn miner would conceal her new block and continue mining on it privately instead of hurry to reveal her new block to the public. In this way the adversaries can make the honest waste more than one block than \emph{selfish adversaries}.
-\vspace{-4mm}
-\begin{figure}
+\vspace{-7mm}
+\begin{figure}[!htbp]
+\begin{minipage}[t]{0.5\linewidth}
 \centering
-\includegraphics[width=4.3in]{Figures/Naive-Attack.pdf}
-\vspace{-3mm}
-\caption{TBC}
+\includegraphics[height=0.8in, width=1.65in]{Figures/Stubborn-1.pdf}
+
+\text{(a) State 1}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=0.8in, width=1.65in]{Figures/Stubborn-2.pdf}
+
+\text{(b) State 2}
+\end{minipage}
+
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=0.8in, width=1.65in]{Figures/Stubborn-3.pdf}
+
+\text{(c) State 3}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=0.8in, width=1.75in]{Figures/Stubborn-4.pdf}
+
+\text{(d) State 4}
+\end{minipage}
+\vspace{0mm}
+\setlength{\belowcaptionskip}{-10pt}
+\caption{This figure gives an example to illustrate how equal fork stubborn adversary algorithm works. Four subfigures respectively correspond to four different states in one equal fork stubborn attack.}
 \label{equal}
+\vspace{-3mm}
 \end{figure}
 
 Figure \ref{equal} presents an instance of \emph{Equal Fork stubborn} attack. The initial state is the same as that in \emph{selfish attack}, in which the adversaries have mined three blocks. When the honest node mines a block from the public chain, adversaries just keep mining private blocks. Eventually adversaries can publish all their private blocks and becomes the longest chain, discarding the blocks mined by honest nodes.
 
 \emph{Trail stubborn} can be considered as a generalization of \emph{selfish mining}. In \emph{selfish attack} adversaries will give up mining once the private chain falls behind the public chain. However for \emph{Trail stubborn} adversaries continue mining on it, in the hope of catching up. The private chain can lag behind the public by \emph{j} blocks before giving up, where in \emph{selfish attack} $j = 1$.
-\vspace{-4mm}
-\begin{figure}
+\vspace{-7mm}
+\begin{figure}[!htbp]
+\begin{minipage}[t]{0.5\linewidth}
 \centering
-\includegraphics[width=4.3in]{Figures/Naive-Attack.pdf}
-\vspace{-3mm}
-\caption{TBC}
+\includegraphics[height=0.8in, width=2.3in]{Figures/Trail-1.pdf}
+
+\text{(a) State 1}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[height=0.8in, width=2.3in]{Figures/Trail-2.pdf}
+
+\text{(b) State 2}
+\end{minipage}
+
+\vspace{0mm}
+\setlength{\belowcaptionskip}{-10pt}
+\caption{This figure gives an example to illustrate how trail stubborn adversary algorithm works. Two subfigures respectively correspond to two different states in one trail stubborn attack.}
 \label{trail}
+\vspace{-3mm}
 \end{figure}
 
 Figure \ref{trail} explains how \emph{Trail stubborn} works. Initially the private chain lags behind the public by  $i (i < j)$ blocks. But adversaries will keep mining and once they exceed the public chain they will finally publish the private chain and damage the consistency.
@@ -253,9 +291,9 @@ There are two ways for the adversary to attack the eclipsed. The adversary can c
 \vspace{-4mm}
 \begin{figure}
 \centering
-\includegraphics[width=2.3in]{Figures/eclipsed.jpg}
+\includegraphics[width=2.3in]{Figures/eclipse.pdf}
 \vspace{-3mm}
-\caption{TBC}
+\caption{This figure illustrates that selfish eclipse attack can separate the public and the eclipsed to \emph{destroy the eclipsed victim} or \emph{collude with the eclipsed victim}}. 
 \label{eclipsed}
 \end{figure}
 \section{The Analysis of Simulating Results}
