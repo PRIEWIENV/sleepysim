@@ -15,12 +15,10 @@ public class Main
         Controller controller;
         for(int i = lowerbound; i <= upbound; i++){
             for(int j=1;j<=4;++j) {
-                for(double d=0.001;d<=1;d*=10) {
-                    Protocol protocol = new Protocol(100, i, j, 10, d);
-                    controller = new Controller(protocol);
-                    controller.run();
-                    System.err.println(i + " " + j + " " + d + " " + "finish");
-                }
+                Protocol protocol = new Protocol(100, i, j, 10, -1);
+                controller = new Controller(protocol);
+                controller.run();
+                System.err.println(i + " " + j + " " + "finish");
             }
         }
     }
@@ -54,7 +52,7 @@ public class Main
 	// write your code here
         try
         {
-            System.setOut(new PrintStream(new FileOutputStream("naive_result.txt")));
+            System.setOut(new PrintStream(new FileOutputStream("naive_result" + args[0] + ".txt")));
         }
         catch (FileNotFoundException e)
         {}
