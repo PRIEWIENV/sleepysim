@@ -1,4 +1,6 @@
 package com.sleepysim;
+
+
 import javafx.util.Pair;
 
 import java.io.IOException;
@@ -8,14 +10,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.logging.Level;
 
-public class Selfish_Eclipse_attack implements Adversary{
+public class Selfish_Eclipse_attack implements Adversary
+{
     private Integer n;
     private ArrayList<Pair<Integer, PrivateKey>> secret_key_table;
     private ArrayList<PublicKey> public_key_table;
     private Chain chain;
     private Integer D;
     private Integer T;
-    private Integer delay;
     private HashMap<byte[],Block> latest_blocks;
     private ArrayList<Transaction> mem_pool;
     private ArrayList<Corrupted_node> corrupt_nodes;
@@ -25,71 +27,57 @@ public class Selfish_Eclipse_attack implements Adversary{
     private ArrayList<Block> private_chain;
     private Integer public_chain_length;
     private Integer private_chain_length;
+    private Network_control net;
+    private Protocol protocol;
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes
      * @param secret_key_table secret key for each corrupted node, the Integer is node id, and String is the corresponding secret key
      * @param public_key_table public keys
      */
-    public Selfish_Eclipse_attack(Integer n,Integer delay,ArrayList<Integer> honest_nodes,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt, Block genesis, Integer D, Integer T)
+    public Selfish_Eclipse_attack(Integer n,Protocol protocol,Boolean[] is_corrupted,ArrayList<Pair<Integer, PrivateKey>> secret_key_table, ArrayList<PublicKey> public_key_table,ArrayList<Corrupted_node> corrupt,Integer T, Network_control net)
     {
         this.n = n;
-        this.D=D;
         this.T=T;
-        this.delay=delay;
-        this.honest_nodes=honest_nodes;
+        this.honest_nodes = new ArrayList<>();
+        for(int i = 0; i < n; ++i)
+            if(!is_corrupted[i])
+                this.honest_nodes.add(i);
         this.secret_key_table = secret_key_table;
         this.public_key_table = public_key_table;
         this.corrupt_nodes=corrupt;
         this.private_main_block=null;
         this.public_chain_length=1;
         this.private_chain_length=0;
-        chain.chain.put(genesis.get_current_hash(),genesis);
-        latest_blocks.put(genesis.get_current_hash(),genesis);
+        this.net=net;
+        this.protocol=protocol;
+        latest_blocks = new HashMap<>();
+        chain = new Chain();
+        mem_pool = new ArrayList<>();
+        public_main_block = new ArrayList<>();
+        private_chain = new ArrayList<>();
     }
 
     public boolean duplicate(Transaction e)
     {
         return false;
-    }
+    }//same as naive
 
-    public static int byteArrayToInt(byte[] b)
-    {
-        int value = 0;
-        for (int i = 0; i < 4; i++) {
-            int shift = (4 - 1 - i) * 8;
-            value += (b[i] & 0x000000FF) << shift;
-        }
-        return value;
-    }
 
-    public boolean Isleader(Integer id, Integer round, Integer D)
+    public boolean check_validity(Block e, Integer round)//same as naive
     {
-        try {
-            byte [] tmp1=To_byte_array.to_byte_array(id);
-            byte [] tmp2=To_byte_array.to_byte_array(round);
-            byte[] combined = new byte[tmp1.length + tmp2.length];
-            for (int i = 0; i < combined.length; ++i)
-            {
-                combined[i] = i < tmp1.length ? tmp1[i] : tmp2[i - tmp1.length];
-            }
-            return byteArrayToInt(combined)<=D?true:false;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
-
-    public boolean check_validity(Block e, Integer round)
-    {
-        if(!chain.chain.containsKey(e.get_last_hash())) return false;//currently orphan blocks not considered
-        if(e.get_time_stamp() >= round)return false; // future blocks
-        if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())return false;
-        if(!Isleader(e.get_creator(),round,D))return false;
+        if(!chain.chain.containsKey(e.get_last_hash()) && e.get_last_hash() != null)
+            return false;//currently orphan blocks not considered
+        if(e.get_time_stamp() > round)
+            return false; // future blocks
+        if(chain.chain.get(e.get_last_hash()) != null && e.get_time_stamp() < chain.chain.get(e.get_last_hash()).get_time_stamp())
+            return false;
+        if(!protocol.is_leader(e.get_creator(), e.get_time_stamp()))
+            return false;
         return true;
     }
 
-    public Integer get_length(Block e)
+    public Integer get_length(Block e)//same as naive
     {
         Integer length=0;
         while(e!=null)
@@ -100,7 +88,7 @@ public class Selfish_Eclipse_attack implements Adversary{
         return length;
     }
 
-    public void update_public(Block e)
+    public void update_public(Block e)// same as naive
     {
         if(chain.chain.containsKey(e.get_current_hash()));
         else
@@ -123,7 +111,7 @@ public class Selfish_Eclipse_attack implements Adversary{
         }
     }
 
-    public void update_private(Block e)
+    public void update_private(Block e)// same as naive
     {
         if(chain.chain.containsKey(e.get_current_hash()));
         else
@@ -135,7 +123,7 @@ public class Selfish_Eclipse_attack implements Adversary{
         }
     }
 
-    public void disclose_all(Integer round)
+    public void disclose_all(Integer round)// send all the private chain out to honest nodes
     {
         Integer size=honest_nodes.size();
         ArrayList<Integer> honest_nodes1=new ArrayList<Integer>(honest_nodes.subList(0,size/3));
@@ -143,31 +131,41 @@ public class Selfish_Eclipse_attack implements Adversary{
         ArrayList<Integer> honest_nodes3=new ArrayList<Integer>(honest_nodes.subList(size*2/3,size));
         for(Block e: private_chain)
         {
-            Message msg=new Message(e);
-            for(Corrupted_node n: corrupt_nodes)
-            {
-                n.send_message_corrputed(msg,n.request_id(),honest_nodes1,round+delay/3,-1);
-                n.send_message_corrputed(msg,n.request_id(),honest_nodes2,round+delay/2,-1);
-                n.send_message_corrputed(msg,n.request_id(),honest_nodes3,round+delay,-1);
+            Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
+            for(Integer r: honest_nodes1) {
+                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+1,-1);
+                net.receive_message_from_corrupted(msg2);
+            }
+            for(Integer r: honest_nodes2) {
+                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+2,-1);
+                net.receive_message_from_corrupted(msg2);
+            }
+            for(Integer r: honest_nodes3) {
+                Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+3,-1);
+                net.receive_message_from_corrupted(msg2);
             }
         }
-
     }
 
-    public void disclose_block(Block e,Integer round)
+    public void disclose_block(Block e,Integer round)// only send one private block out
     {
-        Message msg=new Message(e);
+        Message msg=new Message(new Honest_message(Honest_message.annonce_block, e));
         Integer size=honest_nodes.size();
         ArrayList<Integer> honest_nodes1=new ArrayList<Integer>(honest_nodes.subList(0,size/3));
         ArrayList<Integer> honest_nodes2=new ArrayList<Integer>(honest_nodes.subList(size/3,size*2/3));
         ArrayList<Integer> honest_nodes3=new ArrayList<Integer>(honest_nodes.subList(size*2/3,size));
-        for(Corrupted_node n: corrupt_nodes)
-        {
-            n.send_message_corrputed(msg,n.request_id(),honest_nodes1,round+delay/3,-1);
-            n.send_message_corrputed(msg,n.request_id(),honest_nodes2,round+delay/2,-1);
-            n.send_message_corrputed(msg,n.request_id(),honest_nodes3,round+delay,-1);
+        for(Integer r: honest_nodes1) {
+            Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+1,-1);
+            net.receive_message_from_corrupted(msg2);
         }
-
+        for(Integer r: honest_nodes2) {
+            Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+2,-1);
+            net.receive_message_from_corrupted(msg2);
+        }
+        for(Integer r: honest_nodes3) {
+            Message_to_send msg2 = new Message_to_send(msg, corrupt_nodes.get(0).request_id(),r, round+3,-1);
+            net.receive_message_from_corrupted(msg2);
+        }
     }
 
     /**
@@ -177,61 +175,59 @@ public class Selfish_Eclipse_attack implements Adversary{
     public ArrayList<Block> run(Integer round)
     {
         //when others find a block
-        for(Corrupted_node n: corrupt_nodes) {
-            ArrayList<Message_to_send> msg = n.intercept_message();
-            for(int j=0;j<msg.size();++j)
+        ArrayList<Message_to_send> msg = net.send_message_to_corrupted();
+        for(int j=0;j<msg.size();++j)
+        {
+            if(msg.get(j).get_message().get_message() instanceof Honest_message)
             {
-                if(msg.get(j).get_message().get_message() instanceof Honest_message)
+                Honest_message m=(Honest_message) msg.get(j).get_message().get_message();
+                if(m.message_type==Honest_message.annonce_block)
                 {
-                    Honest_message m=(Honest_message) msg.get(j).get_message().get_message();
-                    if(m.message_type==Honest_message.annonce_block)
+                    Block b=(Block) m.ctx;
+                    if(check_validity((Block) m.ctx, round))
                     {
-                        Block b=(Block) m.ctx;
-                        if(check_validity((Block) m.ctx, round))
+                        if(chain.chain.containsKey(b.get_current_hash()))continue;
+                        Integer pre=private_chain_length-public_chain_length;
+                        update_public(b);
+                        if(pre==0) // now, lag behind, then quit
                         {
-                            if(chain.chain.containsKey(b.get_current_hash()))continue;
-                            Integer pre=private_chain_length-public_chain_length;
-                            update_public(b);
-                            disclose_block(b,round);// for creating chaos
-                            if(pre==0) // now, lag behind, then quit
+                            private_chain.clear();
+                            private_main_block=null;
+                            private_chain_length=0;
+                        }
+                        else
+                        {
+                            if(pre==1)//now, draw, then disclose the lastest block
                             {
-                                private_chain.clear();
-                                private_main_block=null;
-                                private_chain_length=0;
+                                disclose_block(private_main_block,round);
                             }
                             else
                             {
-                                if(pre==1)//now, draw, then disclose the lastest block
+                                if(pre==2)//now, ahead of one block, then disclose all
                                 {
-                                    disclose_block(private_main_block,round);
+                                    disclose_all(round);
+                                    private_chain_length=0;
                                 }
-                                else
+                                else//now, ahead of more than one, so only disclose the most original one
                                 {
-                                    if(pre==2)//now, ahead of one block, then disclose all
-                                    {
-                                        disclose_all(round);
-                                        private_chain_length=0;
-                                    }
-                                    else//now, ahead of more than one, so only disclose the most original one
-                                    {
-                                        disclose_block(private_chain.get(0),round);
-                                    }
+                                    if(pre>2)disclose_block(private_chain.get(0),round);
                                 }
                             }
                         }
-                        else continue;
                     }
-                    else
-                    {
-                        if(!duplicate((Transaction) m.ctx)) mem_pool.add((Transaction) m.ctx);
-                    }
+                    else continue;
+                }
+                else
+                {
+                    if(!duplicate((Transaction) m.ctx)) mem_pool.add((Transaction) m.ctx);
                 }
             }
         }
+        //the above is about updating information
         //the following is about when the attacker finds a block
         for(Corrupted_node n: corrupt_nodes)
         {
-            if(Isleader(n.request_id(),round,D))
+            if(protocol.is_leader(n.request_id(), -1))
             {
                 byte [] sig=null;
                 byte [] hashvalue=null;
@@ -239,7 +235,8 @@ public class Selfish_Eclipse_attack implements Adversary{
                 Integer pre=private_chain_length-public_chain_length;
                 if(private_main_block==null)
                 {
-                    prehash=public_main_block.get(0).get_current_hash();
+                    if(public_main_block.size()!=0) prehash=public_main_block.get(0).get_last_hash();
+                    else prehash=null;
                     try {
                         sig = Signature_tool.generate_signature(n.request_private_key(),
                                 To_byte_array.to_byte_array(new Honest_node.Signature_elements(prehash, mem_pool, round)));
@@ -247,8 +244,6 @@ public class Selfish_Eclipse_attack implements Adversary{
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Block newblock=new Block(prehash, hashvalue, mem_pool, round, n.request_id(), sig);
-                    update_private(newblock);
                 }
                 else
                 {
@@ -260,9 +255,9 @@ public class Selfish_Eclipse_attack implements Adversary{
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Block newblock=new Block(prehash, hashvalue, mem_pool, round, n.request_id(), sig);
-                    update_private(newblock);
                 }
+                Block newblock=new Block(prehash, hashvalue, mem_pool, round, n.request_id(), sig);
+                update_private(newblock);
                 ++private_chain_length;
                 if(pre==0 && private_chain_length==2)//currently lead only 1
                 {
@@ -270,14 +265,27 @@ public class Selfish_Eclipse_attack implements Adversary{
                     private_chain_length=0;
                 }
                 mem_pool.clear();
-                break;
+                ArrayList<Block> b = new ArrayList<>();
+                b.add(newblock);
+                return b;
             }
         }
         //if leading T blocks, the broadcast the message and cause inconsistency
-        if(private_chain_length-public_chain_length>=T)
+        if(private_chain_length > public_chain_length && (public_chain_length-get_length(private_chain.get(0))+1) > T)
         {
             disclose_all(round);
+            ArrayList<Block> report = new ArrayList<>();
+            Block cur = private_main_block;
+            while(cur != null)
+            {
+                report.add(cur);
+                cur = chain.chain.get(cur.get_last_hash());
+            }
+            return report;
         }
         return null;
     }
 };
+
+
+
