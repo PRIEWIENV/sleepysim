@@ -2,6 +2,10 @@ package com.sleepysim;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.security.Security;
 
 public class Main
@@ -15,6 +19,7 @@ public class Main
                     Protocol protocol = new Protocol(100, i, j, 10, d);
                     controller = new Controller(protocol);
                     controller.run();
+                    System.err.println(i + " " + j + " " + d + " " + "finish");
                 }
             }
         }
@@ -47,6 +52,12 @@ public class Main
     public static void main(String[] args)
     {
 	// write your code here
+        try
+        {
+            System.setOut(new PrintStream(new FileOutputStream("naive_result.txt")));
+        }
+        catch (FileNotFoundException e)
+        {}
         Security.addProvider(new BouncyCastleProvider());
         testAdversary(40, 60);
     }

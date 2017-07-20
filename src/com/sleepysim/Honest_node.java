@@ -14,7 +14,7 @@ public class Honest_node implements Node
     private final Integer id;
     private PrivateKey secret_key;
     private final ArrayList<PublicKey> public_key;
-    private static Logger logger;
+    //private static Logger logger;
     private Chain chain;
     private Integer max_length;
     private Block working_branch;
@@ -36,7 +36,7 @@ public class Honest_node implements Node
         this.secret_key = secret_key;
         this.public_key = public_key;
         this.id = id;
-        logger = Logger.getLogger("Honest Node " + id.toString());
+        //logger = Logger.getLogger("Honest Node " + id.toString());
         this.chain = new Chain();
         max_length = -1;
         working_branch = null;
@@ -148,13 +148,13 @@ public class Honest_node implements Node
             }
             if(b.get_time_stamp() <= tmp.get_time_stamp())
             {
-                logger.log(Level.WARNING, "Time stamp must increase.");
+                //logger.log(Level.WARNING, "Time stamp must increase.");
                 succ = false;
                 break;
             }
             if(b.get_time_stamp() > round)
             {
-                logger.log(Level.WARNING, "Future block, ignore.");
+                //logger.log(Level.WARNING, "Future block, ignore.");
                 succ = false;
                 break;
             }
@@ -171,8 +171,8 @@ public class Honest_node implements Node
                 chain.chain.put(x.get_current_hash(), x);
             if (length > max_length)
             {
-                logger.log(Level.INFO, "Honest node " + id.toString() + " switch branch to " + sav.get_current_hash().toString());
-                logger.log(Level.INFO, "Chain length = " + length);
+                //logger.log(Level.INFO, "Honest node " + id.toString() + " switch branch to " + sav.get_current_hash().toString());
+                //logger.log(Level.INFO, "Chain length = " + length);
                 max_length = length;
                 working_branch = sav;
             }
@@ -255,13 +255,13 @@ public class Honest_node implements Node
                                         !Signature_tool.check_signature(public_key.get(b.get_creator()), b.get_signature(),
                                                 To_byte_array.to_byte_array(new Signature_elements(b.get_last_hash(), b.get_txs(), b.get_time_stamp()))))
                                 {
-                                    logger.log(Level.WARNING, "Block creator invalid.");
+                                    //logger.log(Level.WARNING, "Block creator invalid.");
                                     continue;
                                 }
                             }
                             catch(Exception e)
                             {
-                                logger.log(Level.WARNING, "Block creator invalid.");
+                                //logger.log(Level.WARNING, "Block creator invalid.");
                                 continue;
                             }
                             update_chain((Block)msg.ctx, round);
@@ -277,12 +277,12 @@ public class Honest_node implements Node
                         break;
                 }
             }
-            logger.log(Level.SEVERE, "Inconsistent message. Message type error.");
+            //logger.log(Level.SEVERE, "Inconsistent message. Message type error.");
             return null;
         }
         if(protocol.is_leader(id, -1))
         {
-            logger.log(Level.INFO, "Honest node " + id.toString() + " is elected as leader.");
+            //logger.log(Level.INFO, "Honest node " + id.toString() + " is elected as leader.");
             byte[] sign;
             byte[] current_hash;
             byte[] last_hash = null;
@@ -295,7 +295,7 @@ public class Honest_node implements Node
             }
             catch (IOException e)
             {
-                logger.log(Level.SEVERE, "Object cannot convert to byte array. Sign");
+                //logger.log(Level.SEVERE, "Object cannot convert to byte array. Sign");
                 return null;
             }
             try
@@ -304,7 +304,7 @@ public class Honest_node implements Node
             }
             catch (IOException e)
             {
-                logger.log(Level.SEVERE, "Object cannot convert to byte array. Hash");
+                //logger.log(Level.SEVERE, "Object cannot convert to byte array. Hash");
                 return null;
             }
             Block b = new Block(last_hash, current_hash, txs, round, id, sign);

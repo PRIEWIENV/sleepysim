@@ -120,9 +120,9 @@ public class Protocol {
                 }
                 else
                     nodes.add(new Honest_node(i, new_key.getPrivate(), public_key_table, networkcontrol, node_count, this));
-                System.out.println(i);
+                //System.out.println(i);
             }
-            System.out.println("Key generated");
+            //System.out.println("Key generated");
             adversary = new Naive_adversary(node_count, is_corrupted, secret_key_table, public_key_table, corrupted, T, this,networkcontrol);
         }
         catch (NoSuchAlgorithmException e)
@@ -152,7 +152,7 @@ public class Protocol {
     }
     public boolean run()
     {
-        System.out.println("Round: " + round);
+        //System.out.println("Round: " + round);
         Integer minChainlength = 1000000000;
         Boolean has_inconsistency = false;
         for (int i = 0; i < node_count; i ++)
@@ -166,7 +166,7 @@ public class Protocol {
             ArrayList <Block> block_list = adversary.run(round);
         }
         //If the chain length is more than 100, then we think that he adversary can not break the consistency!
-        if(minChainlength > 100){
+        if(minChainlength > 500){
             System.out.println("The adversary can not break the consistency!");
             return true;
         }
