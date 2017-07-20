@@ -39,12 +39,13 @@ public class Main
     //test the influence of delay time on the protocol.
     public static void testDelay(int adversary_count, double difficulty){
         Controller controller;
-        for(int i = 1; i <= 5; i++){
-            System.out.println("Now delay is " + i + "!");
-            Protocol protocol = new Protocol(100, adversary_count, i, 10, difficulty);
-            controller = new Controller(protocol);
-            controller.run();
-        }
+            for (int i = 1; i <= 5; i++)
+            {
+                System.out.println("Now delay is " + i + "!");
+                Protocol protocol = new Protocol(100, adversary_count, i, 10, difficulty);
+                controller = new Controller(protocol);
+                controller.run();
+            }
     }
 
     public static void main(String[] args)
@@ -57,6 +58,7 @@ public class Main
         catch (FileNotFoundException e)
         {}
         Security.addProvider(new BouncyCastleProvider());
-        testAdversary(40, 60);
+        for(int i = 0; i < 20; ++i)
+            testAdversary(40, 60);
     }
 }
