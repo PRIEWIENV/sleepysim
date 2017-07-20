@@ -198,24 +198,16 @@ Every honest nodes follows the sleepy consensus protocol will choose to sleep or
 
 \subsection{Algorithm for Honest Players}
 \quad The specific description of sleepy consensus has been shown in the introduction section. The following is a brief restatement of the protocol.
-\begin{itemize}
-	\item First, the nodes will elect a leader using the hash function of identity and current time. If
-		 $$H(identity, current time) < D$$,
-		 where D denotes difficulty, then $Node[identity]$ will be elected to be a leader.\\
-	\item Second, the leader can sign the block using the hash value of previous block, transactions and time, then broadcasts.
+First, the nodes will elect a leader using the hash function of identity and current time. If
+		 $$H(identity, current time) < D$$
+		 where D denotes difficulty, then Node[identity] will be elected to be a leader.\\
+Second, the leader can sign the block using the hash value of previous block, transactions and time, then broadcasts.
 		 $$Block = sign(sk, block, Trans, time)$$
-	\item When one honest node receive a new chain, if the time in block is strictly increasing and the time in the blocks is not in the future, it will update its chain with the new chain.	
-\end{itemize}
+When one honest node receive a new chain, if the time in block is strictly increasing and the time in the blocks is not in the future, it will update its chain with the new chain.	
 \subsection{The process to simulate sleepy consensus}
 \quad There are several steps to simulate the algorithm of sleepy consensus in our program.
-\begin{itemize}
-	\item First of all, in every round, the controller will 	let every node to run.\\
-	\item Second, the honest node will ask network controller for messages.\\
-	\item Third, the network controller will send related message to every node.\\
-	\item Then every honest node will ask the controller whether it  has been elected a leader.\\
-	\item Next, if one honest node is not elected to be a leader, it will do nothing. However, if it is a leader, it will sign one new block using its secret key with the hash value of previous block, transactions and time stamp. Then it will broadcast it.\\
-	\item Finally, whatever one honest node has done, it will give some feedback to controller and network controller.\\
-\end{itemize}
+
+First of all, in every round, the controller will 	let every node to run.Second, the honest node will ask network controller for messages.Third, the network controller will send related message to every node.Then every honest node will ask the controller whether it  has been elected a leader.Next, if one honest node is not elected to be a leader, it will do nothing. However, if it is a leader, it will sign one new block using its secret key with the hash value of previous block, transactions and time stamp. Then it will broadcast it. Finally, whatever one honest node has done, it will give some feedback to controller and network controller.\\
 \vspace{-4mm}
 \begin{figure}
 \centering

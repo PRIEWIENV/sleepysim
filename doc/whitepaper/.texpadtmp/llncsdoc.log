@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.25)  20 JUL 2017 16:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.25)  20 JUL 2017 16:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -339,10 +339,6 @@ Missing character: There is no ú in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ù in font cmr10!
-
-
-LaTeX Warning: Reference `algo1' on page 4 undefined on input line 92.
-
 Missing character: There is no ‚ in font cmr9!
 Missing character: There is no à in font cmr9!
 Missing character: There is no í in font cmr9!
@@ -358,11 +354,7 @@ Missing character: There is no ô in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ä in font cmr10!
 Missing character: There is no ô in font cmr10!
-[4]
-
-LaTeX Warning: Reference `algo1' on page 5 undefined on input line 132.
-
-<Figures/Initialization.jpg, id=34, 3003.22pt x 1911.14pt>
+ [4] <Figures/Initialization.jpg, id=34, 3003.22pt x 1911.14pt>
 File: Figures/Initialization.jpg Graphic file (type jpg)
  <use Figures/Initialization.jpg>
 Package pdftex.def Info: Figures/Initialization.jpg used on input line 149.
@@ -390,180 +382,87 @@ File: Figures/Running.jpg Graphic file (type jpg)
  <use Figures/Running.jpg>
 Package pdftex.def Info: Figures/Running.jpg used on input line 184.
 (pdftex.def)             Requested size: 130.08621pt x 164.61043pt.
- [7 <./Figures/Running.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 203--205
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 213--214
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 214--215
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 215--216
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 216--217
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 217--218
-
- []
-
-<Figures/honest.pdf, id=48, 245.3165pt x 305.54149pt>
+ [7 <./Figures/Running.jpg>] <Figures/honest.pdf, id=48, 245.3165pt x 305.54149pt>
 File: Figures/honest.pdf Graphic file (type pdf)
  <use Figures/honest.pdf>
-Package pdftex.def Info: Figures/honest.pdf used on input line 222.
+Package pdftex.def Info: Figures/honest.pdf used on input line 214.
 (pdftex.def)             Requested size: 173.44756pt x 216.03151pt.
- [8]
-
-LaTeX Warning: Reference `naive' on page 9 undefined on input line 232.
-
-
-LaTeX Warning: Reference `naive' on page 9 undefined on input line 232.
-
-
-LaTeX Warning: Reference `naive' on page 9 undefined on input line 232.
-
-<Figures/Naive-Attack.pdf, id=52, 387.23672pt x 217.43935pt>
+ [8] <Figures/Naive-Attack.pdf, id=52, 387.23672pt x 217.43935pt>
 File: Figures/Naive-Attack.pdf Graphic file (type pdf)
  <use Figures/Naive-Attack.pdf>
-Package pdftex.def Info: Figures/Naive-Attack.pdf used on input line 236.
+Package pdftex.def Info: Figures/Naive-Attack.pdf used on input line 228.
 (pdftex.def)             Requested size: 310.76122pt x 174.50247pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [9 <./Figures/honest.pdf>]
-
-LaTeX Warning: Citation `Selfish-Attack' on page 10 undefined on input line 242.
-
-<Figures/Selfish-Attack-1.pdf, id=77, 284.67854pt x 125.8341pt>
+ [9 <./Figures/honest.pdf>] <Figures/Selfish-Attack-1.pdf, id=77, 284.67854pt x 125.8341pt>
 File: Figures/Selfish-Attack-1.pdf Graphic file (type pdf)
  <use Figures/Selfish-Attack-1.pdf>
-Package pdftex.def Info: Figures/Selfish-Attack-1.pdf used on input line 250.
+Package pdftex.def Info: Figures/Selfish-Attack-1.pdf used on input line 242.
 (pdftex.def)             Requested size: 140.92717pt x 57.81526pt.
  <Figures/Selfish-Attack-2.pdf, id=78, 242.10449pt x 127.11891pt>
 File: Figures/Selfish-Attack-2.pdf Graphic file (type pdf)
  <use Figures/Selfish-Attack-2.pdf>
-Package pdftex.def Info: Figures/Selfish-Attack-2.pdf used on input line 256.
+Package pdftex.def Info: Figures/Selfish-Attack-2.pdf used on input line 248.
 (pdftex.def)             Requested size: 119.24547pt x 57.8159pt.
  <Figures/Selfish-Attack-3.pdf, id=79, 242.10449pt x 127.11891pt>
 File: Figures/Selfish-Attack-3.pdf Graphic file (type pdf)
  <use Figures/Selfish-Attack-3.pdf>
-Package pdftex.def Info: Figures/Selfish-Attack-3.pdf used on input line 263.
+Package pdftex.def Info: Figures/Selfish-Attack-3.pdf used on input line 255.
 (pdftex.def)             Requested size: 119.24547pt x 57.8159pt.
  <Figures/Selfish-Attack-4.pdf, id=80, 275.67393pt x 141.92824pt>
 File: Figures/Selfish-Attack-4.pdf Graphic file (type pdf)
  <use Figures/Selfish-Attack-4.pdf>
-Package pdftex.def Info: Figures/Selfish-Attack-4.pdf used on input line 269.
+Package pdftex.def Info: Figures/Selfish-Attack-4.pdf used on input line 261.
 (pdftex.def)             Requested size: 119.24416pt x 57.81628pt.
- [10 <./Figures/Naive-Attack.pdf>]
-
-LaTeX Warning: Reference `selfish' on page 11 undefined on input line 280.
-
-
-LaTeX Warning: Reference `selfish' on page 11 undefined on input line 281.
-
-
-LaTeX Warning: Reference `selfish' on page 11 undefined on input line 281.
-
-
-LaTeX Warning: Reference `selfish' on page 11 undefined on input line 281.
-
-
-LaTeX Warning: Reference `selfish' on page 11 undefined on input line 281.
-
-
-LaTeX Warning: Reference `selfish' on page 11 undefined on input line 281.
-
-[11 <./Figures/Selfish-Attack-1.pdf> <./Figures/Selfish-Attack-2.pdf> <./Figures/Selfish-Attack-3.pdf> <./Figures/Selfish-Attack-4.pdf>]
-
-LaTeX Warning: Citation `Stubborn' on page 12 undefined on input line 284.
-
-<Figures/Stubborn-1.pdf, id=158, 274.20786pt x 125.64641pt>
+ [10 <./Figures/Naive-Attack.pdf>] [11 <./Figures/Selfish-Attack-1.pdf> <./Figures/Selfish-Attack-2.pdf> <./Figures/Selfish-Attack-3.pdf> <./Figures/Selfish-Attack-4.pdf>] <Figures/Stubborn-1.pdf, id=158, 274.20786pt x 125.64641pt>
 File: Figures/Stubborn-1.pdf Graphic file (type pdf)
  <use Figures/Stubborn-1.pdf>
-Package pdftex.def Info: Figures/Stubborn-1.pdf used on input line 291.
+Package pdftex.def Info: Figures/Stubborn-1.pdf used on input line 283.
 (pdftex.def)             Requested size: 119.24597pt x 57.81529pt.
  <Figures/Stubborn-2.pdf, id=159, 257.55763pt x 126.98843pt>
 File: Figures/Stubborn-2.pdf Graphic file (type pdf)
  <use Figures/Stubborn-2.pdf>
-Package pdftex.def Info: Figures/Stubborn-2.pdf used on input line 297.
+Package pdftex.def Info: Figures/Stubborn-2.pdf used on input line 289.
 (pdftex.def)             Requested size: 119.2443pt x 57.81664pt.
  <Figures/Stubborn-3.pdf, id=160, 258.18497pt x 126.98843pt>
 File: Figures/Stubborn-3.pdf Graphic file (type pdf)
  <use Figures/Stubborn-3.pdf>
-Package pdftex.def Info: Figures/Stubborn-3.pdf used on input line 304.
+Package pdftex.def Info: Figures/Stubborn-3.pdf used on input line 296.
 (pdftex.def)             Requested size: 119.24715pt x 57.81664pt.
  <Figures/Stubborn-4.pdf, id=161, 290.30498pt x 126.339pt>
 File: Figures/Stubborn-4.pdf Graphic file (type pdf)
  <use Figures/Stubborn-4.pdf>
-Package pdftex.def Info: Figures/Stubborn-4.pdf used on input line 310.
+Package pdftex.def Info: Figures/Stubborn-4.pdf used on input line 302.
 (pdftex.def)             Requested size: 126.4721pt x 57.8159pt.
-
-
-LaTeX Warning: Reference `equal' on page 12 undefined on input line 321.
-
-<Figures/Trail-1.pdf, id=162, 306.36497pt x 94.13368pt>
+ <Figures/Trail-1.pdf, id=162, 306.36497pt x 94.13368pt>
 File: Figures/Trail-1.pdf Graphic file (type pdf)
  <use Figures/Trail-1.pdf>
-Package pdftex.def Info: Figures/Trail-1.pdf used on input line 328.
+Package pdftex.def Info: Figures/Trail-1.pdf used on input line 320.
 (pdftex.def)             Requested size: 166.21997pt x 57.81645pt.
  <Figures/Trail-2.pdf, id=163, 306.36497pt x 94.13368pt>
 File: Figures/Trail-2.pdf Graphic file (type pdf)
  <use Figures/Trail-2.pdf>
-Package pdftex.def Info: Figures/Trail-2.pdf used on input line 334.
+Package pdftex.def Info: Figures/Trail-2.pdf used on input line 326.
 (pdftex.def)             Requested size: 166.21997pt x 57.81645pt.
- [12 <./Figures/Stubborn-1.pdf> <./Figures/Stubborn-2.pdf> <./Figures/Stubborn-3.pdf> <./Figures/Stubborn-4.pdf>]
-
-LaTeX Warning: Reference `trail' on page 13 undefined on input line 346.
-
-
-LaTeX Warning: Reference `eclipsed' on page 13 undefined on input line 348.
-
-<Figures/eclipse.pdf, id=231, 193.9245pt x 66.21638pt>
+ [12 <./Figures/Stubborn-1.pdf> <./Figures/Stubborn-2.pdf> <./Figures/Stubborn-3.pdf> <./Figures/Stubborn-4.pdf>] <Figures/eclipse.pdf, id=231, 193.9245pt x 66.21638pt>
 File: Figures/eclipse.pdf Graphic file (type pdf)
  <use Figures/eclipse.pdf>
-Package pdftex.def Info: Figures/eclipse.pdf used on input line 355.
+Package pdftex.def Info: Figures/eclipse.pdf used on input line 347.
 (pdftex.def)             Requested size: 166.2212pt x 56.75702pt.
- [13 <./Figures/Trail-1.pdf> <./Figures/Trail-2.pdf> <./Figures/eclipse.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 363--364
+
+Underfull \hbox (badness 10000) in paragraph at lines 355--356
 
  []
 
-[14] (/Users/zhangjiaheng/Desktop/sleepysim/doc/whitepaper/.texpadtmp/llncsdoc.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[13 <./Figures/Trail-1.pdf> <./Figures/Trail-2.pdf> <./Figures/eclipse.pdf>] [14] (/Users/zhangjiaheng/Desktop/sleepysim/doc/whitepaper/.texpadtmp/llncsdoc.aux) ) 
 Here is how much of TeX's memory you used:
  3161 strings out of 493089
  43567 string characters out of 6134841
- 116342 words of memory out of 5000000
+ 116402 words of memory out of 5000000
  6560 multiletter control sequences out of 15000+600000
  15634 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,9n,24p,1767b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,9n,24p,1761b,441s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on /Users/zhangjiaheng/Desktop/sleepysim/doc/whitepaper/.texpadtmp/llncsdoc.pdf (14 pages, 1275448 bytes).
+Output written on /Users/zhangjiaheng/Desktop/sleepysim/doc/whitepaper/.texpadtmp/llncsdoc.pdf (14 pages, 1274727 bytes).
 PDF statistics:
  375 PDF objects out of 1000 (max. 8388607)
  193 compressed objects within 2 object streams

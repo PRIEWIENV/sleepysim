@@ -4,10 +4,10 @@
 \contentsline {section}{\numberline {3}The Imitation of Honest Players}{7}
 \contentsline {subsection}{\numberline {3.1}Algorithm for Honest Players}{8}
 \contentsline {subsection}{\numberline {3.2}The process to simulate sleepy consensus}{8}
-\contentsline {section}{\numberline {4}The Imitation of Adversarial Players}{9}
-\contentsline {subsection}{\numberline {4.1}Na{\"i}ve Adversary Attack}{10}
+\contentsline {section}{\numberline {4}The Imitation of Adversarial Players}{8}
+\contentsline {subsection}{\numberline {4.1}Na{\"i}ve Adversary Attack}{9}
 \contentsline {subsection}{\numberline {4.2}Selfish Adversary Attack}{10}
-\contentsline {subsection}{\numberline {4.3}Stubborn Adversary Attack}{12}
-\contentsline {subsection}{\numberline {4.4}Selfish Eclipse Attack}{13}
-\contentsline {section}{\numberline {5}The Analysis of Simulating Results}{14}
+\contentsline {subsection}{\numberline {4.3}Stubborn Adversary Attack}{11}
+\contentsline {subsection}{\numberline {4.4}Selfish Eclipse Attack}{12}
+\contentsline {section}{\numberline {5}The Analysis of Simulating Results}{13}
 \contentsline {section}{\numberline {6}Conclusion}{14}
