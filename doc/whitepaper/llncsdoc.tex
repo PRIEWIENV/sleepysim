@@ -313,8 +313,9 @@ We integrate \emph{Equal Fork stubborn} and \emph{Trail stubborn} mining strateg
 Figure \ref{equal} presents an instance of \emph{Equal Fork stubborn} attack. The initial state is the same as that in \emph{selfish attack}, in which the adversaries have mined three blocks. When the honest node mines a block from the public chain, adversaries just keep mining private blocks. Eventually adversaries can publish all their private blocks and becomes the longest chain, discarding the blocks mined by honest nodes.
 
 \emph{Trail stubborn} can be considered as a generalization of \emph{selfish mining}. In \emph{selfish attack} adversaries will give up mining once the private chain falls behind the public chain. However for \emph{Trail stubborn} adversaries continue mining on it, in the hope of catching up. The private chain can lag behind the public by \emph{j} blocks before giving up, where in \emph{selfish attack} $j = 1$.
-\vspace{-7mm}
+
 \begin{figure}[!htbp]
+\vspace{-3mm}
 \begin{minipage}[t]{0.5\linewidth}
 \centering
 \includegraphics[height=0.8in, width=2.3in]{Figures/Trail-1.pdf}
@@ -354,7 +355,7 @@ There are two ways for the adversary to attack the eclipsed. The adversary can c
 
 First of all, the adversary's success increases as the number of adversary nodes increases. For example, in our protocol, the total number of nodes is one hundred, and difficulty is $0.1$, maximum network delay is $1$ round, and $T = 10$. If the number of adversary nodes is more than fifty, then it will break consistency with high probability. Otherwise, it can not break consistency within some rounds with high probability.\\
 \section{Conclusion}
-In conclusion....
+\quad To sum up, in this paper, we build a distributed consencus simulator for monitering different consensus protocol's performance. Specifically, we use sleepy consensus protocol as an instance to launch implementation. We introduce both the framework and detailed algorithms for imitaing honest or adversary players' behaviour. Also, we analyze the performance of sleepy consensus protocol that \textbf{result ...}
 
 
 \begin{thebibliography}{}  % (do not forget {})
