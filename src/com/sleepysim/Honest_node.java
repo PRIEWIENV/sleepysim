@@ -324,10 +324,16 @@ public class Honest_node implements Node
         }
         ArrayList<Block> report = new ArrayList<>();
         Block cur = working_branch;
+        int tlen = 0;
         while(cur != null)
         {
             report.add(cur);
             cur = chain.chain.get(cur.get_last_hash());
+            tlen++;
+            if(tlen % 1000 == 0)
+            {
+                System.err.println("Longchain warning: " + tlen);
+            }
         }
         return report;
     }

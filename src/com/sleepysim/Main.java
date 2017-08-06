@@ -62,6 +62,6 @@ public class Main
         {}
         Security.addProvider(new BouncyCastleProvider());
         for(int i = 0; i < 20; ++i)
-            testAdversary(40, 60);
+            testAdversary(47, 60);
     }
 }

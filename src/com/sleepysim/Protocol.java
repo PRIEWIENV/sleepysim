@@ -177,7 +177,7 @@ public class Protocol {
             ArrayList <Block> block_list = adversary.run(round);
         }
         //If the chain length is more than 100, then we think that he adversary can not break the consistency!
-        if(minChainlength > 500){
+        if(minChainlength > 200){
             System.out.println("The adversary can not break the consistency!");
             return true;
         }
