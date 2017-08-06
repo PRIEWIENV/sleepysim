@@ -7,4 +7,4 @@ JAR_PATH=$PROJECT_PATH/lib
 BIN_PATH=$PROJECT_PATH/bin
 
 # Run the project as a background process
-nohup java -classpath $BIN_PATH:$JAR_PATH/bcprov-jdk15on-157.jar com.sleepysim.Main &
+java -classpath $BIN_PATH:$JAR_PATH/bcprov-jdk15on-157.jar com.sleepysim.Main 0

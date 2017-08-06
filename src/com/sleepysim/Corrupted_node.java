@@ -14,6 +14,13 @@ public class Corrupted_node implements Node
     private Network_control networkcontrol;
     private Integer num_node;
 
+    public void destroy()
+    {
+        networkcontrol = null;
+        secret_key = null;
+        adversary = null;
+    }
+
     /**
      * Corrupted node is controlled by adversary
      * @param id Your unique id

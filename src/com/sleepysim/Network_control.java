@@ -29,6 +29,8 @@ public class Network_control
         message_to_corrupted_buffer = new ArrayList<>();
     }
 
+
+
     void next_round()
     {
         current_round ++;

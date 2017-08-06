@@ -24,4 +24,10 @@ public class Controller
     {
         while (!protocol.run());
     }
+
+    public void destroy()
+    {
+        protocol.destroy();
+        protocol = null;
+    }
 }

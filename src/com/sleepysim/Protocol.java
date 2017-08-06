@@ -2,8 +2,6 @@ package com.sleepysim;
 
 import javafx.util.Pair;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.security.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,6 +25,19 @@ public class Protocol {
     private double difficulty;
     private Random rand;
     private HashMap<Pair<Integer, Integer>, Double> random_result;
+    public void destroy()
+    {
+        networkcontrol = null;
+        signature = null;
+        adversary.destroy();
+        adversary = null;
+        for(int i = 0; i < nodes.size(); ++i)
+        {
+            nodes.get(i).destroy();
+        }
+        nodes.clear();
+        nodes = null;
+    }
     public boolean is_leader(Integer id, Integer round)
     {
         if(round == -1)

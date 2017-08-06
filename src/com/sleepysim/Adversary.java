@@ -12,6 +12,7 @@ public interface Adversary
      * @param round current_round
      */
     public ArrayList<Block> run(Integer round);
+    public void destroy();
     public static Boolean[] decide_corrupted(Integer n, Integer adversary_count)
     {
         Boolean[] is_corrupted = new Boolean[n];

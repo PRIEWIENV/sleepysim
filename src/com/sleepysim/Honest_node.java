@@ -23,6 +23,16 @@ public class Honest_node implements Node
     private ArrayList<Integer> all_set;
     private Protocol protocol;
     private HashMap<byte[], Block> store_pool;
+    public void destroy()
+    {
+        secret_key = null;
+        chain = null;
+        working_branch = null;
+        networkcontrol = null;
+        all_set = null;
+        protocol = null;
+        store_pool = null;
+    }
     /**
      * Initialize the node
      * @param id your unique id

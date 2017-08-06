@@ -29,6 +29,18 @@ public class Selfish_Eclipse_attack implements Adversary
     private Integer private_chain_length;
     private Network_control net;
     private Protocol protocol;
+    public void destroy()
+    {
+        secret_key_table = null;
+        public_key_table = null;
+        chain = null;
+        net = null;
+        protocol = null;
+        if(corrupt_nodes != null)
+            corrupt_nodes.clear();
+        corrupt_nodes = null;
+        mem_pool = null;
+    }
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes

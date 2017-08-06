@@ -19,6 +19,9 @@ public class Main
                 controller = new Controller(protocol);
                 controller.run();
                 System.err.println(i + " " + j + " " + "finish");
+                controller.destroy();
+                protocol = null;
+                controller = null;
             }
         }
     }

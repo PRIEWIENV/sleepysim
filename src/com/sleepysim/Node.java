@@ -12,4 +12,5 @@ public interface Node
     ArrayList<Transaction> provide_history();
     void print_log();
     ArrayList<Block> run(Integer round);
+    public void destroy();
 }

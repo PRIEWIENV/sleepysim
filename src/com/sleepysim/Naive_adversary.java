@@ -32,6 +32,21 @@ public class Naive_adversary implements Adversary
     private Integer private_chain_length;
     private Network_control net;
     private static Logger logger;
+    public void destroy()
+    {
+        secret_key_table = null;
+        public_key_table = null;
+        chain = null;
+        latest_blocks = null;
+        mem_pool = null;
+        corrupt_nodes = null;
+        public_main_block = null;
+        honest_nodes = null;
+        private_main_block = null;
+        private_chain = null;
+        protocol = null;
+        net = null;
+    }
     /**
      * A naive adversary, you should break consistency if you have more node than honest
      * @param n number of corrupted nodes
