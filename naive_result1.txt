@@ -1,0 +1,1 @@
+Setting: node count = 100, adversary count = 40, delay = 1, T = 10, difficulty = 0.0011999999999999992

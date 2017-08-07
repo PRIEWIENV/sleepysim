@@ -1,0 +1,3 @@
+Setting: node count = 100, adversary count = 40, delay = 1, T = 10, difficulty = 0.0011999999999999992
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 40, delay = 2, T = 10, difficulty = 5.999999999999996E-4

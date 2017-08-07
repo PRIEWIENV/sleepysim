@@ -61,7 +61,7 @@ public class Main
         catch (FileNotFoundException e)
         {}
         Security.addProvider(new BouncyCastleProvider());
-        for(int i = 0; i < 20; ++i)
-            testAdversary(40, 60);
+        int x = new Integer(args[1]);
+        testAdversary(x, x);
     }
 }
