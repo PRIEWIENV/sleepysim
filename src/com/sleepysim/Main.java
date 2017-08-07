@@ -15,7 +15,7 @@ public class Main
         Controller controller;
         for(int i = lowerbound; i <= upbound; i++){
             for(int j=1;j<=4;++j) {
-                Protocol protocol = new Protocol(100, i, j, 10, -1);
+                Protocol protocol = new Protocol(40, i, j, 10, -1);
                 controller = new Controller(protocol);
                 controller.run();
                 System.err.println(i + " " + j + " " + "finish");

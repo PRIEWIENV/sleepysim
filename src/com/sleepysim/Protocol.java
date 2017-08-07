@@ -159,7 +159,7 @@ public class Protocol {
         //for integrate team
         if (block_list.size() < T + 1)
             return false;
-        for (int i = block_list.size() - 1; i > block_list.size() - T - 1; i --)
+        for (int i = 0; i < T; i ++)
             if (!is_corrupted[block_list.get(i).get_creator()])
                 return false;
         int minChainlength = 1000;
