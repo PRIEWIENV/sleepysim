@@ -83,7 +83,11 @@ public class Protocol {
             {
                 rho = 0.45;
             }
-            double up = (1 - (1 + v) * rho / (1 - rho)) / (2 * node_count * delay);
+            double up = -1;
+            do {
+                up = (1 - (1 + v) * rho / (1 - rho)) / (2 * node_count * delay);
+                rho -= 0.01;
+            }while(up < 0.00);
             double eps = 0.1;
             difficulty = up * (1 - eps);
         }

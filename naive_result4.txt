@@ -1,0 +1,3 @@
+Setting: node count = 100, adversary count = 48, delay = 1, T = 10, difficulty = 1.1037735849056601E-4
+The adversary success.
+Setting: node count = 100, adversary count = 48, delay = 2, T = 10, difficulty = 5.5188679245283006E-5
