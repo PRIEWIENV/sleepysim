@@ -6,7 +6,7 @@ run_cmd = 'java -classpath $PWD/bin:$PWD/lib/bcprov-jdk15on-157.jar com.sleepysi
 
 def run_test(x):
 	res = open('result' + str(x) + '.txt', 'w')
-	for j in range(40):
+	for j in range(100):
 		os.system(run_cmd + str(x) + ' ' + str(j))
 		f = open('naive_result' + str(x) + '.txt')
 		for lines in f:
@@ -16,7 +16,7 @@ def run_test(x):
 	res.close()
 
 os.system('./Make.sh')
-pool = Pool(36)
+pool = Pool(64)
 result = pool.map(run_test, range(100))
 pool.close()
 pool.join()

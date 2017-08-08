@@ -1,320 +1,800 @@
-Setting: node count = 40, adversary count = 0, delay = 1, T = 10, difficulty = 0.011250000000000001
+Setting: node count = 100, adversary count = 0, delay = 1, T = 10, difficulty = 0.0045000000000000005
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 0, delay = 2, T = 10, difficulty = 0.005625000000000001
+Setting: node count = 100, adversary count = 0, delay = 2, T = 10, difficulty = 0.0022500000000000003
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 0, delay = 3, T = 10, difficulty = 0.00375
+Setting: node count = 100, adversary count = 0, delay = 3, T = 10, difficulty = 0.0015
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 0, delay = 4, T = 10, difficulty = 0.0028125000000000003
+Setting: node count = 100, adversary count = 0, delay = 4, T = 10, difficulty = 0.0011250000000000001
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 1, delay = 1, T = 10, difficulty = 0.010932692307692308
+Setting: node count = 100, adversary count = 1, delay = 1, T = 10, difficulty = 0.004450000000000001
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 1, delay = 2, T = 10, difficulty = 0.005466346153846154
+Setting: node count = 100, adversary count = 1, delay = 2, T = 10, difficulty = 0.0022250000000000004
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 1, delay = 3, T = 10, difficulty = 0.0036442307692307694
+Setting: node count = 100, adversary count = 1, delay = 3, T = 10, difficulty = 0.0014833333333333335
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 1, delay = 4, T = 10, difficulty = 0.002733173076923077
+Setting: node count = 100, adversary count = 1, delay = 4, T = 10, difficulty = 0.0011125000000000002
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 2, delay = 1, T = 10, difficulty = 0.010598684210526317
+Setting: node count = 100, adversary count = 2, delay = 1, T = 10, difficulty = 0.004398979591836735
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 2, delay = 2, T = 10, difficulty = 0.005299342105263159
+Setting: node count = 100, adversary count = 2, delay = 2, T = 10, difficulty = 0.0021994897959183675
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 2, delay = 3, T = 10, difficulty = 0.003532894736842106
+Setting: node count = 100, adversary count = 2, delay = 3, T = 10, difficulty = 0.001466326530612245
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 2, delay = 4, T = 10, difficulty = 0.0026496710526315794
+Setting: node count = 100, adversary count = 2, delay = 4, T = 10, difficulty = 0.0010997448979591837
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 3, delay = 1, T = 10, difficulty = 0.010246621621621621
+Setting: node count = 100, adversary count = 3, delay = 1, T = 10, difficulty = 0.004346907216494845
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 3, delay = 2, T = 10, difficulty = 0.005123310810810811
+Setting: node count = 100, adversary count = 3, delay = 2, T = 10, difficulty = 0.0021734536082474226
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 3, delay = 3, T = 10, difficulty = 0.003415540540540541
+Setting: node count = 100, adversary count = 3, delay = 3, T = 10, difficulty = 0.0014489690721649485
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 3, delay = 4, T = 10, difficulty = 0.0025616554054054053
+Setting: node count = 100, adversary count = 3, delay = 4, T = 10, difficulty = 0.0010867268041237113
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 4, delay = 1, T = 10, difficulty = 0.009875
+Setting: node count = 100, adversary count = 4, delay = 1, T = 10, difficulty = 0.00429375
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 4, delay = 2, T = 10, difficulty = 0.0049375
+Setting: node count = 100, adversary count = 4, delay = 2, T = 10, difficulty = 0.002146875
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 4, delay = 3, T = 10, difficulty = 0.0032916666666666667
+Setting: node count = 100, adversary count = 4, delay = 3, T = 10, difficulty = 0.00143125
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 4, delay = 4, T = 10, difficulty = 0.00246875
+Setting: node count = 100, adversary count = 4, delay = 4, T = 10, difficulty = 0.0010734375
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 5, delay = 1, T = 10, difficulty = 0.009482142857142857
+Setting: node count = 100, adversary count = 5, delay = 1, T = 10, difficulty = 0.0042394736842105265
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 5, delay = 2, T = 10, difficulty = 0.004741071428571429
+Setting: node count = 100, adversary count = 5, delay = 2, T = 10, difficulty = 0.0021197368421052632
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 5, delay = 3, T = 10, difficulty = 0.003160714285714286
+Setting: node count = 100, adversary count = 5, delay = 3, T = 10, difficulty = 0.001413157894736842
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 5, delay = 4, T = 10, difficulty = 0.0023705357142857143
+Setting: node count = 100, adversary count = 5, delay = 4, T = 10, difficulty = 0.0010598684210526316
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 6, delay = 1, T = 10, difficulty = 0.009066176470588237
+Setting: node count = 100, adversary count = 6, delay = 1, T = 10, difficulty = 0.00418404255319149
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 6, delay = 2, T = 10, difficulty = 0.004533088235294119
+Setting: node count = 100, adversary count = 6, delay = 2, T = 10, difficulty = 0.002092021276595745
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 6, delay = 3, T = 10, difficulty = 0.003022058823529412
+Setting: node count = 100, adversary count = 6, delay = 3, T = 10, difficulty = 0.0013946808510638298
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 6, delay = 4, T = 10, difficulty = 0.0022665441176470593
+Setting: node count = 100, adversary count = 6, delay = 4, T = 10, difficulty = 0.0010460106382978725
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 7, delay = 1, T = 10, difficulty = 0.008624999999999999
+Setting: node count = 100, adversary count = 7, delay = 1, T = 10, difficulty = 0.00412741935483871
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 7, delay = 2, T = 10, difficulty = 0.0043124999999999995
+Setting: node count = 100, adversary count = 7, delay = 2, T = 10, difficulty = 0.002063709677419355
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 7, delay = 3, T = 10, difficulty = 0.002875
+Setting: node count = 100, adversary count = 7, delay = 3, T = 10, difficulty = 0.0013758064516129034
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 7, delay = 4, T = 10, difficulty = 0.0021562499999999997
+Setting: node count = 100, adversary count = 7, delay = 4, T = 10, difficulty = 0.0010318548387096775
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 8, delay = 1, T = 10, difficulty = 0.00815625
+Setting: node count = 100, adversary count = 8, delay = 1, T = 10, difficulty = 0.004069565217391304
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 8, delay = 2, T = 10, difficulty = 0.004078125
+Setting: node count = 100, adversary count = 8, delay = 2, T = 10, difficulty = 0.002034782608695652
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 8, delay = 3, T = 10, difficulty = 0.00271875
+Setting: node count = 100, adversary count = 8, delay = 3, T = 10, difficulty = 0.0013565217391304347
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 8, delay = 4, T = 10, difficulty = 0.0020390625
+Setting: node count = 100, adversary count = 8, delay = 4, T = 10, difficulty = 0.001017391304347826
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 9, delay = 1, T = 10, difficulty = 0.0076572580645161295
+Setting: node count = 100, adversary count = 9, delay = 1, T = 10, difficulty = 0.00401043956043956
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 9, delay = 2, T = 10, difficulty = 0.0038286290322580648
+Setting: node count = 100, adversary count = 9, delay = 2, T = 10, difficulty = 0.00200521978021978
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 9, delay = 3, T = 10, difficulty = 0.00255241935483871
+Setting: node count = 100, adversary count = 9, delay = 3, T = 10, difficulty = 0.0013368131868131867
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 9, delay = 4, T = 10, difficulty = 0.0019143145161290324
+Setting: node count = 100, adversary count = 9, delay = 4, T = 10, difficulty = 0.00100260989010989
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 10, delay = 1, T = 10, difficulty = 0.007124999999999999
+Setting: node count = 100, adversary count = 10, delay = 1, T = 10, difficulty = 0.00395
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 10, delay = 2, T = 10, difficulty = 0.0035624999999999997
+Setting: node count = 100, adversary count = 10, delay = 2, T = 10, difficulty = 0.001975
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 10, delay = 3, T = 10, difficulty = 0.002375
+Setting: node count = 100, adversary count = 10, delay = 3, T = 10, difficulty = 0.0013166666666666667
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 10, delay = 4, T = 10, difficulty = 0.0017812499999999998
+Setting: node count = 100, adversary count = 10, delay = 4, T = 10, difficulty = 9.875E-4
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 11, delay = 1, T = 10, difficulty = 0.00655603448275862
-The adversary success.
-Setting: node count = 40, adversary count = 11, delay = 2, T = 10, difficulty = 0.00327801724137931
+Setting: node count = 100, adversary count = 11, delay = 1, T = 10, difficulty = 0.003888202247191011
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 11, delay = 3, T = 10, difficulty = 0.0021853448275862067
+Setting: node count = 100, adversary count = 11, delay = 2, T = 10, difficulty = 0.0019441011235955055
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 11, delay = 4, T = 10, difficulty = 0.001639008620689655
-The adversary success.
-Setting: node count = 40, adversary count = 12, delay = 1, T = 10, difficulty = 0.00594642857142857
+Setting: node count = 100, adversary count = 11, delay = 3, T = 10, difficulty = 0.001296067415730337
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 12, delay = 2, T = 10, difficulty = 0.002973214285714285
-The adversary success.
-Setting: node count = 40, adversary count = 12, delay = 3, T = 10, difficulty = 0.001982142857142857
+Setting: node count = 100, adversary count = 11, delay = 4, T = 10, difficulty = 9.720505617977528E-4
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 12, delay = 4, T = 10, difficulty = 0.0014866071428571426
+Setting: node count = 100, adversary count = 12, delay = 1, T = 10, difficulty = 0.0038250000000000003
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 13, delay = 1, T = 10, difficulty = 0.005291666666666666
+Setting: node count = 100, adversary count = 12, delay = 2, T = 10, difficulty = 0.0019125000000000001
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 13, delay = 2, T = 10, difficulty = 0.002645833333333333
+Setting: node count = 100, adversary count = 12, delay = 3, T = 10, difficulty = 0.0012749999999999999
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 13, delay = 3, T = 10, difficulty = 0.0017638888888888888
-The adversary success.
-Setting: node count = 40, adversary count = 13, delay = 4, T = 10, difficulty = 0.0013229166666666665
+Setting: node count = 100, adversary count = 12, delay = 4, T = 10, difficulty = 9.562500000000001E-4
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 14, delay = 1, T = 10, difficulty = 0.004586538461538461
+Setting: node count = 100, adversary count = 13, delay = 1, T = 10, difficulty = 0.0037603448275862067
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 14, delay = 2, T = 10, difficulty = 0.0022932692307692307
-The adversary success.
-Setting: node count = 40, adversary count = 14, delay = 3, T = 10, difficulty = 0.0015288461538461539
-The adversary success.
-Setting: node count = 40, adversary count = 14, delay = 4, T = 10, difficulty = 0.0011466346153846153
-The adversary success.
-Setting: node count = 40, adversary count = 15, delay = 1, T = 10, difficulty = 0.0038249999999999994
-The adversary success.
-Setting: node count = 40, adversary count = 15, delay = 2, T = 10, difficulty = 0.0019124999999999997
-The adversary success.
-Setting: node count = 40, adversary count = 15, delay = 3, T = 10, difficulty = 0.0012749999999999999
-The adversary success.
-Setting: node count = 40, adversary count = 15, delay = 4, T = 10, difficulty = 9.562499999999999E-4
-The adversary success.
-Setting: node count = 40, adversary count = 16, delay = 1, T = 10, difficulty = 0.0029999999999999983
-The adversary success.
-Setting: node count = 40, adversary count = 16, delay = 2, T = 10, difficulty = 0.0014999999999999992
-The adversary success.
-Setting: node count = 40, adversary count = 16, delay = 3, T = 10, difficulty = 9.999999999999994E-4
-The adversary success.
-Setting: node count = 40, adversary count = 16, delay = 4, T = 10, difficulty = 7.499999999999996E-4
-The adversary success.
-Setting: node count = 40, adversary count = 17, delay = 1, T = 10, difficulty = 0.0021032608695652167
-The adversary success.
-Setting: node count = 40, adversary count = 17, delay = 2, T = 10, difficulty = 0.0010516304347826084
-The adversary success.
-Setting: node count = 40, adversary count = 17, delay = 3, T = 10, difficulty = 7.010869565217388E-4
-The adversary success.
-Setting: node count = 40, adversary count = 17, delay = 4, T = 10, difficulty = 5.258152173913042E-4
-The adversary success.
-Setting: node count = 40, adversary count = 18, delay = 1, T = 10, difficulty = 0.001125
-The adversary success.
-Setting: node count = 40, adversary count = 18, delay = 2, T = 10, difficulty = 5.625E-4
-The adversary success.
-Setting: node count = 40, adversary count = 18, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
-The adversary success.
-Setting: node count = 40, adversary count = 18, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 13, delay = 2, T = 10, difficulty = 0.0018801724137931033
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 19, delay = 1, T = 10, difficulty = 5.357142857142963E-5
-The adversary success.
-Setting: node count = 40, adversary count = 19, delay = 2, T = 10, difficulty = 2.6785714285714816E-5
-The adversary success.
-Setting: node count = 40, adversary count = 19, delay = 3, T = 10, difficulty = 1.785714285714321E-5
-The adversary success.
-Setting: node count = 40, adversary count = 19, delay = 4, T = 10, difficulty = 1.3392857142857408E-5
+Setting: node count = 100, adversary count = 13, delay = 3, T = 10, difficulty = 0.001253448275862069
 The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 20, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 13, delay = 4, T = 10, difficulty = 9.400862068965517E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 14, delay = 1, T = 10, difficulty = 0.003694186046511628
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 14, delay = 2, T = 10, difficulty = 0.001847093023255814
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 14, delay = 3, T = 10, difficulty = 0.0012313953488372093
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 14, delay = 4, T = 10, difficulty = 9.23546511627907E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 15, delay = 1, T = 10, difficulty = 0.003626470588235294
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 15, delay = 2, T = 10, difficulty = 0.001813235294117647
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 15, delay = 3, T = 10, difficulty = 0.0012088235294117648
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 15, delay = 4, T = 10, difficulty = 9.066176470588235E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 16, delay = 1, T = 10, difficulty = 0.003557142857142857
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 16, delay = 2, T = 10, difficulty = 0.0017785714285714284
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 16, delay = 3, T = 10, difficulty = 0.0011857142857142858
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 16, delay = 4, T = 10, difficulty = 8.892857142857142E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 17, delay = 1, T = 10, difficulty = 0.003486144578313253
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 17, delay = 2, T = 10, difficulty = 0.0017430722891566264
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 17, delay = 3, T = 10, difficulty = 0.0011620481927710842
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 17, delay = 4, T = 10, difficulty = 8.715361445783132E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 18, delay = 1, T = 10, difficulty = 0.0034134146341463414
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 18, delay = 2, T = 10, difficulty = 0.0017067073170731707
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 18, delay = 3, T = 10, difficulty = 0.0011378048780487805
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 18, delay = 4, T = 10, difficulty = 8.533536585365853E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 19, delay = 1, T = 10, difficulty = 0.003338888888888889
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 19, delay = 2, T = 10, difficulty = 0.0016694444444444445
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 19, delay = 3, T = 10, difficulty = 0.001112962962962963
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 19, delay = 4, T = 10, difficulty = 8.347222222222223E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 20, delay = 1, T = 10, difficulty = 0.0032624999999999998
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 20, delay = 2, T = 10, difficulty = 0.0016312499999999999
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 20, delay = 3, T = 10, difficulty = 0.0010875000000000001
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 20, delay = 4, T = 10, difficulty = 8.156249999999999E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 21, delay = 1, T = 10, difficulty = 0.0031841772151898736
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 21, delay = 2, T = 10, difficulty = 0.0015920886075949368
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 21, delay = 3, T = 10, difficulty = 0.001061392405063291
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 21, delay = 4, T = 10, difficulty = 7.960443037974684E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 22, delay = 1, T = 10, difficulty = 0.003103846153846154
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 22, delay = 2, T = 10, difficulty = 0.001551923076923077
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 22, delay = 3, T = 10, difficulty = 0.0010346153846153847
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 22, delay = 4, T = 10, difficulty = 7.759615384615385E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 23, delay = 1, T = 10, difficulty = 0.003021428571428571
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 23, delay = 2, T = 10, difficulty = 0.0015107142857142856
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 23, delay = 3, T = 10, difficulty = 0.001007142857142857
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 23, delay = 4, T = 10, difficulty = 7.553571428571428E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 24, delay = 1, T = 10, difficulty = 0.0029368421052631583
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 24, delay = 2, T = 10, difficulty = 0.0014684210526315791
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 24, delay = 3, T = 10, difficulty = 9.789473684210525E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 24, delay = 4, T = 10, difficulty = 7.342105263157896E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 25, delay = 1, T = 10, difficulty = 0.00285
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 25, delay = 2, T = 10, difficulty = 0.001425
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 25, delay = 3, T = 10, difficulty = 9.499999999999999E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 25, delay = 4, T = 10, difficulty = 7.125E-4
+The adversary success.
+Setting: node count = 100, adversary count = 26, delay = 1, T = 10, difficulty = 0.0027608108108108107
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 26, delay = 2, T = 10, difficulty = 0.0013804054054054053
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 26, delay = 3, T = 10, difficulty = 9.202702702702703E-4
 The adversary success.
-Setting: node count = 40, adversary count = 20, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 26, delay = 4, T = 10, difficulty = 6.902027027027027E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 27, delay = 1, T = 10, difficulty = 0.0026691780821917806
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 27, delay = 2, T = 10, difficulty = 0.0013345890410958903
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 27, delay = 3, T = 10, difficulty = 8.897260273972602E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 27, delay = 4, T = 10, difficulty = 6.672945205479452E-4
 The adversary success.
-Setting: node count = 40, adversary count = 20, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 28, delay = 1, T = 10, difficulty = 0.002575
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 28, delay = 2, T = 10, difficulty = 0.0012875
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 28, delay = 3, T = 10, difficulty = 8.583333333333333E-4
 The adversary success.
-Setting: node count = 40, adversary count = 20, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 28, delay = 4, T = 10, difficulty = 6.4375E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 29, delay = 1, T = 10, difficulty = 0.0024781690140845067
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 29, delay = 2, T = 10, difficulty = 0.0012390845070422533
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 29, delay = 3, T = 10, difficulty = 8.260563380281689E-4
 The adversary success.
-Setting: node count = 40, adversary count = 21, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 29, delay = 4, T = 10, difficulty = 6.195422535211267E-4
 The adversary success.
-Setting: node count = 40, adversary count = 21, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 30, delay = 1, T = 10, difficulty = 0.0023785714285714282
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 30, delay = 2, T = 10, difficulty = 0.0011892857142857141
 The adversary success.
-Setting: node count = 40, adversary count = 21, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 30, delay = 3, T = 10, difficulty = 7.928571428571428E-4
 The adversary success.
-Setting: node count = 40, adversary count = 21, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 30, delay = 4, T = 10, difficulty = 5.946428571428571E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 31, delay = 1, T = 10, difficulty = 0.0022760869565217386
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 31, delay = 2, T = 10, difficulty = 0.0011380434782608693
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 31, delay = 3, T = 10, difficulty = 7.586956521739128E-4
 The adversary success.
-Setting: node count = 40, adversary count = 22, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 31, delay = 4, T = 10, difficulty = 5.690217391304347E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 32, delay = 1, T = 10, difficulty = 0.0021705882352941177
 The adversary success.
-Setting: node count = 40, adversary count = 22, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 32, delay = 2, T = 10, difficulty = 0.0010852941176470589
 The adversary success.
-Setting: node count = 40, adversary count = 22, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 32, delay = 3, T = 10, difficulty = 7.235294117647058E-4
 The adversary success.
-Setting: node count = 40, adversary count = 22, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 32, delay = 4, T = 10, difficulty = 5.426470588235294E-4
 The adversary success.
-Setting: node count = 40, adversary count = 23, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 33, delay = 1, T = 10, difficulty = 0.002061940298507462
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 33, delay = 2, T = 10, difficulty = 0.001030970149253731
 The adversary success.
-Setting: node count = 40, adversary count = 23, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 33, delay = 3, T = 10, difficulty = 6.873134328358208E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 33, delay = 4, T = 10, difficulty = 5.154850746268655E-4
 The adversary success.
-Setting: node count = 40, adversary count = 23, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 34, delay = 1, T = 10, difficulty = 0.0019499999999999995
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 34, delay = 2, T = 10, difficulty = 9.749999999999997E-4
 The adversary success.
-Setting: node count = 40, adversary count = 23, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 34, delay = 3, T = 10, difficulty = 6.499999999999999E-4
 The adversary success.
-Setting: node count = 40, adversary count = 24, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 34, delay = 4, T = 10, difficulty = 4.8749999999999987E-4
 The adversary success.
-Setting: node count = 40, adversary count = 24, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 35, delay = 1, T = 10, difficulty = 0.0018346153846153846
 The adversary success.
-Setting: node count = 40, adversary count = 24, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 35, delay = 2, T = 10, difficulty = 9.173076923076923E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 35, delay = 3, T = 10, difficulty = 6.115384615384615E-4
 The adversary success.
-Setting: node count = 40, adversary count = 24, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 35, delay = 4, T = 10, difficulty = 4.5865384615384616E-4
 The adversary success.
-Setting: node count = 40, adversary count = 25, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 36, delay = 1, T = 10, difficulty = 0.001715625
 The adversary success.
-Setting: node count = 40, adversary count = 25, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 36, delay = 2, T = 10, difficulty = 8.578125E-4
 The adversary success.
-Setting: node count = 40, adversary count = 25, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 36, delay = 3, T = 10, difficulty = 5.71875E-4
 The adversary success.
-Setting: node count = 40, adversary count = 25, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 36, delay = 4, T = 10, difficulty = 4.2890625E-4
 The adversary success.
-Setting: node count = 40, adversary count = 26, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 37, delay = 1, T = 10, difficulty = 0.0015928571428571426
 The adversary success.
-Setting: node count = 40, adversary count = 26, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 37, delay = 2, T = 10, difficulty = 7.964285714285713E-4
+The adversary can not break the consistency!
+Setting: node count = 100, adversary count = 37, delay = 3, T = 10, difficulty = 5.309523809523809E-4
 The adversary success.
-Setting: node count = 40, adversary count = 26, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 37, delay = 4, T = 10, difficulty = 3.9821428571428565E-4
 The adversary success.
-Setting: node count = 40, adversary count = 26, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 38, delay = 1, T = 10, difficulty = 0.001466129032258064
 The adversary success.
-Setting: node count = 40, adversary count = 27, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 38, delay = 2, T = 10, difficulty = 7.33064516129032E-4
 The adversary success.
-Setting: node count = 40, adversary count = 27, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 38, delay = 3, T = 10, difficulty = 4.887096774193547E-4
 The adversary success.
-Setting: node count = 40, adversary count = 27, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 38, delay = 4, T = 10, difficulty = 3.66532258064516E-4
 The adversary success.
-Setting: node count = 40, adversary count = 27, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 39, delay = 1, T = 10, difficulty = 0.0013352459016393438
 The adversary success.
-Setting: node count = 40, adversary count = 28, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 39, delay = 2, T = 10, difficulty = 6.676229508196719E-4
 The adversary success.
-Setting: node count = 40, adversary count = 28, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 39, delay = 3, T = 10, difficulty = 4.4508196721311456E-4
 The adversary success.
-Setting: node count = 40, adversary count = 28, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 39, delay = 4, T = 10, difficulty = 3.3381147540983595E-4
 The adversary success.
-Setting: node count = 40, adversary count = 28, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 40, delay = 1, T = 10, difficulty = 0.0011999999999999992
 The adversary success.
-Setting: node count = 40, adversary count = 29, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 40, delay = 2, T = 10, difficulty = 5.999999999999996E-4
 The adversary success.
-Setting: node count = 40, adversary count = 29, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 40, delay = 3, T = 10, difficulty = 3.9999999999999975E-4
 The adversary success.
-Setting: node count = 40, adversary count = 29, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 40, delay = 4, T = 10, difficulty = 2.999999999999998E-4
 The adversary success.
-Setting: node count = 40, adversary count = 29, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 41, delay = 1, T = 10, difficulty = 0.001060169491525424
 The adversary success.
-Setting: node count = 40, adversary count = 30, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 41, delay = 2, T = 10, difficulty = 5.30084745762712E-4
 The adversary success.
-Setting: node count = 40, adversary count = 30, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 41, delay = 3, T = 10, difficulty = 3.533898305084747E-4
 The adversary success.
-Setting: node count = 40, adversary count = 30, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 41, delay = 4, T = 10, difficulty = 2.65042372881356E-4
 The adversary success.
-Setting: node count = 40, adversary count = 30, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 42, delay = 1, T = 10, difficulty = 9.155172413793107E-4
 The adversary success.
-Setting: node count = 40, adversary count = 31, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 42, delay = 2, T = 10, difficulty = 4.5775862068965533E-4
 The adversary success.
-Setting: node count = 40, adversary count = 31, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 42, delay = 3, T = 10, difficulty = 3.0517241379310355E-4
 The adversary success.
-Setting: node count = 40, adversary count = 31, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 42, delay = 4, T = 10, difficulty = 2.2887931034482766E-4
 The adversary success.
-Setting: node count = 40, adversary count = 31, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 43, delay = 1, T = 10, difficulty = 7.65789473684211E-4
 The adversary success.
-Setting: node count = 40, adversary count = 32, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 43, delay = 2, T = 10, difficulty = 3.828947368421055E-4
 The adversary success.
-Setting: node count = 40, adversary count = 32, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 43, delay = 3, T = 10, difficulty = 2.55263157894737E-4
 The adversary success.
-Setting: node count = 40, adversary count = 32, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 43, delay = 4, T = 10, difficulty = 1.9144736842105275E-4
 The adversary success.
-Setting: node count = 40, adversary count = 32, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 44, delay = 1, T = 10, difficulty = 6.107142857142855E-4
 The adversary success.
-Setting: node count = 40, adversary count = 33, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 44, delay = 2, T = 10, difficulty = 3.0535714285714275E-4
 The adversary success.
-Setting: node count = 40, adversary count = 33, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 44, delay = 3, T = 10, difficulty = 2.0357142857142853E-4
 The adversary success.
-Setting: node count = 40, adversary count = 33, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 44, delay = 4, T = 10, difficulty = 1.5267857142857138E-4
 The adversary success.
-Setting: node count = 40, adversary count = 33, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 45, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
 The adversary success.
-Setting: node count = 40, adversary count = 34, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 45, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
 The adversary success.
-Setting: node count = 40, adversary count = 34, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 45, delay = 3, T = 10, difficulty = 1.5E-4
 The adversary success.
-Setting: node count = 40, adversary count = 34, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 45, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
 The adversary success.
-Setting: node count = 40, adversary count = 34, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 46, delay = 1, T = 10, difficulty = 2.833333333333325E-4
 The adversary success.
-Setting: node count = 40, adversary count = 35, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 46, delay = 2, T = 10, difficulty = 1.4166666666666624E-4
 The adversary success.
-Setting: node count = 40, adversary count = 35, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 46, delay = 3, T = 10, difficulty = 9.444444444444417E-5
 The adversary success.
-Setting: node count = 40, adversary count = 35, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 46, delay = 4, T = 10, difficulty = 7.083333333333312E-5
 The adversary success.
-Setting: node count = 40, adversary count = 35, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 47, delay = 1, T = 10, difficulty = 1.1037735849056601E-4
 The adversary success.
-Setting: node count = 40, adversary count = 36, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 47, delay = 2, T = 10, difficulty = 5.5188679245283006E-5
 The adversary success.
-Setting: node count = 40, adversary count = 36, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 47, delay = 3, T = 10, difficulty = 3.679245283018867E-5
 The adversary success.
-Setting: node count = 40, adversary count = 36, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 47, delay = 4, T = 10, difficulty = 2.7594339622641503E-5
 The adversary success.
-Setting: node count = 40, adversary count = 36, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 48, delay = 1, T = 10, difficulty = 1.1037735849056601E-4
 The adversary success.
-Setting: node count = 40, adversary count = 37, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 48, delay = 2, T = 10, difficulty = 5.5188679245283006E-5
 The adversary success.
-Setting: node count = 40, adversary count = 37, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 48, delay = 3, T = 10, difficulty = 3.679245283018867E-5
 The adversary success.
-Setting: node count = 40, adversary count = 37, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 48, delay = 4, T = 10, difficulty = 2.7594339622641503E-5
 The adversary success.
-Setting: node count = 40, adversary count = 37, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 49, delay = 1, T = 10, difficulty = 1.1037735849056601E-4
 The adversary success.
-Setting: node count = 40, adversary count = 38, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 49, delay = 2, T = 10, difficulty = 5.5188679245283006E-5
 The adversary success.
-Setting: node count = 40, adversary count = 38, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 49, delay = 3, T = 10, difficulty = 3.679245283018867E-5
 The adversary success.
-Setting: node count = 40, adversary count = 38, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 49, delay = 4, T = 10, difficulty = 2.7594339622641503E-5
 The adversary success.
-Setting: node count = 40, adversary count = 38, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 50, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
 The adversary success.
-Setting: node count = 40, adversary count = 39, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 50, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
 The adversary success.
-Setting: node count = 40, adversary count = 39, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 50, delay = 3, T = 10, difficulty = 1.5E-4
 The adversary success.
-Setting: node count = 40, adversary count = 39, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 50, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
 The adversary success.
-Setting: node count = 40, adversary count = 39, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 51, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 51, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 51, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 51, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 52, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 52, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 52, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 52, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 53, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 53, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 53, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 53, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 54, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 54, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 54, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 54, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 55, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 55, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 55, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 55, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 56, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 56, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 56, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 56, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 57, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 57, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 57, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 57, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 58, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 58, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 58, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 58, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 59, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 59, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 59, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 59, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 60, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 60, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 60, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 60, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 61, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 61, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 61, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 61, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 62, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 62, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 62, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 62, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 63, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 63, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 63, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 63, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 64, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 64, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 64, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 64, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 65, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 65, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 65, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 65, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 66, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 66, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 66, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 66, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 67, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 67, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 67, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 67, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 68, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 68, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 68, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 68, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 69, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 69, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 69, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 69, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 70, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 70, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 70, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 70, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 71, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 71, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 71, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 71, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 72, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 72, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 72, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 72, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 73, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 73, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 73, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 73, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 74, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 74, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 74, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 74, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 75, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 75, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 75, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 75, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 76, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 76, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 76, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 76, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 77, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 77, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 77, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 77, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 78, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 78, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 78, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 78, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 79, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 79, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 79, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 79, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 80, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 80, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 80, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 80, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 81, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 81, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 81, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 81, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 82, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 82, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 82, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 82, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 83, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 83, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 83, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 83, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 84, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 84, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 84, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 84, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 85, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 85, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 85, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 85, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 86, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 86, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 86, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 86, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 87, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 87, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 87, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 87, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 88, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 88, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 88, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 88, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 89, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 89, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 89, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 89, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 90, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 90, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 90, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 90, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 91, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 91, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 91, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 91, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 92, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 92, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 92, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 92, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 93, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 93, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 93, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 93, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 94, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 94, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 94, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 94, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 95, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 95, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 95, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 95, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 96, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 96, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 96, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 96, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 97, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 97, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 97, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 97, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 98, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 98, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 98, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 98, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
+The adversary success.
+Setting: node count = 100, adversary count = 99, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
+The adversary success.
+Setting: node count = 100, adversary count = 99, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
+The adversary success.
+Setting: node count = 100, adversary count = 99, delay = 3, T = 10, difficulty = 1.5E-4
+The adversary success.
+Setting: node count = 100, adversary count = 99, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
 The adversary success.

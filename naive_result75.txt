@@ -1,8 +1,8 @@
-Setting: node count = 40, adversary count = 39, delay = 1, T = 10, difficulty = 0.001125
+Setting: node count = 100, adversary count = 99, delay = 1, T = 10, difficulty = 4.4999999999999993E-4
 The adversary success.
-Setting: node count = 40, adversary count = 39, delay = 2, T = 10, difficulty = 5.625E-4
+Setting: node count = 100, adversary count = 99, delay = 2, T = 10, difficulty = 2.2499999999999997E-4
 The adversary success.
-Setting: node count = 40, adversary count = 39, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
+Setting: node count = 100, adversary count = 99, delay = 3, T = 10, difficulty = 1.5E-4
 The adversary success.
-Setting: node count = 40, adversary count = 39, delay = 4, T = 10, difficulty = 2.8125E-4
+Setting: node count = 100, adversary count = 99, delay = 4, T = 10, difficulty = 1.1249999999999998E-4
 The adversary success.
