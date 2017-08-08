@@ -1,8 +1,8 @@
 Setting: node count = 40, adversary count = 39, delay = 1, T = 10, difficulty = 0.001125
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 39, delay = 2, T = 10, difficulty = 5.625E-4
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 39, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
 The adversary success.
 Setting: node count = 40, adversary count = 39, delay = 4, T = 10, difficulty = 2.8125E-4
-The adversary can not break the consistency!
+The adversary success.

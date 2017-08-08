@@ -16,7 +16,7 @@ def run_test(x):
 	res.close()
 
 os.system('./Make.sh')
-pool = Pool(4)
+pool = Pool(36)
 result = pool.map(run_test, range(100))
 pool.close()
 pool.join()

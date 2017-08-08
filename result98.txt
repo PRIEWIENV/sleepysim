@@ -81,7 +81,7 @@ The adversary can not break the consistency!
 Setting: node count = 40, adversary count = 10, delay = 1, T = 10, difficulty = 0.007124999999999999
 The adversary can not break the consistency!
 Setting: node count = 40, adversary count = 10, delay = 2, T = 10, difficulty = 0.0035624999999999997
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 10, delay = 3, T = 10, difficulty = 0.002375
 The adversary success.
 Setting: node count = 40, adversary count = 10, delay = 4, T = 10, difficulty = 0.0017812499999999998
@@ -95,7 +95,7 @@ The adversary can not break the consistency!
 Setting: node count = 40, adversary count = 11, delay = 4, T = 10, difficulty = 0.001639008620689655
 The adversary can not break the consistency!
 Setting: node count = 40, adversary count = 12, delay = 1, T = 10, difficulty = 0.00594642857142857
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 12, delay = 2, T = 10, difficulty = 0.002973214285714285
 The adversary can not break the consistency!
 Setting: node count = 40, adversary count = 12, delay = 3, T = 10, difficulty = 0.001982142857142857
@@ -103,9 +103,9 @@ The adversary can not break the consistency!
 Setting: node count = 40, adversary count = 12, delay = 4, T = 10, difficulty = 0.0014866071428571426
 The adversary success.
 Setting: node count = 40, adversary count = 13, delay = 1, T = 10, difficulty = 0.005291666666666666
-The adversary success.
-Setting: node count = 40, adversary count = 13, delay = 2, T = 10, difficulty = 0.002645833333333333
 The adversary can not break the consistency!
+Setting: node count = 40, adversary count = 13, delay = 2, T = 10, difficulty = 0.002645833333333333
+The adversary success.
 Setting: node count = 40, adversary count = 13, delay = 3, T = 10, difficulty = 0.0017638888888888888
 The adversary success.
 Setting: node count = 40, adversary count = 13, delay = 4, T = 10, difficulty = 0.0013229166666666665
@@ -115,25 +115,25 @@ The adversary success.
 Setting: node count = 40, adversary count = 14, delay = 2, T = 10, difficulty = 0.0022932692307692307
 The adversary success.
 Setting: node count = 40, adversary count = 14, delay = 3, T = 10, difficulty = 0.0015288461538461539
-The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 14, delay = 4, T = 10, difficulty = 0.0011466346153846153
-The adversary can not break the consistency!
-Setting: node count = 40, adversary count = 15, delay = 1, T = 10, difficulty = 0.0038249999999999994
 The adversary success.
+Setting: node count = 40, adversary count = 14, delay = 4, T = 10, difficulty = 0.0011466346153846153
+The adversary success.
+Setting: node count = 40, adversary count = 15, delay = 1, T = 10, difficulty = 0.0038249999999999994
+The adversary can not break the consistency!
 Setting: node count = 40, adversary count = 15, delay = 2, T = 10, difficulty = 0.0019124999999999997
 The adversary success.
 Setting: node count = 40, adversary count = 15, delay = 3, T = 10, difficulty = 0.0012749999999999999
-The adversary success.
+The adversary can not break the consistency!
 Setting: node count = 40, adversary count = 15, delay = 4, T = 10, difficulty = 9.562499999999999E-4
 The adversary success.
 Setting: node count = 40, adversary count = 16, delay = 1, T = 10, difficulty = 0.0029999999999999983
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 16, delay = 2, T = 10, difficulty = 0.0014999999999999992
 The adversary success.
 Setting: node count = 40, adversary count = 16, delay = 3, T = 10, difficulty = 9.999999999999994E-4
 The adversary success.
 Setting: node count = 40, adversary count = 16, delay = 4, T = 10, difficulty = 7.499999999999996E-4
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 17, delay = 1, T = 10, difficulty = 0.0021032608695652167
 The adversary success.
 Setting: node count = 40, adversary count = 17, delay = 2, T = 10, difficulty = 0.0010516304347826084
@@ -301,20 +301,20 @@ The adversary success.
 Setting: node count = 40, adversary count = 37, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
 The adversary success.
 Setting: node count = 40, adversary count = 37, delay = 4, T = 10, difficulty = 2.8125E-4
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 38, delay = 1, T = 10, difficulty = 0.001125
 The adversary success.
 Setting: node count = 40, adversary count = 38, delay = 2, T = 10, difficulty = 5.625E-4
 The adversary success.
 Setting: node count = 40, adversary count = 38, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 38, delay = 4, T = 10, difficulty = 2.8125E-4
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 39, delay = 1, T = 10, difficulty = 0.001125
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 39, delay = 2, T = 10, difficulty = 5.625E-4
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 39, delay = 3, T = 10, difficulty = 3.7499999999999995E-4
-The adversary can not break the consistency!
+The adversary success.
 Setting: node count = 40, adversary count = 39, delay = 4, T = 10, difficulty = 2.8125E-4
-The adversary can not break the consistency!
+The adversary success.
